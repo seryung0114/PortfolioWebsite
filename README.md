@@ -2,6 +2,9 @@
 
 HTML·CSS·JavaScript만으로 만든 정적 포트폴리오 사이트입니다. 빌드 과정 없이 파일을 그대로 GitHub Pages에 올리면 됩니다.
 
+**사이트 주소: https://seryung0114.github.io/PortfolioWebsite/**
+(주소는 대소문자를 구분합니다. `P`, `W`는 대문자)
+
 ## 폴더 구조
 
 ```
@@ -35,7 +38,7 @@ python3 -m http.server 8000
 1. 저장소 페이지에서 **Settings → Pages** 로 이동합니다.
 2. **Build and deployment → Source** 를 `Deploy from a branch` 로 둡니다.
 3. **Branch** 에서 배포할 브랜치(보통 `main`)와 폴더 `/ (root)` 를 고르고 **Save** 를 누릅니다.
-4. 1~3분 뒤 같은 화면 위쪽에 주소가 나타납니다. 형식: `https://<GitHub 아이디>.github.io/<저장소 이름>/`
+4. 1~3분 뒤 같은 화면 위쪽에 주소가 나타납니다. 형식: `https://<GitHub 아이디>.github.io/<저장소 이름>/` (이 저장소는 위의 사이트 주소)
 5. 이후에는 파일을 고쳐서 commit·push 하면 자동으로 다시 배포됩니다. 진행 상황은 **Actions** 탭에서 볼 수 있습니다.
 
 참고
