@@ -189,6 +189,7 @@ a:hover {
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-list a:hover {
@@ -271,7 +272,7 @@ a:hover {
 /* 핵심 성과 카드 */
 .metrics {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 16px;
   margin-top: clamp(48px, 7vw, 72px);
 }
@@ -333,7 +334,7 @@ a:hover {
 /* ---------- 3. 프로젝트 카드 ---------- */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 20px;
 }
 
@@ -456,14 +457,14 @@ a:hover {
 }
 
 .metrics-compact {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   max-width: 720px;
   margin-top: 32px;
 }
 
 .detail-meta {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
   gap: 20px 32px;
   margin-top: 36px;
 }
@@ -500,7 +501,7 @@ a:hover {
 
 .toc ol {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
   gap: 2px 16px;
 }
 
@@ -750,7 +751,7 @@ a:hover {
 /* ---------- 4. 자격증·어학 ---------- */
 .cert-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 32px;
 }
 
@@ -825,4 +826,57 @@ a:hover {
 
 .site-footer a {
   color: var(--muted);
+}
+
+/* =========================================================
+   스마트폰 (640px 이하)
+   ========================================================= */
+@media (max-width: 640px) {
+  /* 헤더: 이름 한 줄 + 메뉴 한 줄, 화면을 덜 가리도록 고정 해제 */
+  .site-header {
+    position: static;
+  }
+
+  html {
+    scroll-padding-top: 16px;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0;
+    padding-top: 12px;
+  }
+
+  .site-header nav {
+    width: 100%;
+    overflow-x: auto; /* 메뉴가 늘어나도 가로 스크롤로 처리 */
+  }
+
+  .nav-list {
+    padding: 4px 0 6px;
+  }
+
+  .nav-list li:first-child a {
+    padding-left: 0;
+  }
+
+  /* 왼쪽 이름표 + 오른쪽 내용 구조는 위아래로 쌓기 */
+  .skill-row,
+  .fields > div,
+  .contact-list > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 auto; /* 버튼을 가로로 꽉 채워 누르기 쉽게 */
+  }
+
+  .project-card {
+    padding: 22px;
+  }
+
+  .detail-section-highlight {
+    padding: 22px 18px;
+  }
 }

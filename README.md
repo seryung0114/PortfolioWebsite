@@ -29,3 +29,24 @@ python3 -m http.server 8000
 ```
 
 브라우저에서 `http://localhost:8000` 을 엽니다.
+
+## GitHub Pages 배포
+
+1. 저장소 페이지에서 **Settings → Pages** 로 이동합니다.
+2. **Build and deployment → Source** 를 `Deploy from a branch` 로 둡니다.
+3. **Branch** 에서 배포할 브랜치(보통 `main`)와 폴더 `/ (root)` 를 고르고 **Save** 를 누릅니다.
+4. 1~3분 뒤 같은 화면 위쪽에 주소가 나타납니다. 형식: `https://<GitHub 아이디>.github.io/<저장소 이름>/`
+5. 이후에는 파일을 고쳐서 commit·push 하면 자동으로 다시 배포됩니다. 진행 상황은 **Actions** 탭에서 볼 수 있습니다.
+
+참고
+- 무료 플랜에서는 저장소가 **Public** 이어야 Pages를 쓸 수 있습니다.
+- GitHub Pages는 파일 이름의 대소문자를 구분합니다. (`Resume.pdf` ≠ `resume.pdf`)
+- `.nojekyll` 파일은 GitHub의 Jekyll 변환을 끄고 파일을 그대로 올리게 합니다. 지우지 마세요.
+
+## 배포 전 확인 목록
+
+- [ ] 모든 페이지에서 `작성 필요` 검색 결과 0개 (콘솔 메시지가 사라짐)
+- [ ] `assets/resume.pdf` 추가
+- [ ] 각 HTML의 `<title>`에 이름·프로젝트 제목 반영
+- [ ] 푸터의 "최종 수정" 날짜 갱신
+- [ ] 휴대폰에서 직접 열어 보고, 키보드 Tab 키만으로 모든 링크에 이동되는지 확인
