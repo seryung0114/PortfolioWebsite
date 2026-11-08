@@ -7,20 +7,22 @@
   <title>프로젝트 1 | 데이터 운영·분석 포트폴리오</title>
   <meta name="description" content="프로젝트 1 상세: 문제 정의, 데이터와 방법, 결과, 해결 과정">
   <link rel="icon" href="data:,">
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
   <!-- 상세 페이지는 한 단계 아래 폴더라서 ../ 로 시작 -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="page-detail">
   <a class="skip-link" href="#main">본문 바로가기</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html"><span class="todo">[작성 필요]</span></a>
-      <nav aria-label="주요 메뉴">
-        <ul class="nav-list">
+  <!-- 상단 메뉴 (상세 페이지에서는 고정하지 않고, 아래 목차 메뉴를 고정) -->
+  <header class="globalnav">
+    <div class="container globalnav-inner">
+      <a class="globalnav-brand" href="../index.html"><span class="todo">[작성 필요]</span></a>
+      <nav class="globalnav-links" aria-label="주요 메뉴">
+        <ul>
           <li><a href="../index.html#skills">기술</a></li>
           <li><a href="../index.html#projects" aria-current="page">프로젝트</a></li>
           <li><a href="../index.html#certs">자격증·어학</a></li>
@@ -30,33 +32,47 @@
     </div>
   </header>
 
-  <main id="main" class="detail">
-    <div class="container">
-      <p class="breadcrumb"><a href="../index.html#projects">← 프로젝트 목록</a></p>
+  <!-- 목차 메뉴: 프로젝트 이름 + 섹션 바로가기. 스크롤 위치를 파란색으로 표시 -->
+  <nav class="localnav" aria-label="이 페이지 목차" data-scrollspy>
+    <div class="container localnav-inner">
+      <a class="localnav-title" href="#overview">프로젝트 01</a>
+      <ul class="localnav-links">
+        <li><a href="#problem">문제 정의</a></li>
+        <li><a href="#method">데이터와 방법</a></li>
+        <li><a href="#result">결과</a></li>
+        <li><a href="#trouble">막혔던 부분</a></li>
+        <li><a href="#ai">AI 활용</a></li>
+        <li><a href="#lesson">배운 점</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <!-- ===== 한 줄 요약 + 결과 숫자 ===== -->
-      <header class="detail-head">
-        <p class="project-index">프로젝트 01</p>
+  <main id="main">
+    <!-- ===== 한 줄 요약 + 결과 숫자 ===== -->
+    <section class="detail-hero" id="overview" aria-labelledby="detail-title">
+      <div class="container">
+        <p class="detail-back"><a href="../index.html#projects">‹ 프로젝트 목록</a></p>
+        <p class="hero-eyebrow">프로젝트 01</p>
         <!-- 프로젝트 제목 -->
-        <h1 class="detail-title"><span class="todo">[작성 필요]</span></h1>
+        <h1 class="hero-title" id="detail-title"><span class="todo">[작성 필요]</span></h1>
         <!-- 한 줄 요약: 무엇을, 어떤 데이터로, 어떤 결과를 냈는지 -->
-        <p class="detail-summary"><span class="todo">[작성 필요]</span></p>
+        <p class="hero-sub"><span class="todo">[작성 필요]</span></p>
 
         <h2 class="visually-hidden">결과 숫자</h2>
-        <ul class="metrics metrics-compact">
-          <li class="metric-card">
-            <!-- 예: 1,240건 → 0건 -->
-            <p class="metric-value"><span class="todo">[작성 필요]</span></p>
-            <!-- 예: 결측치 정제 전후 -->
-            <p class="metric-label"><span class="todo">[작성 필요]</span></p>
+        <ul class="stat-grid stat-grid-2">
+          <li class="stat">
+            <!-- 예: 1,240 → 0 -->
+            <p class="stat-value"><span class="todo">[작성 필요]</span></p>
+            <!-- 예: 결측치 건수 (정제 전 → 후) -->
+            <p class="stat-label"><span class="todo">[작성 필요]</span></p>
           </li>
-          <li class="metric-card">
-            <p class="metric-value"><span class="todo">[작성 필요]</span></p>
-            <p class="metric-label"><span class="todo">[작성 필요]</span></p>
+          <li class="stat">
+            <p class="stat-value"><span class="todo">[작성 필요]</span></p>
+            <p class="stat-label"><span class="todo">[작성 필요]</span></p>
           </li>
         </ul>
 
-        <dl class="detail-meta">
+        <dl class="spec-row">
           <div>
             <dt>사용 데이터</dt>
             <dd><span class="todo">[작성 필요]</span></dd>
@@ -77,231 +93,221 @@
             <dd><span class="todo">[작성 필요]</span></dd>
           </div>
         </dl>
-      </header>
-
-      <div class="detail-layout">
-        <!-- 목차: 넓은 화면에서는 왼쪽에 고정, 스크롤 위치를 표시 -->
-        <nav class="toc" aria-label="이 페이지 목차" data-scrollspy>
-          <p class="toc-title">목차</p>
-          <ol>
-            <li><a href="#problem">문제 정의</a></li>
-            <li><a href="#method">데이터와 방법</a></li>
-            <li><a href="#result">결과</a></li>
-            <li><a href="#trouble">막혔던 부분과 해결</a></li>
-            <li><a href="#ai">AI 도구 활용</a></li>
-            <li><a href="#lesson">배운 점</a></li>
-          </ol>
-        </nav>
-
-        <div class="detail-body">
-          <!-- ===== 문제 정의: 왜 이걸 했는지 ===== -->
-          <section class="detail-section" id="problem" aria-labelledby="problem-title">
-            <h2 id="problem-title">문제 정의</h2>
-            <dl class="fields">
-              <div>
-                <dt>배경</dt>
-                <!-- 어떤 상황에서 이 문제를 발견했는지 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>해결하려던 문제</dt>
-                <!-- 문제를 한 문장으로. 예: 주문 데이터에 결측·중복이 섞여 월별 매출 집계가 맞지 않았다 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>목표</dt>
-                <!-- 숫자로 적기. 예: 결측치 0건, 집계 오차 1% 이내 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-            </dl>
-          </section>
-
-          <!-- ===== 데이터와 방법 ===== -->
-          <section class="detail-section" id="method" aria-labelledby="method-title">
-            <h2 id="method-title">데이터와 방법</h2>
-            <dl class="fields">
-              <div>
-                <dt>데이터 출처</dt>
-                <!-- 예: 공공데이터포털 ○○ 데이터셋, 링크 포함 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>규모</dt>
-                <!-- 예: 52,310행 × 18열, 2023–2025년 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>사용 도구</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-            </dl>
-
-            <h3 class="sub-title">처리 흐름</h3>
-            <!-- 단계 수는 li를 지우거나 복사해서 조절. 예: 수집 → 정제 → 분석 → 검증 -->
-            <ol class="flow">
-              <li class="flow-step">
-                <span class="flow-num">1</span>
-                <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-                <!-- 예: Python으로 CSV 3개 병합 -->
-                <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
-              </li>
-              <li class="flow-step">
-                <span class="flow-num">2</span>
-                <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-                <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
-              </li>
-              <li class="flow-step">
-                <span class="flow-num">3</span>
-                <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-                <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
-              </li>
-              <li class="flow-step">
-                <span class="flow-num">4</span>
-                <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-                <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
-              </li>
-            </ol>
-          </section>
-
-          <!-- ===== 결과: 지표로 "됐다"고 판단한 기준 ===== -->
-          <section class="detail-section" id="result" aria-labelledby="result-title">
-            <h2 id="result-title">결과</h2>
-            <p class="section-desc">아래 기준을 넘었을 때 목표를 달성했다고 판단했습니다.</p>
-
-            <div class="table-wrap">
-              <table class="result-table">
-                <caption class="visually-hidden">지표별 판단 기준과 결과</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">지표</th>
-                    <th scope="col">판단 기준</th>
-                    <th scope="col">전</th>
-                    <th scope="col">후</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- 예: 결측치 | 0건 | 1,240건 | 0건 -->
-                  <tr>
-                    <th scope="row"><span class="todo">[작성 필요]</span></th>
-                    <td><span class="todo">[작성 필요]</span></td>
-                    <td class="num"><span class="todo">[작성 필요]</span></td>
-                    <td class="num"><span class="todo">[작성 필요]</span></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><span class="todo">[작성 필요]</span></th>
-                    <td><span class="todo">[작성 필요]</span></td>
-                    <td class="num"><span class="todo">[작성 필요]</span></td>
-                    <td class="num"><span class="todo">[작성 필요]</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <dl class="fields">
-              <div>
-                <dt>측정 방법</dt>
-                <!-- 예: 정제 전후 행 수를 SQL COUNT로 비교, 무작위 50건 원본 대조 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-            </dl>
-
-            <!-- 결과 그래프를 넣을 때 (assets/images 에 파일 추가 후 주석 해제)
-            <figure class="figure">
-              <img src="../assets/images/project-1-result.png"
-                   alt="그래프가 보여주는 내용을 문장으로. 예: 월별 결측치 건수가 1월 412건에서 6월 0건으로 감소"
-                   width="1200" height="675" loading="lazy">
-              <figcaption>그림 1. 그래프 설명</figcaption>
-            </figure>
-            -->
-          </section>
-
-          <!-- ===== 잘 안 됐던 부분과 해결 과정 (면접관이 가장 궁금해하는 부분) ===== -->
-          <section class="detail-section detail-section-highlight" id="trouble" aria-labelledby="trouble-title">
-            <h2 id="trouble-title">막혔던 부분과 해결 과정</h2>
-            <!-- 문제가 여러 개면 dl.fields 블록을 복사해서 추가 -->
-            <dl class="fields">
-              <div>
-                <dt>막힌 상황</dt>
-                <!-- 무엇이 기대와 달랐는지 사실 그대로 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>원인</dt>
-                <!-- 원인을 어떻게 찾았는지도 함께 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>시도한 방법</dt>
-                <!-- 실패한 시도도 적으면 좋음 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>결과와 남은 한계</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-            </dl>
-          </section>
-
-          <!-- ===== AI 도구 활용 ===== -->
-          <section class="detail-section" id="ai" aria-labelledby="ai-title">
-            <h2 id="ai-title">AI 도구 활용</h2>
-            <dl class="fields">
-              <div>
-                <dt>사용한 도구</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>맡긴 작업</dt>
-                <!-- 예: pandas 전처리 코드 초안, 정규식 작성 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>검증 방법</dt>
-                <!-- 예: 생성 코드 실행 전후 행 수 비교, 샘플 20건 수작업 대조, 테스트 케이스 작성 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>직접 고친 부분</dt>
-                <!-- AI가 틀렸거나 맞지 않아서 직접 수정한 내용 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-            </dl>
-          </section>
-
-          <!-- ===== 배운 점 + 저장소 ===== -->
-          <section class="detail-section" id="lesson" aria-labelledby="lesson-title">
-            <h2 id="lesson-title">배운 점</h2>
-            <dl class="fields">
-              <div>
-                <dt>배운 점</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>다시 한다면</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt>GitHub 저장소</dt>
-                <!-- 예: <a href="https://github.com/아이디/저장소">github.com/아이디/저장소</a> -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-            </dl>
-          </section>
-        </div>
       </div>
+    </section>
 
-      <!-- 다른 프로젝트로 이동 -->
-      <nav class="pager" aria-label="프로젝트 이동">
-        <a href="../index.html#projects">← 프로젝트 목록</a>
-        <a href="project-2.html">다음: 프로젝트 02 →</a>
-      </nav>
+    <div class="container detail-body">
+      <!-- ===== 문제 정의: 왜 이걸 했는지 ===== -->
+      <section class="detail-section" id="problem" aria-labelledby="problem-title">
+        <h2 class="detail-heading" id="problem-title">문제 정의. <span>왜 이 프로젝트를 했는지.</span></h2>
+        <dl class="specs">
+          <div>
+            <dt>배경</dt>
+            <!-- 어떤 상황에서 이 문제를 발견했는지 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>해결하려던 문제</dt>
+            <!-- 문제를 한 문장으로. 예: 주문 데이터에 결측·중복이 섞여 월별 매출 집계가 맞지 않았다 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>목표</dt>
+            <!-- 숫자로 적기. 예: 결측치 0건, 집계 오차 1% 이내 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ===== 데이터와 방법 ===== -->
+      <section class="detail-section" id="method" aria-labelledby="method-title">
+        <h2 class="detail-heading" id="method-title">데이터와 방법. <span>어떤 데이터를 어떤 순서로 처리했는지.</span></h2>
+        <dl class="specs">
+          <div>
+            <dt>데이터 출처</dt>
+            <!-- 예: 공공데이터포털 ○○ 데이터셋, 링크 포함 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>규모</dt>
+            <!-- 예: 52,310행 × 18열, 2023–2025년 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>사용 도구</dt>
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+        </dl>
+
+        <h3 class="sub-title">처리 흐름</h3>
+        <!-- 단계 수는 li를 지우거나 복사해서 조절. 예: 수집 → 정제 → 분석 → 검증 -->
+        <ol class="flow">
+          <li class="flow-step">
+            <span class="flow-num">1</span>
+            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
+            <!-- 예: Python으로 CSV 3개 병합 -->
+            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">2</span>
+            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
+            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">3</span>
+            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
+            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-num">4</span>
+            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
+            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ===== 결과: 지표로 "됐다"고 판단한 기준 ===== -->
+      <section class="detail-section" id="result" aria-labelledby="result-title">
+        <h2 class="detail-heading" id="result-title">결과. <span>목표 달성을 판단한 기준과 수치.</span></h2>
+
+        <div class="table-wrap">
+          <table class="result-table">
+            <caption class="visually-hidden">지표별 판단 기준과 결과</caption>
+            <thead>
+              <tr>
+                <th scope="col">지표</th>
+                <th scope="col">판단 기준</th>
+                <th scope="col">전</th>
+                <th scope="col">후</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 예: 결측치 | 0건 | 1,240건 | 0건 -->
+              <tr>
+                <th scope="row"><span class="todo">[작성 필요]</span></th>
+                <td><span class="todo">[작성 필요]</span></td>
+                <td class="num"><span class="todo">[작성 필요]</span></td>
+                <td class="num"><span class="todo">[작성 필요]</span></td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="todo">[작성 필요]</span></th>
+                <td><span class="todo">[작성 필요]</span></td>
+                <td class="num"><span class="todo">[작성 필요]</span></td>
+                <td class="num"><span class="todo">[작성 필요]</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <dl class="specs">
+          <div>
+            <dt>측정 방법</dt>
+            <!-- 예: 정제 전후 행 수를 SQL COUNT로 비교, 무작위 50건 원본 대조 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+        </dl>
+
+        <!-- 결과 그래프를 넣을 때 (assets/images 에 파일 추가 후 주석 해제)
+        <figure class="figure">
+          <img src="../assets/images/project-1-result.png"
+               alt="그래프가 보여주는 내용을 문장으로. 예: 월별 결측치 건수가 1월 412건에서 6월 0건으로 감소"
+               width="1200" height="675" loading="lazy">
+          <figcaption>그림 1. 그래프 설명</figcaption>
+        </figure>
+        -->
+      </section>
+
+      <!-- ===== 잘 안 됐던 부분과 해결 과정: 검은 타일로 가장 눈에 띄게 ===== -->
+      <section class="detail-section detail-dark theme-dark" id="trouble" aria-labelledby="trouble-title">
+        <h2 class="detail-heading" id="trouble-title">막혔던 부분과 해결 과정. <span>무엇이 안 됐고, 어떻게 풀었는지.</span></h2>
+        <!-- 문제가 여러 개면 dl.specs 블록을 복사해서 추가 -->
+        <dl class="specs">
+          <div>
+            <dt>막힌 상황</dt>
+            <!-- 무엇이 기대와 달랐는지 사실 그대로 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>원인</dt>
+            <!-- 원인을 어떻게 찾았는지도 함께 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>시도한 방법</dt>
+            <!-- 실패한 시도도 적으면 좋음 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>결과와 남은 한계</dt>
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ===== AI 도구 활용 ===== -->
+      <section class="detail-section" id="ai" aria-labelledby="ai-title">
+        <h2 class="detail-heading" id="ai-title">AI 도구 활용. <span>어디에 썼고, 결과를 어떻게 검증했는지.</span></h2>
+        <dl class="specs">
+          <div>
+            <dt>사용한 도구</dt>
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>맡긴 작업</dt>
+            <!-- 예: pandas 전처리 코드 초안, 정규식 작성 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>검증 방법</dt>
+            <!-- 예: 생성 코드 실행 전후 행 수 비교, 샘플 20건 수작업 대조, 테스트 케이스 작성 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>직접 고친 부분</dt>
+            <!-- AI가 틀렸거나 맞지 않아서 직접 수정한 내용 -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ===== 배운 점 + 저장소 ===== -->
+      <section class="detail-section" id="lesson" aria-labelledby="lesson-title">
+        <h2 class="detail-heading" id="lesson-title">배운 점. <span>다음 프로젝트에 가져갈 것.</span></h2>
+        <dl class="specs">
+          <div>
+            <dt>배운 점</dt>
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>다시 한다면</dt>
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>GitHub 저장소</dt>
+            <!-- 예: <a href="https://github.com/아이디/저장소">github.com/아이디/저장소</a> -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+        </dl>
+      </section>
     </div>
+
+    <!-- 다른 프로젝트로 이동 -->
+    <nav class="container pager" aria-label="프로젝트 이동">
+      <a class="pager-link" href="../index.html#projects">
+        <span class="pager-label">목록</span>
+        <span class="pager-title">‹ 전체 프로젝트</span>
+      </a>
+      <a class="pager-link pager-next" href="project-2.html">
+        <span class="pager-label">다음</span>
+        <span class="pager-title">프로젝트 02 ›</span>
+      </a>
+    </nav>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>최종 수정 2026년 11월</p>
-      <a href="#main">맨 위로 ↑</a>
+      <a href="#main">맨 위로</a>
     </div>
   </footer>
 
