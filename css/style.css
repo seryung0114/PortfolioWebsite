@@ -681,7 +681,7 @@ a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 16px;
-  margin: 32px 0 80px;
+  margin: 32px 0 64px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
   font-weight: 600;
@@ -716,4 +716,113 @@ a:hover {
   .toc a[aria-current] {
     border-left-color: var(--accent);
   }
+}
+
+/* ---------- 2. 할 줄 아는 것 ---------- */
+.skill-list {
+  border-top: 2px solid var(--text);
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.skill-detail {
+  display: grid;
+  gap: 4px;
+  max-width: 44em;
+}
+
+.skill-proof {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* ---------- 4. 자격증·어학 ---------- */
+.cert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+.cert {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 2px solid var(--text);
+}
+
+.cert-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cert-org {
+  font-weight: 500;
+}
+
+.cert-meta {
+  color: var(--muted);
+  font-family: var(--font-num);
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 5. 연락처 ---------- */
+.contact-list {
+  display: grid;
+  gap: 0;
+  max-width: 640px;
+}
+
+.contact-list > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  font-size: 1.125rem;
+}
+
+.contact-list > div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-list dt {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.contact-list dd {
+  font-weight: 500;
+}
+
+/* ---------- 푸터 ---------- */
+.site-footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.site-footer a {
+  color: var(--muted);
 }
