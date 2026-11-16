@@ -274,10 +274,10 @@ a {
   background: var(--paper);
 }
 
-/* 아주 얇고 큰 영문 글자 */
+/* 큰 영문 글자 (굵기: 300 얇게 ~ 700 굵게) */
 .cover-word {
   font-size: clamp(44px, 14vw, 176px);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 0.95;
   letter-spacing: 0.01em;
 }
@@ -437,6 +437,10 @@ a {
   margin: 56px 0 20px;
   font-size: 20px;
   font-weight: 600;
+}
+
+.sub-title-first {
+  margin-top: 0;
 }
 
 /* 이미지 자리 (베이지 상자) */
