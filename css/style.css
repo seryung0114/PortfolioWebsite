@@ -363,23 +363,16 @@ a {
   text-align: right;
 }
 
-/* 마지막 페이지 */
+/* 마지막 페이지: 미색 영역의 인사 + 베이지 영역의 연락처 박스 */
 .cover-end .cover-top {
-  padding: 56px 0 44px;
+  padding: 56px 0 48px;
 }
 
-.end-note {
-  font-size: clamp(18px, 2vw, 22px);
-}
-
-.cover-word-end {
-  grid-column: 1;
-  align-self: end;
-  font-size: clamp(44px, 10vw, 136px); /* 한 줄에 들어가도록 표지보다 작게 */
-}
-
-.cover-end .deco {
-  margin-top: -170px;
+.end-title {
+  margin-top: 8px;
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
 }
 
 /* =========================================================
