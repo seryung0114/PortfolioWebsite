@@ -53,3 +53,25 @@ python3 -m http.server 8000
 - [ ] 각 HTML의 `<title>`에 이름·프로젝트 제목 반영
 - [ ] 푸터의 "최종 수정" 날짜 갱신
 - [ ] 휴대폰에서 직접 열어 보고, 키보드 Tab 키만으로 모든 링크에 이동되는지 확인
+
+## 이력서 PDF 다시 만들기
+
+메인 페이지의 [이력서 PDF 다운로드] 버튼은 `assets/resume.pdf`를 내려받습니다.
+이 PDF는 사이트 내용을 그대로 옮긴 것이라, **사이트 내용을 고친 뒤에는 PDF도 다시 만들어야** 같아집니다.
+
+순서: 메인 페이지 → 프로젝트 1 상세 → 프로젝트 2 상세 → 마지막 연락처 (A4)
+
+```bash
+npm install playwright
+```
+
+```bash
+npx playwright install chromium
+```
+
+```bash
+node tools/make-pdf.js
+```
+
+- PDF에서만 적용되는 모양(메뉴·버튼 숨김, 페이지 나누기)은 `css/style.css` 맨 아래 `@media print`에 있습니다.
+- PDF 안의 링크는 실제 사이트 주소로 연결됩니다.

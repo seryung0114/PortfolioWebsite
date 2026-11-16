@@ -1166,3 +1166,68 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   PDF(인쇄)용: tools/make-pdf.js 가 이 스타일로 assets/resume.pdf 를 만듦
+   ========================================================= */
+@media print {
+  /* 배경색까지 그대로 인쇄 */
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 화면에서만 쓰는 요소는 숨김: 메뉴, 버튼, "상세 보기", 이전·다음, 푸터 */
+  .skip-link,
+  .site-header,
+  .toc-bar,
+  .cta-row,
+  .back,
+  .project-more,
+  .pager-wrap,
+  .site-footer,
+  .pdf-hide {
+    display: none !important;
+  }
+
+  /* 카드·블록·표의 행이 페이지 사이에서 잘리지 않게 */
+  .kpi,
+  .card,
+  .project,
+  .tcard,
+  .info-block,
+  .skill-table > div,
+  .rows > div,
+  .result-table tr,
+  .detail-highlight {
+    break-inside: avoid;
+  }
+
+  /* 제목만 페이지 끝에 남고 내용이 다음 장으로 넘어가지 않게 */
+  .section-head,
+  .block-title,
+  .sub-title {
+    break-after: avoid;
+  }
+
+  /* 프로젝트 상세와 마지막 연락처는 새 페이지에서 시작 */
+  .pdf-page {
+    break-before: page;
+  }
+
+  /* 자기소개·기술 및 역량도 새 페이지에서 시작 (제목만 페이지 끝에 남는 것 방지) */
+  #intro,
+  #skills {
+    break-before: page;
+  }
+
+  /* PDF 너비에서 PORTFOLIO 글자와 원 장식이 겹치지 않게 */
+  .cover-word {
+    font-size: 128px;
+  }
+
+  /* 연락처 박스: RESUME 박스를 뺀 2칸 */
+  .cover-end .info-boxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
