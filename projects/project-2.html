@@ -59,7 +59,7 @@
       </header>
 
       <div class="container section-body">
-        <p class="intro-text">6인 팀으로 Java와 MySQL 기반의 화장품 매장 판매 분석 시스템을 만들며 고객 이력 테이블 설계와 입력·조회 기능을 맡았습니다. 가격이나 고객 정보가 바뀌어도 과거 매출이 주문 당시 기준으로 집계되도록 설계했습니다.</p>
+        <p class="intro-text">6인 팀 · Java·MySQL 기반 화장품 매장 판매 분석 시스템 개발, 고객 이력 테이블 설계와 입력·조회 기능 담당. 가격·고객 정보가 바뀌어도 과거 매출이 주문 당시 기준으로 집계되도록 설계.</p>
 
         <div class="overview-grid">
           <h2 class="visually-hidden">핵심 결과</h2>
@@ -104,15 +104,15 @@
         <dl class="rows">
           <div>
             <dt>배경</dt>
-            <dd>매장의 가격과 고객 정보는 시간이 지나면서 바뀝니다.</dd>
+            <dd>매장의 가격과 고객 정보는 시간에 따라 변경</dd>
           </div>
           <div>
             <dt>해결하려던 문제</dt>
-            <dd>정보가 바뀌었다고 지난 매출까지 새 값으로 다시 계산되면 분석 결과를 믿을 수 없습니다.</dd>
+            <dd>정보 변경 시 지난 매출까지 새 값으로 재계산되면 분석 결과 신뢰 불가</dd>
           </div>
           <div>
             <dt>목표</dt>
-            <dd>과거 매출은 주문 당시 기준으로 집계하고, 잘못되거나 일부만 저장된 데이터가 남지 않게 하기</dd>
+            <dd>과거 매출의 주문 당시 기준 집계, 잘못되거나 일부만 저장된 데이터 방지</dd>
           </div>
         </dl>
       </section>
@@ -141,19 +141,19 @@
           <li class="tcard">
             <span class="tcard-circle" aria-hidden="true">01</span>
             <h4 class="tcard-title">문제해결</h4>
-            <p>가격이 바뀌면 지난 매출까지 새 가격으로 다시 계산될 수 있었습니다.</p>
+            <p>가격 변경 시 지난 매출까지 새 가격으로 재계산될 위험</p>
             <p class="tcard-point"><b>How + Result</b>주문 시점의 단가를 별도 칼럼에 저장 → 과거 매출을 주문 당시 기준으로 집계</p>
           </li>
           <li class="tcard">
             <span class="tcard-circle" aria-hidden="true">02</span>
             <h4 class="tcard-title">데이터 정합성</h4>
-            <p>고객 정보가 바뀌어도 분석은 주문 당시의 고객 상태를 기준으로 해야 했습니다.</p>
+            <p>고객 정보가 바뀌어도 주문 당시 고객 상태 기준 분석 필요</p>
             <p class="tcard-point"><b>How + Result</b>주문일을 고객 이력의 유효 기간과 맞춰 조회 → 당시 상태로 집계</p>
           </li>
           <li class="tcard">
             <span class="tcard-circle" aria-hidden="true">03</span>
             <h4 class="tcard-title">안정성</h4>
-            <p>잘못되거나 일부만 저장된 데이터가 남지 않아야 했습니다.</p>
+            <p>잘못되거나 일부만 저장된 데이터 방지 필요</p>
             <p class="tcard-point"><b>How + Result</b>PreparedStatement 바인딩, 저장 전 검증(필수값 누락·없는 고객/상품·중복 상품), 트랜잭션 롤백 → 누락·중복·일부 저장 차단</p>
           </li>
         </ul>
@@ -196,7 +196,7 @@
         <dl class="rows">
           <div>
             <dt>확인 방법</dt>
-            <dd>가격을 바꾼 뒤 과거 매출을 다시 조회해, 주문 당시 기준으로 집계되는지 확인했습니다.</dd>
+            <dd>가격 변경 후 과거 매출을 다시 조회해 주문 당시 기준 집계 여부 확인</dd>
           </div>
         </dl>
 
@@ -217,17 +217,17 @@
         <ul class="tcard-grid">
           <li class="tcard">
             <h3 class="tcard-title">문제 상황</h3>
-            <p>가격이나 고객 정보가 바뀌면 지난 매출까지 새 값으로 다시 계산되어, 분석 결과를 믿을 수 없게 될 수 있었습니다.</p>
+            <p>가격·고객 정보 변경 시 지난 매출까지 새 값으로 재계산 → 분석 결과를 믿을 수 없게 될 위험</p>
             <p class="tcard-point"><b>Point</b>과거 매출은 나중에 바뀌면 안 되는 기록</p>
           </li>
           <li class="tcard">
             <h3 class="tcard-title">해결책</h3>
-            <p>주문 시점의 단가를 별도 칼럼에 저장하고, 조회할 때는 주문일을 고객 이력의 유효 기간과 맞춰 당시 상태로 집계했습니다.</p>
-            <p class="tcard-point"><b>Point</b>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계되는 것을 확인</p>
+            <p>주문 시점 단가 별도 칼럼 저장, 조회 시 주문일과 고객 이력 유효 기간을 맞춰 당시 상태로 집계</p>
+            <p class="tcard-point"><b>Point</b>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계됨을 확인</p>
           </li>
           <li class="tcard">
             <h3 class="tcard-title">비교 대상</h3>
-            <p>은행에서 거래가 끝난 뒤에도 그 시점의 금리와 금액이 그대로 남아야 하는 것과 같은 원리입니다.</p>
+            <p>은행 거래: 거래가 끝난 뒤에도 그 시점의 금리·금액이 그대로 남아야 하는 것과 같은 원리</p>
             <p class="tcard-point"><b>Point</b>데이터 이력을 정확하게 보존하는 것이 신뢰의 기반</p>
           </li>
         </ul>
@@ -265,7 +265,7 @@
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd>금융 IT 시스템에서도 거래 당시의 데이터 이력을 정확하게 보존하는 것이 신뢰의 기반이라는 점을 깨달았습니다.</dd>
+            <dd>금융 IT 시스템에서도 거래 당시 데이터 이력의 정확한 보존이 신뢰의 기반</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>

@@ -59,7 +59,7 @@
       </header>
 
       <div class="container section-body">
-        <p class="intro-text">5인 팀으로 Flask와 Firebase 기반 교내 중고 거래 웹사이트를 만들며 로그인과 찜하기 기능을 맡았습니다. 병합할 때 드러난 충돌과 데이터 연결 오류를 팀의 작업 기준을 통일해 해결했습니다.</p>
+        <p class="intro-text">5인 팀 · Flask·Firebase 기반 교내 중고 거래 웹사이트 개발, 로그인·찜하기 담당. 병합 때 드러난 충돌과 데이터 연결 오류를 팀 작업 기준 통일로 해결.</p>
 
         <div class="overview-grid">
           <h2 class="visually-hidden">결과 숫자</h2>
@@ -104,15 +104,15 @@
         <dl class="rows">
           <div>
             <dt>배경</dt>
-            <dd>각자 기능을 만들 때는 보이지 않던 문제가 코드를 병합하는 순간 한꺼번에 드러났습니다.</dd>
+            <dd>기능별로는 정상이었지만, 코드를 병합하는 순간 문제가 한꺼번에 드러남</dd>
           </div>
           <div>
             <dt>해결하려던 문제</dt>
-            <dd>① 모두가 같은 파일을 동시에 고쳐 병합할 때마다 충돌이 반복됐습니다.<br>② 팀원마다 상품을 다른 값으로 가리켜, 찜과 리뷰가 엉뚱한 상품에 연결됐습니다.</dd>
+            <dd>① 같은 파일 동시 수정으로 병합 충돌 반복<br>② 팀원마다 다른 값으로 상품을 가리켜 찜·리뷰가 엉뚱한 상품에 연결</dd>
           </div>
           <div>
             <dt>목표</dt>
-            <dd>병합 충돌 없이 기능을 합치고, 찜과 리뷰가 올바른 상품에 연결되도록 하기</dd>
+            <dd>병합 충돌 없는 기능 통합, 찜·리뷰의 올바른 상품 연결</dd>
           </div>
         </dl>
       </section>
@@ -141,20 +141,20 @@
           <li class="tcard">
             <span class="tcard-circle" aria-hidden="true">01</span>
             <h4 class="tcard-title">문제해결</h4>
-            <p>병합 충돌과 찜·리뷰가 엉뚱한 상품에 연결되는 문제의 원인을 팀의 작업 기준 불일치로 판단했습니다.</p>
-            <p class="tcard-point"><b>How + Result</b>공용 파일 수정 순서와 "테스트 브랜치 → main" 병합 규칙 제안 → 병합 충돌 사라짐</p>
+            <p>병합 충돌·찜/리뷰 오연결의 원인을 팀 작업 기준 불일치로 판단</p>
+            <p class="tcard-point"><b>How + Result</b>공용 파일 수정 순서, "테스트 브랜치 → main" 병합 규칙 제안 → 병합 충돌 해소</p>
           </li>
           <li class="tcard">
             <span class="tcard-circle" aria-hidden="true">02</span>
             <h4 class="tcard-title">데이터 정합성</h4>
-            <p>팀원마다 상품을 다른 값으로 가리켜 찜과 리뷰가 잘못된 상품에 연결됐습니다.</p>
-            <p class="tcard-point"><b>How + Result</b>상품 식별자를 고유 ID로 통일하고 규칙 공지 → 찜·리뷰가 올바른 상품에 연결</p>
+            <p>팀원마다 다른 값으로 상품을 가리켜 찜·리뷰 오연결 발생</p>
+            <p class="tcard-point"><b>How + Result</b>상품 식별자 고유 ID로 통일, 규칙 공지 → 찜·리뷰 올바른 상품에 연결</p>
           </li>
           <li class="tcard">
             <span class="tcard-circle" aria-hidden="true">03</span>
             <h4 class="tcard-title">의사소통</h4>
-            <p>팀원들의 의견을 모아 작업 규칙을 정하고, 점검 결과를 담당자에게 정확히 전달했습니다.</p>
-            <p class="tcard-point"><b>How + Result</b>가입부터 구매·리뷰까지 흐름을 점검해 오류 2건을 재현 순서와 함께 전달 → 최종 시연 오류 0건</p>
+            <p>팀원 의견 수렴 후 작업 규칙 합의, 점검 결과 정확히 전달</p>
+            <p class="tcard-point"><b>How + Result</b>가입~구매·리뷰 흐름 점검, 오류 2건을 재현 순서와 함께 전달 → 최종 시연 오류 0건</p>
           </li>
         </ul>
       </section>
@@ -200,7 +200,7 @@
         <dl class="rows">
           <div>
             <dt>확인 방법</dt>
-            <dd>가입부터 구매와 리뷰까지 실제 사용자 흐름을 직접 따라가며 확인했습니다.</dd>
+            <dd>가입부터 구매·리뷰까지 실제 사용자 흐름을 직접 따라가며 확인</dd>
           </div>
         </dl>
 
@@ -221,18 +221,18 @@
         <ul class="tcard-grid">
           <li class="tcard">
             <h3 class="tcard-title">문제 상황</h3>
-            <p>각자 만든 기능을 병합하자 같은 파일을 동시에 고친 탓에 충돌이 반복됐고, 제가 맡은 찜은 물론 리뷰까지 엉뚱한 상품에 연결됐습니다.</p>
+            <p>기능 병합 시 같은 파일 동시 수정으로 충돌 반복, 담당한 찜은 물론 리뷰까지 엉뚱한 상품에 연결</p>
             <p class="tcard-point"><b>Point</b>각자 만들 때는 보이지 않던 문제가 병합하는 순간 한꺼번에 드러남</p>
           </li>
           <li class="tcard">
             <h3 class="tcard-title">원인</h3>
-            <p>공용 파일을 고치는 순서가 정해져 있지 않았고, 팀원마다 상품을 서로 다른 값으로 가리켰습니다.</p>
+            <p>공용 파일 수정 순서 부재, 팀원마다 다른 상품 지칭 값</p>
             <p class="tcard-point"><b>Point</b>팀의 작업 기준 불일치</p>
           </li>
           <li class="tcard">
             <h3 class="tcard-title">해결책</h3>
-            <p>팀원들의 의견을 모아 공용 파일은 정해진 순서대로 고치고, 테스트 브랜치를 거친 뒤 main 브랜치에 병합하도록 제안했습니다. 상품 식별자도 고유 ID로 통일해 공지했습니다.</p>
-            <p class="tcard-point"><b>Point</b>병합 충돌이 사라지고 찜·리뷰가 올바른 상품에 연결됨</p>
+            <p>팀원 의견 수렴 → 공용 파일은 정해진 순서로 수정, 테스트 브랜치를 거쳐 main에 병합하도록 제안, 상품 식별자 고유 ID로 통일·공지</p>
+            <p class="tcard-point"><b>Point</b>병합 충돌 해소, 찜·리뷰 올바른 상품에 연결</p>
           </li>
         </ul>
       </section>
@@ -269,7 +269,7 @@
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd>시스템의 안정성은 개별 기능뿐 아니라 구성 요소 간 일관성에서 비롯된다는 점을 배웠습니다.</dd>
+            <dd>시스템 안정성은 개별 기능뿐 아니라 구성 요소 간 일관성에서 비롯됨</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>
