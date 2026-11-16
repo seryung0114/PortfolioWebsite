@@ -11,26 +11,27 @@
   <meta property="og:description" content="컴퓨터공학과 3학년, 데이터 운영·분석 직무 포트폴리오">
   <!-- 파비콘 요청을 막아 불필요한 404를 없앰 -->
   <link rel="icon" href="data:,">
-  <!-- 글꼴: 한글 Pretendard(없으면 Noto Sans KR), 영문 큰 제목 Roboto -->
+  <!-- 글꼴: Pretendard (불러오지 못하면 Noto Sans KR) -->
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;800&family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- 키보드 사용자가 메뉴를 건너뛰고 본문으로 바로 이동 -->
   <a class="skip-link" href="#main">본문 바로가기</a>
 
-  <!-- 상단 바: 템플릿의 "PORTFOLIO ··· 이름" 줄 -->
+  <!-- 상단 띠: 템플릿 맨 위의 회갈색 줄에 메뉴를 얹음 -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top">PORTFOLIO</a>
       <nav class="nav" aria-label="주요 메뉴" data-scrollspy>
         <ul>
+          <li><a href="#results">핵심 성과</a></li>
+          <li><a href="#intro">자기소개</a></li>
           <li><a href="#skills">스킬</a></li>
           <li><a href="#projects">프로젝트</a></li>
-          <li><a href="#resume">이력사항</a></li>
           <li><a href="#contact">연락처</a></li>
         </ul>
       </nav>
@@ -38,138 +39,284 @@
   </header>
 
   <main id="main">
-    <!-- ===== 1. 첫 화면 (템플릿의 자기소개서 페이지) ===== -->
-    <section class="sheet sheet-grey hero" id="top" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <!-- 프로필 사진: 원본 비율(960×1285)을 적어 두면 불러오는 동안 화면이 덜컹거리지 않음 -->
-        <img class="profile-photo" src="assets/images/profile.webp" alt="프로필 사진" width="960" height="1285">
+    <!-- ===== 1. 첫 페이지 (표지 템플릿) ===== -->
+    <section class="cover" id="top" aria-labelledby="hero-title">
+      <!-- 위: 미색 영역의 큰 PORTFOLIO (장식용 글자라 스크린리더는 읽지 않음) -->
+      <div class="cover-top">
+        <div class="container">
+          <p class="cover-word" aria-hidden="true">PORTFOLIO</p>
+        </div>
+      </div>
 
-        <div class="hero-body">
+      <!-- 아래: 베이지 영역의 인사말 -->
+      <div class="container cover-bottom">
+        <div class="cover-text">
           <p class="eyebrow">컴퓨터공학과 3학년 · 데이터 운영·분석 직무 지원</p>
           <!-- 이름 -->
-          <h1 class="hero-title" id="hero-title">안녕하세요, <span class="todo">[작성 필요]</span>입니다.</h1>
+          <h1 class="cover-title" id="hero-title">안녕하세요. <span class="todo">[작성 필요]</span>입니다.</h1>
           <!-- 한 줄 소개. 예: 데이터를 정제하고, 결과를 숫자로 검증하는 개발자 -->
-          <p class="hero-intro"><span class="todo">[작성 필요]</span></p>
-
-          <!-- 핵심 성과 3개: 큰 숫자(value) + 무엇을 잰 숫자인지(label) + 근거 프로젝트(source) -->
-          <h2 class="visually-hidden">핵심 성과</h2>
-          <ul class="stats">
-            <li>
-              <!-- 예: 1,240 → 0 -->
-              <p class="stat-value"><span class="todo">[작성 필요]</span></p>
-              <!-- 예: 결측치 건수 (정제 전 → 후) -->
-              <p class="stat-label"><span class="todo">[작성 필요]</span></p>
-              <!-- 예: <a href="projects/project-1.html">프로젝트 1</a> -->
-              <p class="stat-source">근거 <span class="todo">[작성 필요]</span></p>
-            </li>
-            <li>
-              <!-- 예: 87% -->
-              <p class="stat-value"><span class="todo">[작성 필요]</span></p>
-              <!-- 예: 분류 정확도 (테스트셋 기준) -->
-              <p class="stat-label"><span class="todo">[작성 필요]</span></p>
-              <p class="stat-source">근거 <span class="todo">[작성 필요]</span></p>
-            </li>
-            <li>
-              <p class="stat-value"><span class="todo">[작성 필요]</span></p>
-              <p class="stat-label"><span class="todo">[작성 필요]</span></p>
-              <p class="stat-source">근거 <span class="todo">[작성 필요]</span></p>
-            </li>
-          </ul>
-
+          <p class="cover-intro"><span class="todo">[작성 필요]</span></p>
           <div class="cta-row">
             <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
             <!-- assets/resume.pdf 파일을 넣으면 바로 동작 -->
             <a class="btn btn-secondary" href="assets/resume.pdf" download>이력서 PDF 다운로드</a>
           </div>
         </div>
-      </div>
 
-      <!-- 템플릿 하단의 큰 제목 줄 (장식용이라 스크린리더는 읽지 않음) -->
-      <div class="container">
-        <p class="band band-bottom" aria-hidden="true">
-          <span class="band-ko">자기소개</span>
-          <span class="band-en">SELF-INTRODUCTION</span>
-        </p>
+        <!-- 템플릿의 원 두 개 + 끈 장식 (그림이라 스크린리더는 읽지 않음) -->
+        <svg class="deco" viewBox="0 0 120 380" aria-hidden="true" focusable="false">
+          <g stroke="currentColor" stroke-width="1.5" fill="none">
+            <line x1="28" y1="60" x2="28" y2="320" />
+            <line x1="92" y1="60" x2="92" y2="320" />
+            <line x1="44" y1="60" x2="76" y2="320" />
+            <line x1="76" y1="60" x2="44" y2="320" />
+          </g>
+          <circle cx="60" cy="60" r="58" fill="currentColor" />
+          <circle cx="60" cy="60" r="21" fill="#d6d3ca" />
+          <circle cx="60" cy="60" r="14" fill="#ffffff" />
+          <circle cx="60" cy="320" r="58" fill="currentColor" />
+          <circle cx="60" cy="320" r="21" fill="#d6d3ca" />
+          <circle cx="60" cy="320" r="14" fill="#ffffff" />
+        </svg>
+
+        <!-- 하단 흰 박스: 연락처 -->
+        <dl class="info-boxes">
+          <div>
+            <dt>E-MAIL.</dt>
+            <!-- 예: <a href="mailto:me@example.com">me@example.com</a> -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>GITHUB.</dt>
+            <!-- 예: <a href="https://github.com/아이디">github.com/아이디</a> -->
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>MAJOR.</dt>
+            <dd>컴퓨터공학과 3학년</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <!-- ===== 2. 스킬 및 역량: 별점·원그래프 대신 "실제로 해 본 것" ===== -->
-    <section class="sheet" id="skills" aria-labelledby="skills-title">
-      <div class="container">
-        <h2 class="band" id="skills-title">
-          <span class="band-ko">스킬 및 역량</span>
-          <span class="band-en" aria-hidden="true">SKILLS &amp; COMPETENCIES</span>
-        </h2>
-
-        <div class="two-col">
+    <!-- ===== 2. 핵심 성과 (KPI 템플릿) ===== -->
+    <section class="section" id="results" aria-labelledby="results-title">
+      <header class="section-head">
+        <div class="container section-head-inner">
           <div>
-            <h3 class="col-title">보유 스킬</h3>
-            <!-- 행 하나 = 기술 하나. 필요한 만큼 li.skill 을 복사하거나 지우기 -->
-            <ul class="skill-list">
-              <li class="skill">
-                <!-- 예: SQL -->
-                <p class="skill-name"><span class="todo">[작성 필요]</span></p>
-                <!-- 예: JOIN·GROUP BY로 월별 집계 쿼리 작성, 서브쿼리로 중복 주문 탐지 -->
-                <p><span class="todo">[작성 필요]</span></p>
-                <!-- 예: <a href="projects/project-1.html">프로젝트 1</a> -->
-                <p class="skill-proof">사용한 곳 <span class="todo">[작성 필요]</span></p>
-              </li>
-              <li class="skill">
-                <!-- 예: Python -->
-                <p class="skill-name"><span class="todo">[작성 필요]</span></p>
-                <!-- 예: pandas로 결측치·중복 정제, matplotlib로 전후 비교 그래프 -->
-                <p><span class="todo">[작성 필요]</span></p>
-                <p class="skill-proof">사용한 곳 <span class="todo">[작성 필요]</span></p>
-              </li>
-              <li class="skill">
-                <p class="skill-name"><span class="todo">[작성 필요]</span></p>
-                <p><span class="todo">[작성 필요]</span></p>
-                <p class="skill-proof">사용한 곳 <span class="todo">[작성 필요]</span></p>
-              </li>
-              <li class="skill">
-                <p class="skill-name"><span class="todo">[작성 필요]</span></p>
-                <p><span class="todo">[작성 필요]</span></p>
-                <p class="skill-proof">사용한 곳 <span class="todo">[작성 필요]</span></p>
-              </li>
-            </ul>
+            <p class="label">KEY RESULTS.</p>
+            <h2 class="section-title" id="results-title">숫자로 보는 핵심 성과</h2>
           </div>
+          <p class="section-note">숫자의 근거는 각 프로젝트 상세 페이지에 정리했습니다.</p>
+        </div>
+      </header>
 
-          <div>
-            <h3 class="col-title">강점 역량</h3>
-            <!-- 퍼센트 대신, 강점과 그걸 보여주는 경험을 짧게 -->
-            <dl class="strengths">
-              <div>
-                <!-- 예: 꼼꼼한 검증 -->
-                <dt><span class="todo">[작성 필요]</span></dt>
-                <!-- 예: 정제 전후 건수를 항상 SQL로 대조해 누락을 찾아냄 (프로젝트 1) -->
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt><span class="todo">[작성 필요]</span></dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
-                <dt><span class="todo">[작성 필요]</span></dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-            </dl>
+      <div class="container section-body">
+        <!-- 카드 하나 = 성과 하나: 큰 숫자(value) + 무엇을 잰 숫자인지(label) + 근거(source) -->
+        <ul class="kpi-grid">
+          <li class="kpi">
+            <span class="kpi-num" aria-hidden="true">01</span>
+            <!-- 예: 1,240 → 0 -->
+            <p class="kpi-value"><span class="todo">[작성 필요]</span></p>
+            <!-- 예: 결측치 건수 (정제 전 → 후) -->
+            <p class="kpi-label"><span class="todo">[작성 필요]</span></p>
+            <!-- 예: <a href="projects/project-1.html">프로젝트 1</a> -->
+            <p class="kpi-source">근거 <span class="todo">[작성 필요]</span></p>
+          </li>
+          <li class="kpi">
+            <span class="kpi-num" aria-hidden="true">02</span>
+            <!-- 예: 87% -->
+            <p class="kpi-value"><span class="todo">[작성 필요]</span></p>
+            <!-- 예: 분류 정확도 (테스트셋 기준) -->
+            <p class="kpi-label"><span class="todo">[작성 필요]</span></p>
+            <p class="kpi-source">근거 <span class="todo">[작성 필요]</span></p>
+          </li>
+          <li class="kpi">
+            <span class="kpi-num" aria-hidden="true">03</span>
+            <p class="kpi-value"><span class="todo">[작성 필요]</span></p>
+            <p class="kpi-label"><span class="todo">[작성 필요]</span></p>
+            <p class="kpi-source">근거 <span class="todo">[작성 필요]</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 3. 자기소개 (INTRODUCTION 템플릿) ===== -->
+    <section class="section" id="intro" aria-labelledby="intro-title">
+      <header class="section-head section-head-lg">
+        <div class="container">
+          <p class="label">INTRODUCTION.</p>
+          <!-- 나를 한 문장으로. 예: 숫자로 검증하는 데이터 운영자 홍길동입니다. -->
+          <h2 class="intro-title" id="intro-title"><span class="visually-hidden">자기소개: </span><span class="todo">[작성 필요]</span></h2>
+        </div>
+      </header>
+
+      <div class="container section-body intro-grid">
+        <div>
+          <!-- 소개글 2~3문장 -->
+          <p class="intro-text"><span class="todo">[작성 필요]</span></p>
+
+          <div class="info-grid">
+            <div class="info-block">
+              <h3 class="block-title">프로필</h3>
+              <dl class="kv">
+                <div>
+                  <dt>NAME</dt>
+                  <dd><span class="todo">[작성 필요]</span></dd>
+                </div>
+                <div>
+                  <dt>MAJOR</dt>
+                  <dd>컴퓨터공학과 3학년</dd>
+                </div>
+                <div>
+                  <dt>POSITION</dt>
+                  <dd>데이터 운영·분석</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">학력</h3>
+              <dl class="kv">
+                <div>
+                  <!-- 예: 2024.03 – -->
+                  <dt><span class="todo">[작성 필요]</span></dt>
+                  <!-- 학교 이름 -->
+                  <dd><span class="todo">[작성 필요]</span> 컴퓨터공학과 재학</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">자격증</h3>
+              <dl class="kv">
+                <div>
+                  <!-- 취득 연월. 예: 2026.06 -->
+                  <dt><span class="todo">[작성 필요]</span></dt>
+                  <dd>SQLD (SQL 개발자)</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">어학</h3>
+              <dl class="kv">
+                <div>
+                  <dt><span class="todo">[작성 필요]</span></dt>
+                  <!-- 예: OPIc 영어 IH -->
+                  <dd>OPIc <span class="todo">[작성 필요]</span></dd>
+                </div>
+                <div>
+                  <!-- 예: 2024.09 – 2025.02 -->
+                  <dt><span class="todo">[작성 필요]</span></dt>
+                  <!-- 지역. 예: 캐나다 밴쿠버 -->
+                  <dd>어학연수 6개월 · <span class="todo">[작성 필요]</span></dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
+
+        <!-- 프로필 사진 (원본 컬러) -->
+        <img class="intro-photo" src="assets/images/profile.webp" alt="프로필 사진" width="960" height="1285">
       </div>
     </section>
 
-    <!-- ===== 3. 프로젝트 (템플릿의 경력 기술 페이지) ===== -->
-    <section class="sheet sheet-grey" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <h2 class="band" id="projects-title">
-          <span class="band-ko">프로젝트</span>
-          <span class="band-en" aria-hidden="true">PROJECTS</span>
-        </h2>
+    <!-- ===== 4. 스킬 (표 + 카드 템플릿) ===== -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <header class="section-head">
+        <div class="container section-head-inner">
+          <div>
+            <p class="label">SKILLS.</p>
+            <h2 class="section-title" id="skills-title">할 줄 아는 것</h2>
+          </div>
+          <p class="section-note">각 기술을 실제로 어디에 썼는지 적었습니다.</p>
+        </div>
+      </header>
 
+      <div class="container section-body">
+        <!-- 행 하나 = 기술 하나. 별점·막대 대신 실제로 해 본 것 -->
+        <dl class="skill-table">
+          <div>
+            <!-- 예: SQL -->
+            <dt><span class="todo">[작성 필요]</span></dt>
+            <dd>
+              <!-- 예: JOIN·GROUP BY로 월별 집계 쿼리 작성, 서브쿼리로 중복 주문 탐지 -->
+              <p><span class="todo">[작성 필요]</span></p>
+              <!-- 예: <a href="projects/project-1.html">프로젝트 1</a> -->
+              <p class="muted-sm">사용한 곳 <span class="todo">[작성 필요]</span></p>
+            </dd>
+          </div>
+          <div>
+            <!-- 예: Python -->
+            <dt><span class="todo">[작성 필요]</span></dt>
+            <dd>
+              <!-- 예: pandas로 결측치·중복 정제, matplotlib로 전후 비교 그래프 -->
+              <p><span class="todo">[작성 필요]</span></p>
+              <p class="muted-sm">사용한 곳 <span class="todo">[작성 필요]</span></p>
+            </dd>
+          </div>
+          <div>
+            <dt><span class="todo">[작성 필요]</span></dt>
+            <dd>
+              <p><span class="todo">[작성 필요]</span></p>
+              <p class="muted-sm">사용한 곳 <span class="todo">[작성 필요]</span></p>
+            </dd>
+          </div>
+          <div>
+            <dt><span class="todo">[작성 필요]</span></dt>
+            <dd>
+              <p><span class="todo">[작성 필요]</span></p>
+              <p class="muted-sm">사용한 곳 <span class="todo">[작성 필요]</span></p>
+            </dd>
+          </div>
+        </dl>
+
+        <h3 class="sub-title">강점 역량</h3>
+        <!-- 퍼센트 대신, 강점과 그걸 보여주는 경험을 짧게 -->
+        <ul class="card-grid">
+          <li class="card">
+            <p class="card-label">STRENGTH 01</p>
+            <!-- 예: 꼼꼼한 검증 -->
+            <h4 class="card-title"><span class="todo">[작성 필요]</span></h4>
+            <!-- 예: 정제 전후 건수를 항상 SQL로 대조해 누락을 찾아냄 (프로젝트 1) -->
+            <p><span class="todo">[작성 필요]</span></p>
+          </li>
+          <li class="card">
+            <p class="card-label">STRENGTH 02</p>
+            <h4 class="card-title"><span class="todo">[작성 필요]</span></h4>
+            <p><span class="todo">[작성 필요]</span></p>
+          </li>
+          <li class="card">
+            <p class="card-label">STRENGTH 03</p>
+            <h4 class="card-title"><span class="todo">[작성 필요]</span></h4>
+            <p><span class="todo">[작성 필요]</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 5. 프로젝트 (이미지 카드 템플릿) ===== -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <header class="section-head">
+        <div class="container section-head-inner">
+          <div>
+            <p class="label">PROJECTS.</p>
+            <h2 class="section-title" id="projects-title">프로젝트</h2>
+          </div>
+          <p class="section-note">카드를 누르면 문제 정의부터 막혔던 부분까지 볼 수 있습니다.</p>
+        </div>
+      </header>
+
+      <div class="container section-body">
         <ul class="project-grid">
           <li class="project">
+            <p class="card-label">PROJECT 01</p>
+            <!-- 대표 이미지 자리. 결과 그래프나 화면 캡처로 교체:
+                 <img class="project-img" src="assets/images/project-1.png" alt="이미지 내용을 문장으로" width="1600" height="900" loading="lazy"> -->
+            <div class="img-slot"><span class="todo">[작성 필요]</span></div>
             <!-- 제목. a 태그 안의 글자만 바꾸면 카드 전체가 링크로 동작 -->
-            <h3 class="project-title"><a href="projects/project-1.html"><span class="project-num">1.</span><span class="todo">[작성 필요]</span></a></h3>
+            <h3 class="project-title"><a href="projects/project-1.html"><span class="todo">[작성 필요]</span></a></h3>
             <dl class="rows">
               <div>
                 <dt>사용 데이터</dt>
@@ -185,17 +332,15 @@
                 <dd class="row-stat"><span class="todo">[작성 필요]</span></dd>
               </div>
             </dl>
-            <h4 class="sub-label">요약</h4>
-            <!-- 무엇을 했고, 결과가 숫자로 어떻게 나왔는지 2~3문장 -->
+            <!-- 요약 2~3문장 -->
             <p><span class="todo">[작성 필요]</span></p>
-            <!-- 대표 이미지 자리. 결과 그래프나 화면 캡처로 교체:
-                 <img class="project-img" src="assets/images/project-1.png" alt="이미지 내용을 문장으로" width="1600" height="900" loading="lazy"> -->
-            <div class="img-slot"><span class="todo">[작성 필요]</span></div>
             <p class="project-more" aria-hidden="true">상세 보기 →</p>
           </li>
 
           <li class="project">
-            <h3 class="project-title"><a href="projects/project-2.html"><span class="project-num">2.</span><span class="todo">[작성 필요]</span></a></h3>
+            <p class="card-label">PROJECT 02</p>
+            <div class="img-slot"><span class="todo">[작성 필요]</span></div>
+            <h3 class="project-title"><a href="projects/project-2.html"><span class="todo">[작성 필요]</span></a></h3>
             <dl class="rows">
               <div>
                 <dt>사용 데이터</dt>
@@ -211,94 +356,54 @@
                 <dd class="row-stat"><span class="todo">[작성 필요]</span></dd>
               </div>
             </dl>
-            <h4 class="sub-label">요약</h4>
             <p><span class="todo">[작성 필요]</span></p>
-            <div class="img-slot"><span class="todo">[작성 필요]</span></div>
             <p class="project-more" aria-hidden="true">상세 보기 →</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== 4. 이력사항: 학력, 자격증, 어학연수 ===== -->
-    <section class="sheet" id="resume" aria-labelledby="resume-title">
-      <div class="container">
-        <h2 class="band" id="resume-title">
-          <span class="band-ko">이력사항</span>
-          <span class="band-en" aria-hidden="true">RESUME</span>
-        </h2>
-
-        <div class="resume-block">
-          <h3 class="num-title"><span class="num">01</span>학력사항</h3>
-          <ul class="timeline">
-            <li>
-              <!-- 예: 2024.03 – 재학 중 -->
-              <span class="tl-date"><span class="todo">[작성 필요]</span></span>
-              <!-- 학교 이름 -->
-              <span><span class="todo">[작성 필요]</span> 컴퓨터공학과 3학년 재학</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="two-col resume-block">
-          <div>
-            <h3 class="num-title"><span class="num">02</span>자격사항</h3>
-            <ul class="timeline">
-              <li>
-                <!-- 취득 연월. 예: 2026.06 -->
-                <span class="tl-date"><span class="todo">[작성 필요]</span></span>
-                <span>SQLD (SQL 개발자) · 한국데이터산업진흥원</span>
-              </li>
-              <li>
-                <span class="tl-date"><span class="todo">[작성 필요]</span></span>
-                <!-- 예: 영어 IH -->
-                <span>OPIc · <span class="todo">[작성 필요]</span></span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="num-title"><span class="num">03</span>어학연수</h3>
-            <ul class="timeline">
-              <li>
-                <!-- 예: 2024.09 – 2025.02 -->
-                <span class="tl-date"><span class="todo">[작성 필요]</span></span>
-                <!-- 지역. 예: 캐나다 밴쿠버 -->
-                <span>어학연수 6개월 · <span class="todo">[작성 필요]</span></span>
-              </li>
-            </ul>
-          </div>
+    <!-- ===== 6. 연락처 (THANK YOU 템플릿) ===== -->
+    <section class="cover cover-end" id="contact" aria-labelledby="contact-title">
+      <div class="cover-top">
+        <div class="container">
+          <h2 class="visually-hidden" id="contact-title">연락처</h2>
+          <p class="end-note">끝까지 봐주셔서 감사합니다.</p>
         </div>
       </div>
-    </section>
 
-    <!-- ===== 5. 연락처 (템플릿의 이름 + 연락처 줄) ===== -->
-    <section class="sheet sheet-grey" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <h2 class="band" id="contact-title">
-          <span class="band-ko">연락처</span>
-          <span class="band-en" aria-hidden="true">CONTACT</span>
-        </h2>
+      <div class="container cover-bottom">
+        <p class="cover-word cover-word-end" aria-hidden="true">THANK YOU!</p>
 
-        <div class="contact-card">
-          <div class="name-block">
-            <!-- 이름 -->
-            <p class="name-ko"><span class="todo">[작성 필요]</span></p>
-            <!-- 영문 이름. 예: HONG GILDONG -->
-            <p class="name-en"><span class="todo">[작성 필요]</span></p>
+        <svg class="deco" viewBox="0 0 120 380" aria-hidden="true" focusable="false">
+          <g stroke="currentColor" stroke-width="1.5" fill="none">
+            <line x1="28" y1="60" x2="28" y2="320" />
+            <line x1="92" y1="60" x2="92" y2="320" />
+            <line x1="44" y1="60" x2="76" y2="320" />
+            <line x1="76" y1="60" x2="44" y2="320" />
+          </g>
+          <circle cx="60" cy="60" r="58" fill="currentColor" />
+          <circle cx="60" cy="60" r="21" fill="#d6d3ca" />
+          <circle cx="60" cy="60" r="14" fill="#ffffff" />
+          <circle cx="60" cy="320" r="58" fill="currentColor" />
+          <circle cx="60" cy="320" r="21" fill="#d6d3ca" />
+          <circle cx="60" cy="320" r="14" fill="#ffffff" />
+        </svg>
+
+        <dl class="info-boxes">
+          <div>
+            <dt>E-MAIL.</dt>
+            <dd><span class="todo">[작성 필요]</span></dd>
           </div>
-          <dl class="contact-list">
-            <div>
-              <dt>이메일</dt>
-              <!-- 예: <a href="mailto:me@example.com">me@example.com</a> -->
-              <dd><span class="todo">[작성 필요]</span></dd>
-            </div>
-            <div>
-              <dt>GitHub</dt>
-              <!-- 예: <a href="https://github.com/아이디">github.com/아이디</a> -->
-              <dd><span class="todo">[작성 필요]</span></dd>
-            </div>
-          </dl>
-        </div>
+          <div>
+            <dt>GITHUB.</dt>
+            <dd><span class="todo">[작성 필요]</span></dd>
+          </div>
+          <div>
+            <dt>RESUME.</dt>
+            <dd><a href="assets/resume.pdf" download>PDF 다운로드</a></dd>
+          </div>
+        </dl>
       </div>
     </section>
   </main>
@@ -306,7 +411,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <!-- 내용을 고칠 때마다 날짜도 함께 바꾸기 -->
-      <p><span class="footer-brand">PORTFOLIO</span> · 최종 수정 2026년 11월</p>
+      <p>PORTFOLIO · 최종 수정 2026년 11월</p>
       <a href="#top">맨 위로 ↑</a>
     </div>
   </footer>

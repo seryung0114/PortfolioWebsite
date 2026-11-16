@@ -1,45 +1,35 @@
 /* =========================================================
-   포트폴리오 공통 스타일 (흑백 이력서 템플릿 스타일)
-   레이아웃: 섹션마다 "한글 큰 제목 + 영문 큰 제목" 줄,
-   "이름표 | 내용"을 검은 실선으로 나눈 표 형태, 흰색·연회색 시트를 번갈아 배치.
-   색은 흑백만 쓰고, 강조는 글자 굵기와 크기로.
+   포트폴리오 공통 스타일 (베이지 톤 포트폴리오 템플릿 스타일)
+   레이아웃: 섹션마다 위쪽 회갈색 띠 → 아래 모서리가 둥근 미색 머리 영역 → 흰 본문.
+   첫 페이지와 마지막 페이지는 "미색 위 + 베이지 아래" 2단 표지.
+   색은 따뜻한 회갈색 계열 하나로 통일하고, 강조는 굵기·크기·면 색으로.
    ========================================================= */
 
 :root {
   color-scheme: light;
 
-  /* 색상 (흰 배경 대비: 본문 18.9:1, 보조 7.5:1 / 연회색 위 보조 6.4:1) */
+  /* 색상 (흰 배경 대비: 본문 16.5:1, 보조 7.3:1 / 베이지 위 보조 5.0:1) */
   --bg: #ffffff;
-  --bg-sheet: #efefef;      /* 연회색 시트 */
-  --text: #111111;
-  --muted: #555555;
-  --rule: #111111;          /* 검은 실선 */
-  --slot: #d9d9d9;          /* 이미지 자리 */
-  --todo-border: #777777;   /* [작성 필요] 점선 */
-  --todo-bg: rgba(0, 0, 0, 0.04);
+  --bar: #6f6c65;           /* 맨 위 메뉴 띠 (흰 글자 대비 5.2:1) */
+  --strip: #8a877f;         /* 섹션 위 회갈색 띠 */
+  --paper: #edebe6;         /* 미색 머리 영역 */
+  --sand: #d9d6cb;          /* 베이지 면 */
+  --stone: #aca89d;         /* 장식 원·왼쪽 선 */
+  --card: #f3f2ef;          /* 연회색 카드 */
+  --line: #dcd9d1;          /* 구분선 */
+  --text: #1f1e1c;
+  --muted: #57544d;
+  --btn: #3b3934;           /* 진한 버튼 */
+  --todo-border: #8f8b80;   /* [작성 필요] 점선 */
 
-  /* 글꼴: 한글은 Pretendard(없으면 Noto Sans KR), 영문 큰 제목은 Roboto */
   --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
     "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --font-en: Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* 크기·간격 */
   --container: 1200px;
-  --gutter: clamp(20px, 4vw, 48px);
-  --header-h: 56px;
-}
-
-/* 검은 블록: 이 클래스 안에서는 색 변수만 반전해 같은 부품을 그대로 재사용 */
-.theme-dark {
-  color-scheme: dark;
-  --bg: #111111;
-  --text: #f2f2f2;
-  --muted: #b3b3b3;
-  --rule: #6b6b6b;
-  --todo-border: #9a9a9a;
-  --todo-bg: rgba(255, 255, 255, 0.06);
-  background: var(--bg);
-  color: var(--text);
+  --gutter: clamp(20px, 4vw, 56px);
+  --header-h: 48px;
+  --round: 24px;            /* 머리 영역 아래 모서리 */
 }
 
 /* ---------- 기본값 ---------- */
@@ -52,7 +42,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   /* 고정 바에 제목이 가려지지 않도록 */
-  scroll-padding-top: calc(var(--header-h) + 24px);
+  scroll-padding-top: calc(var(--header-h) + 16px);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -89,7 +79,7 @@ h2,
 h3,
 h4 {
   margin: 0;
-  line-height: 1.25;
+  line-height: 1.3;
   text-wrap: balance;
 }
 
@@ -120,7 +110,7 @@ a {
 
 /* 키보드 포커스는 항상 눈에 보이게 */
 :focus-visible {
-  outline: 3px solid var(--text);
+  outline: 3px solid var(--btn);
   outline-offset: 3px;
 }
 
@@ -146,13 +136,11 @@ a {
   display: inline-block;
   padding: 0 0.35em;
   border: 1px dashed var(--todo-border);
-  background: var(--todo-bg);
+  background: rgba(0, 0, 0, 0.035);
   color: var(--muted);
-  font-family: var(--font);
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1.35;
-  text-transform: none;
 }
 
 .skip-link {
@@ -161,9 +149,9 @@ a {
   left: 8px;
   z-index: 100;
   padding: 8px 16px;
-  background: #111;
+  background: var(--btn);
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
   transform: translateY(-200%);
 }
 
@@ -171,18 +159,27 @@ a {
   transform: none;
 }
 
-/* ---------- 상단 바: "PORTFOLIO ··· 메뉴" ---------- */
+.muted-sm {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- 맨 위 메뉴 띠 ---------- */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
+  z-index: 30;
+  background: var(--bar);
+  color: #fff;
 }
 
-/* 상세 페이지는 상단 바 대신 목차 바를 고정 */
+/* 상세 페이지는 메뉴 띠 대신 목차 바를 고정 */
 .page-detail .site-header {
   position: relative;
+}
+
+.site-header :focus-visible {
+  outline-color: #fff;
 }
 
 .header-inner {
@@ -195,15 +192,16 @@ a {
 
 .brand {
   flex-shrink: 0;
+  color: #fff;
   font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-decoration: none;
 }
 
 .nav {
   min-width: 0;
-  overflow-x: auto; /* 아주 좁은 화면에서는 메뉴만 가로 스크롤 */
+  overflow-x: auto; /* 좁은 화면에서는 메뉴만 가로 스크롤 */
   scrollbar-width: none;
 }
 
@@ -214,8 +212,8 @@ a {
 .nav a {
   display: block;
   padding: 8px 10px;
+  color: #fff;
   font-size: 14px;
-  font-weight: 700;
   white-space: nowrap;
   text-decoration: none;
 }
@@ -224,278 +222,461 @@ a {
 .nav a:hover,
 .nav a[aria-current] {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
-/* ---------- 시트(섹션) ---------- */
-.sheet {
-  padding: clamp(64px, 9vw, 112px) 0;
-}
-
-.sheet-grey {
-  background: var(--bg-sheet);
-}
-
-/* 템플릿의 "한글 큰 제목 + 영문 큰 제목" 줄 */
-.band {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: baseline;
-  gap: 8px 32px;
-  margin: 0 0 clamp(40px, 6vw, 72px);
-}
-
-.band-bottom {
-  margin: clamp(64px, 8vw, 104px) 0 0;
-}
-
-.band-ko {
-  font-size: clamp(32px, 4.4vw, 56px);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-}
-
-.band-en {
-  font-family: var(--font-en);
-  font-size: clamp(24px, 3.8vw, 52px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0.01em;
-}
-
-/* 번호 붙은 소제목 + 아래 검은 실선: "01 학력사항" */
-.num-title {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--rule);
-  font-size: clamp(22px, 2.4vw, 28px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-.num {
-  font-family: var(--font-en);
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
-.num-title .num {
-  font-size: 0.75em;
-}
-
-/* "이름표 | 내용" 행, 행마다 아래 검은 실선 */
-.rows > div {
-  display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
-  gap: 20px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.rows dt {
-  font-weight: 800;
-}
-
-.sub-label {
-  font-size: 17px;
-  font-weight: 800;
-}
-
-/* 두 칸 배치 */
-.two-col {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 56px clamp(40px, 6vw, 96px);
-}
-
-.col-title {
-  margin-bottom: 8px;
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-/* 이미지 자리 (회색 상자) */
-.img-slot {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 16 / 9;
-  background: var(--slot);
-}
-
-.img-slot-wide {
-  aspect-ratio: 3 / 1;
-}
-
-/* ---------- 버튼: 각진 사각형 ---------- */
+/* ---------- 버튼 ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 48px; /* 손가락으로 누르기 쉬운 높이 */
   padding: 0 24px;
-  border: 1px solid var(--text);
+  border: 1px solid transparent;
+  border-radius: 2px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.15s, color 0.15s;
+  transition: background-color 0.15s, border-color 0.15s;
 }
 
 .btn-primary {
-  background: var(--text);
-  color: var(--bg);
-}
-
-.btn-primary:hover {
-  background: #3a3a3a;
-  border-color: #3a3a3a;
+  background: var(--btn);
   color: #fff;
 }
 
+.btn-primary:hover {
+  background: var(--text);
+}
+
 .btn-secondary {
-  background: transparent;
+  background: #fff;
+  border-color: var(--stone);
   color: var(--text);
 }
 
 .btn-secondary:hover {
-  background: var(--text);
-  color: var(--bg);
+  border-color: var(--btn);
 }
 
-/* ---------- 1. 첫 화면 (자기소개) ---------- */
-.hero-grid {
+/* =========================================================
+   표지 (첫 페이지, 마지막 THANK YOU 페이지)
+   ========================================================= */
+.cover {
+  background: var(--sand);
+}
+
+/* 위: 미색 영역, 아래 모서리만 둥글게 */
+.cover-top {
+  padding: clamp(64px, 11vw, 150px) 0 clamp(28px, 4vw, 48px);
+  border-radius: 0 0 var(--round) var(--round);
+  background: var(--paper);
+}
+
+/* 아주 얇고 큰 영문 글자 */
+.cover-word {
+  font-size: clamp(44px, 14vw, 176px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+}
+
+/* 아래: 베이지 영역 (왼쪽 글, 오른쪽 장식, 맨 아래 흰 박스) */
+.cover-bottom {
   display: grid;
-  grid-template-columns: minmax(200px, 320px) minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: start;
-}
-
-/* 프로필 사진: 원본 색 그대로, 세로 3:4 비율 */
-.profile-photo {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: var(--slot);
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px 48px;
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
 .eyebrow {
   color: var(--muted);
-  font-size: 15px;
-  font-weight: 700;
-}
-
-/* 템플릿처럼 얇고 큰 인사말 + 아래 검은 실선 */
-.hero-title {
-  margin-top: 12px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid var(--rule);
-  font-size: clamp(32px, 4.6vw, 60px);
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -0.04em;
-}
-
-.hero-intro {
-  margin-top: 24px;
-  font-size: clamp(18px, 1.8vw, 22px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-/* 핵심 성과: 큰 숫자 3칸 */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px 32px;
-  margin-top: 40px;
-}
-
-.stats-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 720px;
-  margin-top: 16px;
-}
-
-.stat-value {
-  font-size: clamp(28px, 3.2vw, 40px);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-}
-
-.stat-label {
-  margin-top: 6px;
-  font-weight: 700;
-}
-
-.stat-source {
-  margin-top: 2px;
-  color: var(--muted);
   font-size: 14px;
+  font-weight: 500;
+}
+
+.cover-title {
+  margin-top: 8px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.cover-intro {
+  max-width: 36em;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 17px;
 }
 
 .cta-row {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 44px;
+  margin-top: 32px;
 }
 
-/* ---------- 2. 스킬 및 역량 ---------- */
-.skill {
+/* 원 두 개 + 끈 장식: 미색과 베이지 경계에 걸치도록 위로 끌어올림 */
+.deco {
+  position: relative;
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  width: 110px;
+  height: auto;
+  margin-top: -230px;
+  margin-right: 24px;
+  color: var(--stone);
+}
+
+/* 흰 박스: "E-MAIL. ··· 값" */
+.info-boxes {
   display: grid;
-  gap: 2px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--rule);
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.skill-name {
-  margin-bottom: 4px;
-  font-size: clamp(22px, 2.4vw, 28px);
-  font-weight: 700;
+.info-boxes > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding: 12px 24px;
+  border-left: 3px solid var(--stone);
+  background: #fff;
+}
+
+.info-boxes dt {
+  flex-shrink: 0;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.info-boxes dd {
+  min-width: 0;
+  font-size: 15px;
+  text-align: right;
+}
+
+/* 마지막 페이지 */
+.cover-end .cover-top {
+  padding: 56px 0 44px;
+}
+
+.end-note {
+  font-size: clamp(18px, 2vw, 22px);
+}
+
+.cover-word-end {
+  grid-column: 1;
+  align-self: end;
+  font-size: clamp(44px, 10vw, 136px); /* 한 줄에 들어가도록 표지보다 작게 */
+}
+
+.cover-end .deco {
+  margin-top: -170px;
+}
+
+/* =========================================================
+   일반 섹션 (회갈색 띠 → 미색 머리 영역 → 흰 본문)
+   ========================================================= */
+.section {
+  border-top: 12px solid var(--strip);
+}
+
+.section-head {
+  padding: 40px 0 36px;
+  border-radius: 0 0 var(--round) var(--round);
+  background: var(--paper);
+}
+
+.section-head-lg {
+  padding: 56px 0 48px;
+}
+
+.section-head-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 48px;
+}
+
+/* "INTRODUCTION." 같은 작은 영문 라벨 */
+.label {
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.section-title {
+  margin-top: 6px;
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 500;
   letter-spacing: -0.03em;
 }
 
-.skill-proof {
+.section-note {
+  max-width: 26em;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: right;
+}
+
+.section-body {
+  padding-top: 48px;
+  padding-bottom: clamp(64px, 8vw, 96px);
+}
+
+.sub-title {
+  margin: 56px 0 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* 이미지 자리 (베이지 상자) */
+.img-slot {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background: var(--sand);
+}
+
+.img-slot-wide {
+  aspect-ratio: 4 / 1;
+}
+
+/* ---------- 2. 핵심 성과 카드 ---------- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.kpi-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.kpi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 36px 24px 32px;
+  background: var(--card);
+  text-align: center;
+}
+
+/* 흰 원 안의 번호 (템플릿의 아이콘 자리) */
+.kpi-num {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.kpi-value {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-label {
+  font-weight: 500;
+}
+
+.kpi-source {
+  margin-top: auto;
+  padding-top: 6px;
   color: var(--muted);
   font-size: 14px;
 }
 
-.strengths > div {
+/* ---------- 3. 자기소개 ---------- */
+.intro-title {
+  margin-top: 10px;
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 380px);
+  gap: 48px clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+
+.intro-text {
+  max-width: 44em;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+/* 2×2 정보 블록 */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+/* 회색 머리줄 + 왼쪽 선 */
+.block-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--stone);
+  background: var(--card);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.block-title-lg {
+  padding: 16px 20px;
+  font-size: clamp(20px, 2.2vw, 24px);
+}
+
+.block-title .num {
+  color: var(--muted);
+  font-size: 0.75em;
+}
+
+/* 이름표 왼쪽, 값 오른쪽 정렬 */
+.kv {
   display: grid;
   gap: 4px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 14px 8px 0;
 }
 
-.strengths dt {
-  font-size: 17px;
-  font-weight: 800;
+.kv > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-/* ---------- 3. 프로젝트 ---------- */
+.kv dt {
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.kv dd {
+  text-align: right;
+}
+
+/* 프로필 사진: 원본 색, 4:5로 잘라 얼굴이 위쪽에 오도록 */
+.intro-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 20%;
+  background: var(--sand);
+}
+
+/* ---------- 4. 스킬 ---------- */
+/* 왼쪽 미색 칸(기술 이름) + 오른쪽 흰 칸(설명) */
+.skill-table {
+  border-top: 1px solid var(--line);
+}
+
+.skill-table > div {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-table dt {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--paper);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.skill-table dd {
+  display: grid;
+  gap: 4px;
+  padding: 20px 24px;
+}
+
+/* 강점 역량 카드 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 28px;
+  background: var(--card);
+}
+
+.card > :not(.card-label) {
+  margin-inline: 24px;
+}
+
+/* 카드 맨 위 작은 라벨 줄 */
+.card-label {
+  padding: 10px 24px;
+  background: #e6e3dc;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.card-title {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ---------- 5. 프로젝트 카드 ---------- */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 64px clamp(32px, 4vw, 56px);
+  gap: 24px;
 }
 
 .project {
   position: relative; /* 제목 링크를 카드 전체로 넓히기 위한 기준 */
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
+  padding-bottom: 28px;
+  background: var(--card);
+}
+
+.project > :not(.card-label):not(.img-slot):not(.project-img) {
+  margin-inline: 28px;
 }
 
 .project-title {
-  font-size: clamp(24px, 2.6vw, 32px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .project-title a {
@@ -506,7 +687,7 @@ a {
 .project-title a::after {
   content: "";
   position: absolute;
-  inset: -12px;
+  inset: 0;
 }
 
 .project-title a:focus-visible {
@@ -515,101 +696,56 @@ a {
 
 /* 키보드로 들어오면 카드 전체에 포커스 표시 */
 .project:focus-within {
-  outline: 3px solid var(--text);
-  outline-offset: 12px;
-}
-
-.project-num {
-  margin-right: 0.45em;
-  font-family: var(--font-en);
-}
-
-.row-stat {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
+  outline: 3px solid var(--btn);
+  outline-offset: 4px;
 }
 
 .project-more {
-  font-weight: 700;
+  margin-top: auto;
+  font-weight: 600;
 }
 
 .project:hover .project-more {
   text-decoration: underline;
 }
 
-/* ---------- 4. 이력사항 ---------- */
-.resume-block + .resume-block {
-  margin-top: 56px;
-}
-
-/* 날짜 | 내용 목록, 템플릿처럼 제목 글자 위치에 맞춰 들여쓰기 */
-.timeline {
+/* "이름표 | 내용" 행 */
+.rows > div {
   display: grid;
-  gap: 10px;
-  margin-top: 18px;
-  padding-left: 46px;
-}
-
-.timeline li {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+  grid-template-columns: 110px minmax(0, 1fr);
   gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.tl-date {
+.rows > div:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.rows dt {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.row-stat {
+  font-size: 20px;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
-}
-
-/* ---------- 5. 연락처 ---------- */
-.contact-card {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 32px 80px;
-}
-
-.name-block {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 8px 18px;
-}
-
-.name-ko {
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
-}
-
-.name-en {
-  padding-bottom: 6px;
-  font-family: var(--font-en);
-  font-size: 18px;
-}
-
-.contact-list {
-  display: grid;
-  gap: 6px;
-}
-
-.contact-list > div {
-  display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
-  gap: 16px;
-  font-size: 18px;
-}
-
-.contact-list dt {
-  font-weight: 800;
 }
 
 /* ---------- 푸터 ---------- */
 .site-footer {
-  border-top: 1px solid var(--rule);
+  background: var(--bar);
+  color: #fff;
   font-size: 13px;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.site-footer :focus-visible {
+  outline-color: #fff;
 }
 
 .footer-inner {
@@ -617,13 +753,8 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.footer-brand {
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 /* =========================================================
@@ -635,8 +766,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
 }
 
 .toc-inner {
@@ -648,9 +779,8 @@ a {
 
 .toc-title {
   flex-shrink: 0;
-  font-family: var(--font-en);
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-decoration: none;
 }
@@ -669,7 +799,6 @@ a {
   padding: 6px 0;
   color: var(--muted);
   font-size: 14px;
-  font-weight: 700;
   white-space: nowrap;
   text-decoration: none;
 }
@@ -684,58 +813,80 @@ a {
   color: var(--text);
   text-decoration: underline;
   text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.page-detail .section {
+  border-top: 0;
 }
 
 .back {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   font-size: 14px;
-  font-weight: 700;
 }
 
-.detail-head {
+.back a {
+  color: var(--muted);
+}
+
+/* 결과 숫자 카드 + 개요 블록 */
+.overview-grid {
   display: grid;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  margin-top: 40px;
 }
 
-.detail-title {
-  font-size: clamp(30px, 4.4vw, 52px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.detail-summary {
-  max-width: 40em;
-  font-size: clamp(17px, 1.8vw, 20px);
-}
-
-/* 사용 데이터·기간·역할·도구: 2칸 표 */
-.rows-grid {
+/* 개요는 값이 길 수 있어서 왼쪽 정렬 */
+.overview-grid .kv > div {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 48px;
-  margin-top: 16px;
+  grid-template-columns: 96px minmax(0, 1fr);
+}
+
+.overview-grid .kv dd {
+  text-align: left;
 }
 
 .detail-body {
   display: grid;
-  gap: 96px;
-  padding-top: 96px;
+  gap: 72px;
   padding-bottom: 96px;
 }
 
 .detail-section {
   display: grid;
-  gap: 24px;
+  gap: 20px;
   min-width: 0; /* 표가 넓어도 레이아웃이 깨지지 않게 */
 }
 
 .detail-section .rows > div {
   grid-template-columns: 180px minmax(0, 1fr);
+  padding: 16px 4px;
 }
 
-/* 막혔던 부분: 검은 블록으로 강조 */
-.detail-dark {
-  padding: clamp(32px, 5vw, 64px);
+.detail-section .rows dt {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* 막혔던 부분: 베이지 블록으로 강조 */
+.detail-highlight {
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 16px;
+  background: var(--sand);
+}
+
+.detail-highlight .block-title {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.detail-highlight .rows > div {
+  border-color: #c4c0b4;
+}
+
+.detail-highlight .todo {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 /* 처리 흐름도: 좁은 화면은 세로(↓), 735px 이상은 가로 한 줄(→) */
@@ -748,10 +899,17 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 6px;
   padding: 20px;
-  border: 1px solid var(--rule);
-  background: var(--bg);
+  background: var(--card);
+}
+
+.flow-step .kpi-num {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+  font-size: 14px;
 }
 
 /* 단계 사이 화살표 (스크린리더는 읽지 않음) */
@@ -760,21 +918,14 @@ a {
   content: "↓" / "";
   position: absolute;
   bottom: -28px;
-  left: 20px;
-  font-weight: 700;
+  left: 32px;
+  color: var(--muted);
   line-height: 1.2;
 }
 
-.flow-num {
-  font-family: var(--font-en);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
 .flow-name {
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .flow-desc {
@@ -795,28 +946,26 @@ a {
 
 .result-table th,
 .result-table td {
-  padding: 16px 16px 16px 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: middle;
 }
 
 .result-table thead th {
-  padding-top: 0;
-  border-bottom-width: 2px;
+  background: var(--paper);
+  color: var(--muted);
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .result-table tbody th {
-  font-weight: 800;
+  font-weight: 600;
 }
 
-.result-table .num {
-  font-family: var(--font);
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.num-cell {
+  font-size: 20px;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -827,43 +976,41 @@ a {
   font-size: 14px;
 }
 
-/* 이전·다음 프로젝트 */
+/* 이전·다음 프로젝트: 표지의 흰 박스와 같은 모양 */
+.pager-wrap {
+  padding: 40px 0;
+  background: var(--sand);
+}
+
 .pager {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
-  padding-bottom: 96px;
 }
 
 .pager-link {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 24px;
-  border: 1px solid var(--rule);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 16px 24px;
+  border-left: 3px solid var(--stone);
+  background: #fff;
   text-decoration: none;
-  transition: background-color 0.15s, color 0.15s;
 }
 
-.pager-link:hover {
-  background: var(--text);
-  color: var(--bg);
-}
-
-.pager-next {
-  text-align: right;
+.pager-link:hover .pager-title {
+  text-decoration: underline;
 }
 
 .pager-label {
-  font-family: var(--font-en);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 14px;
+  letter-spacing: 0.02em;
 }
 
 .pager-title {
-  font-size: 20px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 /* =========================================================
@@ -888,49 +1035,80 @@ a {
   }
 }
 
-/* 태블릿 이하: 두 칸 배치를 한 칸으로 */
+/* 태블릿 이하: 장식 숨기고 두 칸 배치를 한 칸으로 */
 @media (max-width: 900px) {
-  .hero-grid,
-  .two-col,
+  .deco {
+    display: none;
+  }
+
+  .cover-bottom,
+  .intro-grid,
   .project-grid,
-  .rows-grid {
+  .card-grid,
+  .overview-grid {
     grid-template-columns: 1fr;
   }
 
-  .profile-photo {
-    max-width: 240px;
+  .info-boxes {
+    grid-template-columns: 1fr;
+  }
+
+  /* 좁은 화면에서는 사진을 소개글 위로 */
+  .intro-photo {
+    order: -1;
+    max-width: 300px;
   }
 }
 
 /* 스마트폰 (734px 이하) */
 @media (max-width: 734px) {
-  .band {
+  /* 메뉴 5개가 한 줄에 보이도록 PORTFOLIO 글자는 숨김 (표지에 크게 있음) */
+  .brand {
+    display: none;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav ul {
+    justify-content: space-between;
+  }
+
+  .nav a {
+    padding: 8px 4px;
+    font-size: 13px;
+  }
+
+  .section-head-inner {
+    display: block;
+  }
+
+  .section-note {
+    margin-top: 8px;
+    text-align: left;
+  }
+
+  .kpi-grid,
+  .kpi-grid-2,
+  .info-grid {
     grid-template-columns: 1fr;
-    gap: 4px;
   }
 
-  .band-en {
-    color: var(--muted);
-    font-size: 20px;
-  }
-
-  .profile-photo {
-    max-width: 160px;
-  }
-
-  .stats,
-  .stats-2 {
+  .skill-table > div {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
-  .cta-row .btn {
-    flex: 1 1 auto; /* 버튼을 가로로 꽉 채워 누르기 쉽게 */
+  .skill-table dt {
+    padding: 12px 16px;
+  }
+
+  .skill-table dd {
+    padding: 14px 16px 18px;
   }
 
   .rows > div {
     grid-template-columns: 96px minmax(0, 1fr);
-    gap: 12px;
   }
 
   /* 상세 페이지 항목은 위아래로 쌓기 */
@@ -939,27 +1117,23 @@ a {
     gap: 4px;
   }
 
-  .timeline {
-    padding-left: 0;
+  .cta-row .btn {
+    flex: 1 1 auto; /* 버튼을 가로로 꽉 채워 누르기 쉽게 */
   }
 
-  .timeline li {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .info-boxes > div {
+    padding: 12px 18px;
   }
 
-  .detail-body {
-    gap: 72px;
-    padding-top: 72px;
-    padding-bottom: 72px;
+  .project > :not(.card-label):not(.img-slot):not(.project-img) {
+    margin-inline: 20px;
+  }
+
+  .card-label {
+    padding-inline: 20px;
   }
 
   .pager {
     grid-template-columns: 1fr;
-    padding-bottom: 72px;
-  }
-
-  .pager-next {
-    text-align: left;
   }
 }
