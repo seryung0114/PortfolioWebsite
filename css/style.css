@@ -436,18 +436,6 @@ a {
   margin-top: 0;
 }
 
-/* 이미지 자리 (베이지 상자) */
-.img-slot {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 16 / 9;
-  background: var(--sand);
-}
-
-.img-slot-wide {
-  aspect-ratio: 4 / 1;
-}
-
 /* ---------- 2. 핵심 성과 카드 ---------- */
 .kpi-grid {
   display: grid;
@@ -710,7 +698,7 @@ a {
   background: var(--card);
 }
 
-.project > :not(.card-label):not(.img-slot):not(.project-img) {
+.project > :not(.card-label) {
   margin-inline: 28px;
 }
 
@@ -985,13 +973,6 @@ a {
   letter-spacing: 0.02em;
 }
 
-.tcard-img {
-  display: block;
-  width: calc(100% + 56px);
-  max-width: none;
-  margin: 8px -28px -28px;
-}
-
 /* 베이지 강조 블록 안에서는 카드를 흰색으로 */
 .detail-highlight .tcard {
   background: #fff;
@@ -1036,12 +1017,6 @@ a {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-}
-
-.figure figcaption {
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 14px;
 }
 
 /* 이전·다음 프로젝트: 표지의 흰 박스와 같은 모양 */
@@ -1185,7 +1160,7 @@ a {
     padding: 12px 18px;
   }
 
-  .project > :not(.card-label):not(.img-slot):not(.project-img) {
+  .project > :not(.card-label) {
     margin-inline: 20px;
   }
 
