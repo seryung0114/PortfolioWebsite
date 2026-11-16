@@ -931,48 +931,70 @@ a {
   background: rgba(255, 255, 255, 0.45);
 }
 
-/* 처리 흐름도: 좁은 화면은 세로(↓), 735px 이상은 가로 한 줄(→) */
-.flow {
+/* 템플릿형 카드 3개: 위쪽 선 + 연회색 면 (핵심 행동과 결과, 문제와 해결책) */
+.tcard-grid {
   display: grid;
-  gap: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
-.flow-step {
-  position: relative;
+.tcard {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  padding: 20px;
+  gap: 10px;
+  padding: 32px 28px 28px;
+  border-top: 2px solid var(--stone);
   background: var(--card);
-}
-
-.flow-step .kpi-num {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 4px;
-  font-size: 14px;
-}
-
-/* 단계 사이 화살표 (스크린리더는 읽지 않음) */
-.flow-step:not(:last-child)::after {
-  content: "↓";
-  content: "↓" / "";
-  position: absolute;
-  bottom: -28px;
-  left: 32px;
-  color: var(--muted);
-  line-height: 1.2;
-}
-
-.flow-name {
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.flow-desc {
-  color: var(--muted);
   font-size: 15px;
+}
+
+/* 흰 원 안의 번호 (템플릿의 아이콘 자리) */
+.tcard-circle {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tcard-title {
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* "How + Result", "Point" 줄: 카드 아래쪽에 맞춤 */
+.tcard-point {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.tcard-point b {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tcard-img {
+  display: block;
+  width: calc(100% + 56px);
+  max-width: none;
+  margin: 8px -28px -28px;
+}
+
+/* 베이지 강조 블록 안에서는 카드를 흰색으로 */
+.detail-highlight .tcard {
+  background: #fff;
 }
 
 /* 결과 표 */
@@ -1063,24 +1085,6 @@ a {
    화면 크기별 조정
    ========================================================= */
 
-/* 태블릿 이상: 흐름도를 가로 한 줄로 */
-@media (min-width: 735px) {
-  .flow {
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column; /* 단계 수와 상관없이 한 줄 */
-  }
-
-  .flow-step:not(:last-child)::after {
-    content: "→";
-    content: "→" / "";
-    top: 50%;
-    right: -23px;
-    bottom: auto;
-    left: auto;
-    transform: translateY(-50%);
-  }
-}
-
 /* 태블릿 이하: 장식 숨기고 두 칸 배치를 한 칸으로 */
 @media (max-width: 900px) {
   .deco {
@@ -1091,6 +1095,7 @@ a {
   .intro-grid,
   .project-grid,
   .card-grid,
+  .tcard-grid,
   .overview-grid {
     grid-template-columns: 1fr;
   }

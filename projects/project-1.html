@@ -135,29 +135,28 @@
           </div>
         </dl>
 
-        <h3 class="sub-title">해결 흐름</h3>
-        <ol class="flow">
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">1</span>
-            <strong class="flow-name">원인 판단</strong>
-            <span class="flow-desc">충돌과 잘못된 연결의 원인을 팀의 작업 기준 불일치로 판단</span>
+        <h3 class="sub-title">핵심 행동과 결과</h3>
+        <!-- 카드 하나 = 행동 하나. 위에서부터 순서대로 읽히도록 번호를 붙임 -->
+        <ul class="tcard-grid">
+          <li class="tcard">
+            <span class="tcard-circle" aria-hidden="true">01</span>
+            <h4 class="tcard-title">문제해결</h4>
+            <p>병합 충돌과 찜·리뷰가 엉뚱한 상품에 연결되는 문제의 원인을 팀의 작업 기준 불일치로 판단했습니다.</p>
+            <p class="tcard-point"><b>How + Result</b>공용 파일 수정 순서와 "테스트 브랜치 → main" 병합 규칙 제안 → 병합 충돌 사라짐</p>
           </li>
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">2</span>
-            <strong class="flow-name">작업 규칙 제안</strong>
-            <span class="flow-desc">공용 파일은 정해진 순서로 수정, 테스트 브랜치를 거쳐 main에 병합</span>
+          <li class="tcard">
+            <span class="tcard-circle" aria-hidden="true">02</span>
+            <h4 class="tcard-title">데이터 정합성</h4>
+            <p>팀원마다 상품을 다른 값으로 가리켜 찜과 리뷰가 잘못된 상품에 연결됐습니다.</p>
+            <p class="tcard-point"><b>How + Result</b>상품 식별자를 고유 ID로 통일하고 규칙 공지 → 찜·리뷰가 올바른 상품에 연결</p>
           </li>
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">3</span>
-            <strong class="flow-name">식별자 통일</strong>
-            <span class="flow-desc">상품을 고유 ID로 가리키도록 통일하고 규칙 공지</span>
+          <li class="tcard">
+            <span class="tcard-circle" aria-hidden="true">03</span>
+            <h4 class="tcard-title">의사소통</h4>
+            <p>팀원들의 의견을 모아 작업 규칙을 정하고, 점검 결과를 담당자에게 정확히 전달했습니다.</p>
+            <p class="tcard-point"><b>How + Result</b>가입부터 구매·리뷰까지 흐름을 점검해 오류 2건을 재현 순서와 함께 전달 → 최종 시연 오류 0건</p>
           </li>
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">4</span>
-            <strong class="flow-name">사용자 흐름 점검</strong>
-            <span class="flow-desc">가입부터 구매·리뷰까지 따라가며 오류 2건을 재현 순서와 함께 전달</span>
-          </li>
-        </ol>
+        </ul>
       </section>
 
       <!-- ===== 03 결과 ===== -->
@@ -217,24 +216,25 @@
       <!-- ===== 04 막혔던 부분과 해결 과정 ===== -->
       <section class="detail-section detail-highlight" id="trouble" aria-labelledby="trouble-title">
         <h2 class="block-title block-title-lg" id="trouble-title"><span class="num">04</span>막혔던 부분과 해결 과정</h2>
-        <dl class="rows">
-          <div>
-            <dt>막힌 상황</dt>
-            <dd>각자 만든 기능을 합치자 같은 파일을 동시에 고친 탓에 병합 충돌이 반복됐고, 제가 맡은 찜은 물론 리뷰까지 엉뚱한 상품에 연결됐습니다.</dd>
-          </div>
-          <div>
-            <dt>원인</dt>
-            <dd>팀의 작업 기준이 통일되지 않았습니다. 공용 파일을 고치는 순서가 없었고, 팀원마다 상품을 다른 값으로 가리켰습니다.</dd>
-          </div>
-          <div>
-            <dt>해결 방법</dt>
-            <dd>팀원들의 의견을 모아 각자 작업은 그대로 하되 공용 파일은 정해진 순서대로 고치고, 테스트 브랜치를 거친 뒤 main 브랜치에 병합하도록 제안했습니다. 상품 식별자도 고유 ID로 통일해 규칙을 공지했습니다.</dd>
-          </div>
-          <div>
-            <dt>결과</dt>
-            <dd>이후 병합 충돌이 사라졌고 찜과 리뷰도 올바른 상품에 연결됐습니다.</dd>
-          </div>
-        </dl>
+        <!-- 카드 하나 = 단계 하나. 화면 캡처가 있으면 카드 맨 아래에 추가:
+             <img class="tcard-img" src="../assets/images/파일이름.png" alt="화면 내용을 문장으로" width="1600" height="900" loading="lazy"> -->
+        <ul class="tcard-grid">
+          <li class="tcard">
+            <h3 class="tcard-title">문제 상황</h3>
+            <p>각자 만든 기능을 병합하자 같은 파일을 동시에 고친 탓에 충돌이 반복됐고, 제가 맡은 찜은 물론 리뷰까지 엉뚱한 상품에 연결됐습니다.</p>
+            <p class="tcard-point"><b>Point</b>각자 만들 때는 보이지 않던 문제가 병합하는 순간 한꺼번에 드러남</p>
+          </li>
+          <li class="tcard">
+            <h3 class="tcard-title">원인</h3>
+            <p>공용 파일을 고치는 순서가 정해져 있지 않았고, 팀원마다 상품을 서로 다른 값으로 가리켰습니다.</p>
+            <p class="tcard-point"><b>Point</b>팀의 작업 기준 불일치</p>
+          </li>
+          <li class="tcard">
+            <h3 class="tcard-title">해결책</h3>
+            <p>팀원들의 의견을 모아 공용 파일은 정해진 순서대로 고치고, 테스트 브랜치를 거친 뒤 main 브랜치에 병합하도록 제안했습니다. 상품 식별자도 고유 ID로 통일해 공지했습니다.</p>
+            <p class="tcard-point"><b>Point</b>병합 충돌이 사라지고 찜·리뷰가 올바른 상품에 연결됨</p>
+          </li>
+        </ul>
       </section>
 
       <!-- ===== 05 AI 도구 활용 ===== -->

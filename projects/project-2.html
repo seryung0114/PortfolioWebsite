@@ -135,29 +135,28 @@
           </div>
         </dl>
 
-        <h3 class="sub-title">처리 흐름</h3>
-        <ol class="flow">
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">1</span>
-            <strong class="flow-name">당시 단가 저장</strong>
-            <span class="flow-desc">주문 시점의 단가를 별도 칼럼에 저장</span>
+        <h3 class="sub-title">핵심 행동과 결과</h3>
+        <!-- 카드 하나 = 행동 하나. 위에서부터 순서대로 읽히도록 번호를 붙임 -->
+        <ul class="tcard-grid">
+          <li class="tcard">
+            <span class="tcard-circle" aria-hidden="true">01</span>
+            <h4 class="tcard-title">문제해결</h4>
+            <p>가격이 바뀌면 지난 매출까지 새 가격으로 다시 계산될 수 있었습니다.</p>
+            <p class="tcard-point"><b>How + Result</b>주문 시점의 단가를 별도 칼럼에 저장 → 과거 매출을 주문 당시 기준으로 집계</p>
           </li>
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">2</span>
-            <strong class="flow-name">당시 상태로 조회</strong>
-            <span class="flow-desc">주문일을 고객 이력의 유효 기간과 맞춰 당시 상태로 집계</span>
+          <li class="tcard">
+            <span class="tcard-circle" aria-hidden="true">02</span>
+            <h4 class="tcard-title">데이터 정합성</h4>
+            <p>고객 정보가 바뀌어도 분석은 주문 당시의 고객 상태를 기준으로 해야 했습니다.</p>
+            <p class="tcard-point"><b>How + Result</b>주문일을 고객 이력의 유효 기간과 맞춰 조회 → 당시 상태로 집계</p>
           </li>
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">3</span>
-            <strong class="flow-name">저장 전 검증</strong>
-            <span class="flow-desc">필수값 누락, 없는 고객·상품, 중복 상품을 걸러내고 PreparedStatement로 SQL 인젝션 방지</span>
+          <li class="tcard">
+            <span class="tcard-circle" aria-hidden="true">03</span>
+            <h4 class="tcard-title">안정성</h4>
+            <p>잘못되거나 일부만 저장된 데이터가 남지 않아야 했습니다.</p>
+            <p class="tcard-point"><b>How + Result</b>PreparedStatement 바인딩, 저장 전 검증(필수값 누락·없는 고객/상품·중복 상품), 트랜잭션 롤백 → 누락·중복·일부 저장 차단</p>
           </li>
-          <li class="flow-step">
-            <span class="kpi-num" aria-hidden="true">4</span>
-            <strong class="flow-name">오류 시 롤백</strong>
-            <span class="flow-desc">저장 중 오류가 나면 트랜잭션을 롤백해 일부만 저장되지 않게 함</span>
-          </li>
-        </ol>
+        </ul>
       </section>
 
       <!-- ===== 03 결과 ===== -->
@@ -213,24 +212,25 @@
       <!-- ===== 04 고민한 부분과 해결 과정 ===== -->
       <section class="detail-section detail-highlight" id="trouble" aria-labelledby="trouble-title">
         <h2 class="block-title block-title-lg" id="trouble-title"><span class="num">04</span>막혔던 부분과 해결 과정</h2>
-        <dl class="rows">
-          <div>
-            <dt>문제 상황</dt>
-            <dd>가격이나 고객 정보가 바뀌면 지난 매출까지 새 값으로 다시 계산되어, 분석 결과를 믿을 수 없게 될 수 있었습니다.</dd>
-          </div>
-          <div>
-            <dt>해결 방법</dt>
-            <dd>주문 시점의 단가를 별도 칼럼에 저장하고, 조회 기능에서는 주문일을 고객 이력의 유효 기간과 맞춰 당시 상태로 집계했습니다.</dd>
-          </div>
-          <div>
-            <dt>데이터 보호</dt>
-            <dd>입력값은 PreparedStatement로 바인딩해 SQL 인젝션을 막고, 필수값 누락과 없는 고객·상품, 중복 상품은 저장 전에 걸러냈습니다. 저장 중 오류가 나면 트랜잭션을 롤백했습니다.</dd>
-          </div>
-          <div>
-            <dt>결과</dt>
-            <dd>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계되는 것을 확인했습니다.</dd>
-          </div>
-        </dl>
+        <!-- 카드 하나 = 단계 하나. 화면 캡처가 있으면 카드 맨 아래에 추가:
+             <img class="tcard-img" src="../assets/images/파일이름.png" alt="화면 내용을 문장으로" width="1600" height="900" loading="lazy"> -->
+        <ul class="tcard-grid">
+          <li class="tcard">
+            <h3 class="tcard-title">문제 상황</h3>
+            <p>가격이나 고객 정보가 바뀌면 지난 매출까지 새 값으로 다시 계산되어, 분석 결과를 믿을 수 없게 될 수 있었습니다.</p>
+            <p class="tcard-point"><b>Point</b>과거 매출은 나중에 바뀌면 안 되는 기록</p>
+          </li>
+          <li class="tcard">
+            <h3 class="tcard-title">해결책</h3>
+            <p>주문 시점의 단가를 별도 칼럼에 저장하고, 조회할 때는 주문일을 고객 이력의 유효 기간과 맞춰 당시 상태로 집계했습니다.</p>
+            <p class="tcard-point"><b>Point</b>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계되는 것을 확인</p>
+          </li>
+          <li class="tcard">
+            <h3 class="tcard-title">비교 대상</h3>
+            <p>은행에서 거래가 끝난 뒤에도 그 시점의 금리와 금액이 그대로 남아야 하는 것과 같은 원리입니다.</p>
+            <p class="tcard-point"><b>Point</b>데이터 이력을 정확하게 보존하는 것이 신뢰의 기반</p>
+          </li>
+        </ul>
       </section>
 
       <!-- ===== 05 AI 도구 활용 ===== -->
@@ -265,7 +265,7 @@
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd>은행에서 거래가 끝난 뒤에도 그 시점의 금리와 금액이 그대로 남아야 하듯, 데이터 이력을 정확하게 보존하는 것이 신뢰의 기반이라는 점을 깨달았습니다.</dd>
+            <dd>금융 IT 시스템에서도 거래 당시의 데이터 이력을 정확하게 보존하는 것이 신뢰의 기반이라는 점을 깨달았습니다.</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>
