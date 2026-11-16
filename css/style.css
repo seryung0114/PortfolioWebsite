@@ -519,25 +519,27 @@ a {
   letter-spacing: -0.04em;
 }
 
+/* 왼쪽 글 + 오른쪽 사진. 두 칸 높이를 같게(stretch) 해서 아래 끝선을 맞춤 */
 .intro-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 380px);
-  gap: 48px clamp(32px, 5vw, 64px);
-  align-items: start;
+  grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr);
+  gap: 48px clamp(32px, 4vw, 48px);
+  align-items: stretch;
 }
 
 .intro-text {
   max-width: 44em;
   color: var(--muted);
   font-size: 17px;
+  line-height: 1.8;
 }
 
 /* 2×2 정보 블록 */
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-  margin-top: 40px;
+  gap: 40px 32px;
+  margin-top: 56px;
 }
 
 /* 회색 머리줄 + 왼쪽 선 */
@@ -545,7 +547,7 @@ a {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border-left: 3px solid var(--stone);
   background: var(--card);
   font-size: 17px;
@@ -565,8 +567,8 @@ a {
 /* 이름표 왼쪽, 값 오른쪽 정렬 */
 .kv {
   display: grid;
-  gap: 4px;
-  padding: 14px 8px 0;
+  gap: 8px;
+  padding: 18px 8px 0;
 }
 
 .kv > div {
@@ -581,18 +583,26 @@ a {
 }
 
 .kv dd {
+  min-width: 0;
   text-align: right;
+  overflow-wrap: anywhere; /* 긴 이메일 주소도 칸 안에서 줄바꿈 */
 }
 
-/* 프로필 사진: 원본 색, 4:5로 잘라 얼굴이 위쪽에 오도록 */
+/* 프로필 사진 틀: 왼쪽 글 높이만큼 늘어남 */
+.intro-photo-wrap {
+  position: relative;
+  min-height: 380px;
+  background: var(--sand);
+}
+
+/* 사진은 틀을 꽉 채우고, 얼굴이 잘리지 않게 위쪽 기준으로 자름 */
 .intro-photo {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   object-position: 50% 20%;
-  background: var(--sand);
 }
 
 /* ---------- 4. 스킬 ---------- */
@@ -1057,10 +1067,13 @@ a {
     grid-template-columns: 1fr;
   }
 
-  /* 좁은 화면에서는 사진을 소개글 위로 */
-  .intro-photo {
+  /* 좁은 화면에서는 사진을 소개글 위로, 4:5 비율 */
+  .intro-photo-wrap {
     order: -1;
+    width: 100%;
     max-width: 300px;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
   }
 }
 
