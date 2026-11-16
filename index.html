@@ -148,11 +148,11 @@
 
       <div class="container section-body intro-grid">
         <div>
-          <!-- 소개글 초안: 지금까지 알려준 사실만으로 작성. 자유롭게 고치기 -->
+          <!-- 소개글: 자기소개서 첫 문장 + 프로젝트에서 중요하게 여긴 점 -->
           <p class="intro-text">
-            이화여자대학교에서 컴퓨터공학을 전공하며 SQL, Python, Java, C를 배웠습니다.
-            기술과 비즈니스를 연결하는 데이터 운영·분석 직무를 준비하고 있으며,
-            캐나다에서 6개월간 어학연수를 했습니다.
+            데이터의 작은 불일치도 원인을 찾아 기준을 세우고 바로잡는 사람입니다.
+            Java, Python, SQL 등 여러 언어로 프로젝트를 진행하며
+            데이터 정합성과 거래 당시 정보의 보존을 중요하게 다뤄 왔습니다.
           </p>
 
           <div class="info-grid">
@@ -178,13 +178,12 @@
               <h3 class="block-title">학력</h3>
               <dl class="kv">
                 <div>
-                  <!-- 졸업 연도. 예: 2022 -->
+                  <!-- 왼쪽 칸 = 졸업 연도. 예: 2022 -->
                   <dt><span class="todo">[작성 필요]</span></dt>
-                  <!-- 고등학교 이름 -->
-                  <dd><span class="todo">[작성 필요]</span> 졸업</dd>
+                  <dd>창덕여자고등학교 졸업</dd>
                 </div>
                 <div>
-                  <!-- 입학 연도. 예: 2023 – -->
+                  <!-- 왼쪽 칸 = 입학 연도. 예: 2023 – -->
                   <dt><span class="todo">[작성 필요]</span></dt>
                   <dd>이화여자대학교 컴퓨터공학과 재학</dd>
                 </div>
@@ -215,9 +214,8 @@
                   <dd>TOEFL 80점</dd>
                 </div>
                 <div>
-                  <!-- 연수 기간. 예: 2024.09 – 2025.02 -->
-                  <dt><span class="todo">[작성 필요]</span></dt>
-                  <dd>어학연수 · 캐나다 6개월</dd>
+                  <dt>2026.08 – 2026.12</dt>
+                  <dd>어학연수 · 캐나다 5개월</dd>
                 </div>
               </dl>
             </div>
@@ -290,20 +288,21 @@
         <ul class="card-grid">
           <li class="card">
             <p class="card-label">STRENGTH 01</p>
-            <!-- 예: 꼼꼼한 검증 -->
-            <h4 class="card-title"><span class="todo">[작성 필요]</span></h4>
-            <!-- 예: 정제 전후 건수를 항상 SQL로 대조해 누락을 찾아냄 (프로젝트 1) -->
-            <p><span class="todo">[작성 필요]</span></p>
+            <h4 class="card-title">불일치의 원인을 찾아 기준 세우기</h4>
+            <p>병합 충돌과 찜·리뷰가 엉뚱한 상품에 연결되는 문제의 원인을 팀의 작업 기준 불일치로 판단했습니다. 공용 파일 수정 순서, 테스트 브랜치 병합, 상품 고유 ID 규칙을 제안해 두 문제를 모두 없앴습니다.</p>
+            <p class="muted-sm">근거 <a href="projects/project-1.html">프로젝트 1</a></p>
           </li>
           <li class="card">
             <p class="card-label">STRENGTH 02</p>
-            <h4 class="card-title"><span class="todo">[작성 필요]</span></h4>
-            <p><span class="todo">[작성 필요]</span></p>
+            <h4 class="card-title">거래 당시 데이터 보존</h4>
+            <p>주문 시점의 단가를 별도 칼럼에 저장하고 고객 이력의 유효 기간으로 조회해, 가격이 바뀐 뒤에도 과거 매출이 주문 당시 기준으로 집계되게 했습니다.</p>
+            <p class="muted-sm">근거 <a href="projects/project-2.html">프로젝트 2</a></p>
           </li>
           <li class="card">
             <p class="card-label">STRENGTH 03</p>
-            <h4 class="card-title"><span class="todo">[작성 필요]</span></h4>
-            <p><span class="todo">[작성 필요]</span></p>
+            <h4 class="card-title">꼼꼼한 점검과 정확한 전달</h4>
+            <p>가입부터 구매·리뷰까지 사용자 흐름을 따라가며 오류 2건을 찾아 재현 순서와 함께 전달했고, 최종 시연을 오류 없이 마쳤습니다. 입력값 검증과 트랜잭션 롤백으로 잘못된 데이터가 저장되지 않게 했습니다.</p>
+            <p class="muted-sm">근거 <a href="projects/project-1.html">프로젝트 1</a> · <a href="projects/project-2.html">프로젝트 2</a></p>
           </li>
         </ul>
       </div>
@@ -325,51 +324,47 @@
         <ul class="project-grid">
           <li class="project">
             <p class="card-label">PROJECT 01</p>
-            <!-- 대표 이미지 자리. 결과 그래프나 화면 캡처로 교체:
+            <!-- 대표 이미지 자리. 사이트 화면 캡처로 교체:
                  <img class="project-img" src="assets/images/project-1.png" alt="이미지 내용을 문장으로" width="1600" height="900" loading="lazy"> -->
             <div class="img-slot"><span class="todo">[작성 필요]</span></div>
-            <!-- 제목. a 태그 안의 글자만 바꾸면 카드 전체가 링크로 동작 -->
-            <h3 class="project-title"><a href="projects/project-1.html"><span class="todo">[작성 필요]</span></a></h3>
+            <h3 class="project-title"><a href="projects/project-1.html">교내 중고 거래 웹사이트</a></h3>
             <dl class="rows">
               <div>
-                <dt>사용 데이터</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dt>기간·인원</dt>
+                <dd>약 2개월 · 5인 팀</dd>
               </div>
               <div>
                 <dt>사용 기술</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>Flask, Firebase, Git</dd>
               </div>
               <div>
                 <dt>핵심 성과</dt>
-                <!-- 예: 결측치 1,240건 → 0건 -->
-                <dd class="row-stat"><span class="todo">[작성 필요]</span></dd>
+                <dd class="row-stat">최종 시연 오류 0건</dd>
               </div>
             </dl>
-            <!-- 요약 2~3문장 -->
-            <p><span class="todo">[작성 필요]</span></p>
+            <p>로그인과 찜하기 기능을 맡았습니다. 병합 충돌과 찜·리뷰가 엉뚱한 상품에 연결되는 문제를 작업 규칙과 상품 고유 ID 통일로 해결하고, 사용자 흐름 점검으로 오류 2건을 찾아 전달했습니다.</p>
             <p class="project-more" aria-hidden="true">상세 보기 →</p>
           </li>
 
           <li class="project">
             <p class="card-label">PROJECT 02</p>
             <div class="img-slot"><span class="todo">[작성 필요]</span></div>
-            <h3 class="project-title"><a href="projects/project-2.html"><span class="todo">[작성 필요]</span></a></h3>
+            <h3 class="project-title"><a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></h3>
             <dl class="rows">
               <div>
-                <dt>사용 데이터</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dt>기간·인원</dt>
+                <dd>약 3주 · 6인 팀</dd>
               </div>
               <div>
                 <dt>사용 기술</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>Java, MySQL</dd>
               </div>
               <div>
                 <dt>핵심 성과</dt>
-                <!-- 예: 분류 정확도 87% -->
-                <dd class="row-stat"><span class="todo">[작성 필요]</span></dd>
+                <dd class="row-stat">가격 변경 후에도 과거 매출을 주문 당시 기준으로 집계</dd>
               </div>
             </dl>
-            <p><span class="todo">[작성 필요]</span></p>
+            <p>고객 이력 테이블 설계와 입력·조회 기능을 맡았습니다. 주문 시점 단가를 따로 저장하고, 입력값 검증과 트랜잭션 롤백으로 잘못된 데이터가 일부만 저장되지 않게 했습니다.</p>
             <p class="project-more" aria-hidden="true">상세 보기 →</p>
           </li>
         </ul>

@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 프로젝트 제목을 채운 뒤 예: "주문 데이터 정제 자동화 | 천세령 포트폴리오" -->
-  <title>프로젝트 2 | 천세령 포트폴리오</title>
+  <title>화장품 매장 판매 분석 시스템 | 천세령 포트폴리오</title>
   <meta name="description" content="프로젝트 2 상세: 문제 정의, 데이터와 방법, 결과, 해결 과정">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -49,35 +48,31 @@
   </nav>
 
   <main id="main">
-    <!-- ===== 머리 영역: 프로젝트 이름 (INTRODUCTION 템플릿과 같은 모양) ===== -->
+    <!-- ===== 머리 영역: 프로젝트 이름 ===== -->
     <section class="section" id="overview" aria-labelledby="detail-title">
       <header class="section-head section-head-lg">
         <div class="container">
           <p class="back"><a href="../index.html#projects">← 프로젝트 목록</a></p>
           <p class="label">PROJECT 02.</p>
-          <!-- 프로젝트 제목 -->
-          <h1 class="intro-title" id="detail-title"><span class="todo">[작성 필요]</span></h1>
+          <h1 class="intro-title" id="detail-title">화장품 매장 판매 분석 시스템</h1>
         </div>
       </header>
 
       <div class="container section-body">
-        <!-- 한 줄 요약: 무엇을, 어떤 데이터로, 어떤 결과를 냈는지 -->
-        <p class="intro-text"><span class="todo">[작성 필요]</span></p>
+        <p class="intro-text">6인 팀으로 Java와 MySQL 기반의 화장품 매장 판매 분석 시스템을 만들며 고객 이력 테이블 설계와 입력·조회 기능을 맡았습니다. 가격이나 고객 정보가 바뀌어도 과거 매출이 주문 당시 기준으로 집계되도록 설계했습니다.</p>
 
         <div class="overview-grid">
-          <h2 class="visually-hidden">결과 숫자</h2>
+          <h2 class="visually-hidden">핵심 결과</h2>
           <ul class="kpi-grid kpi-grid-2">
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">01</span>
-              <!-- 예: 1,240 → 0 -->
-              <p class="kpi-value"><span class="todo">[작성 필요]</span></p>
-              <!-- 예: 결측치 건수 (정제 전 → 후) -->
-              <p class="kpi-label"><span class="todo">[작성 필요]</span></p>
+              <p class="kpi-value kpi-value-text">주문 당시 기준</p>
+              <p class="kpi-label">가격이 바뀐 뒤에도 과거 매출 집계</p>
             </li>
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">02</span>
-              <p class="kpi-value"><span class="todo">[작성 필요]</span></p>
-              <p class="kpi-label"><span class="todo">[작성 필요]</span></p>
+              <p class="kpi-value kpi-value-text">검증 + 롤백</p>
+              <p class="kpi-label">누락·중복 데이터와 일부만 저장되는 일 방지</p>
             </li>
           </ul>
 
@@ -85,23 +80,16 @@
             <h2 class="block-title">개요</h2>
             <dl class="kv">
               <div>
-                <dt>사용 데이터</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
                 <dt>기간</dt>
-                <!-- 예: 2026.03 – 2026.06 (4개월) -->
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>약 3주</dd>
               </div>
               <div>
                 <dt>인원·역할</dt>
-                <!-- 예: 3인 팀 / 데이터 정제·검증 담당 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>6인 팀 / 고객 이력 테이블 설계, 입력·조회 기능</dd>
               </div>
               <div>
                 <dt>도구</dt>
-                <!-- 예: Python(pandas), MySQL, Excel -->
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>Java, MySQL</dd>
               </div>
             </dl>
           </div>
@@ -110,24 +98,21 @@
     </section>
 
     <div class="container detail-body">
-      <!-- ===== 01 문제 정의: 왜 이걸 했는지 ===== -->
+      <!-- ===== 01 문제 정의 ===== -->
       <section class="detail-section" id="problem" aria-labelledby="problem-title">
         <h2 class="block-title block-title-lg" id="problem-title"><span class="num">01</span>문제 정의</h2>
         <dl class="rows">
           <div>
             <dt>배경</dt>
-            <!-- 어떤 상황에서 이 문제를 발견했는지 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>매장의 가격과 고객 정보는 시간이 지나면서 바뀝니다.</dd>
           </div>
           <div>
             <dt>해결하려던 문제</dt>
-            <!-- 문제를 한 문장으로. 예: 주문 데이터에 결측·중복이 섞여 월별 매출 집계가 맞지 않았다 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>정보가 바뀌었다고 지난 매출까지 새 값으로 다시 계산되면 분석 결과를 믿을 수 없습니다.</dd>
           </div>
           <div>
             <dt>목표</dt>
-            <!-- 숫자로 적기. 예: 결측치 0건, 집계 오차 1% 이내 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>과거 매출은 주문 당시 기준으로 집계하고, 잘못되거나 일부만 저장된 데이터가 남지 않게 하기</dd>
           </div>
         </dl>
       </section>
@@ -137,76 +122,73 @@
         <h2 class="block-title block-title-lg" id="method-title"><span class="num">02</span>데이터와 방법</h2>
         <dl class="rows">
           <div>
-            <dt>데이터 출처</dt>
-            <!-- 예: 공공데이터포털 ○○ 데이터셋, 링크 포함 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>다룬 데이터</dt>
+            <dd>고객 이력·상품·주문 데이터 (MySQL)</dd>
           </div>
           <div>
-            <dt>규모</dt>
-            <!-- 예: 52,310행 × 18열, 2023–2025년 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>담당 기능</dt>
+            <dd>고객 이력 테이블 설계, 입력·조회 기능</dd>
           </div>
           <div>
             <dt>사용 도구</dt>
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>Java, MySQL (PreparedStatement, 트랜잭션)</dd>
           </div>
         </dl>
 
         <h3 class="sub-title">처리 흐름</h3>
-        <!-- 단계 수는 li를 지우거나 복사해서 조절. 예: 수집 → 정제 → 분석 → 검증 -->
         <ol class="flow">
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">1</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <!-- 예: Python으로 CSV 3개 병합 -->
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">당시 단가 저장</strong>
+            <span class="flow-desc">주문 시점의 단가를 별도 칼럼에 저장</span>
           </li>
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">2</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">당시 상태로 조회</strong>
+            <span class="flow-desc">주문일을 고객 이력의 유효 기간과 맞춰 당시 상태로 집계</span>
           </li>
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">3</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">저장 전 검증</strong>
+            <span class="flow-desc">필수값 누락, 없는 고객·상품, 중복 상품을 걸러내고 PreparedStatement로 SQL 인젝션 방지</span>
           </li>
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">4</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">오류 시 롤백</strong>
+            <span class="flow-desc">저장 중 오류가 나면 트랜잭션을 롤백해 일부만 저장되지 않게 함</span>
           </li>
         </ol>
       </section>
 
-      <!-- ===== 03 결과: 지표로 "됐다"고 판단한 기준 ===== -->
+      <!-- ===== 03 결과 ===== -->
       <section class="detail-section" id="result" aria-labelledby="result-title">
         <h2 class="block-title block-title-lg" id="result-title"><span class="num">03</span>결과</h2>
 
         <div class="table-wrap">
           <table class="result-table">
-            <caption class="visually-hidden">지표별 판단 기준과 결과</caption>
+            <caption class="visually-hidden">항목별 판단 기준과 결과</caption>
             <thead>
               <tr>
-                <th scope="col">지표</th>
+                <th scope="col">항목</th>
                 <th scope="col">판단 기준</th>
-                <th scope="col">전</th>
-                <th scope="col">후</th>
+                <th scope="col">결과</th>
               </tr>
             </thead>
             <tbody>
-              <!-- 예: 결측치 | 0건 | 1,240건 | 0건 -->
               <tr>
-                <th scope="row"><span class="todo">[작성 필요]</span></th>
-                <td><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
+                <th scope="row">과거 매출 집계</th>
+                <td>가격이 바뀐 뒤에도 주문 당시 단가로 집계</td>
+                <td class="result-after">주문 당시 기준으로 집계되는 것 확인</td>
               </tr>
               <tr>
-                <th scope="row"><span class="todo">[작성 필요]</span></th>
-                <td><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
+                <th scope="row">잘못된 입력</th>
+                <td>필수값 누락·없는 고객/상품·중복 상품은 저장하지 않음</td>
+                <td class="result-after">저장 전에 걸러냄</td>
+              </tr>
+              <tr>
+                <th scope="row">저장 중 오류</th>
+                <td>일부 데이터만 저장되지 않음</td>
+                <td class="result-after">트랜잭션 롤백</td>
               </tr>
             </tbody>
           </table>
@@ -214,46 +196,39 @@
 
         <dl class="rows">
           <div>
-            <dt>측정 방법</dt>
-            <!-- 예: 정제 전후 행 수를 SQL COUNT로 비교, 무작위 50건 원본 대조 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>확인 방법</dt>
+            <dd>가격을 바꾼 뒤 과거 매출을 다시 조회해, 주문 당시 기준으로 집계되는지 확인했습니다.</dd>
           </div>
         </dl>
 
-        <!-- 결과 그래프 자리. 이미지를 넣을 때 아래 div를 지우고 figure로 교체:
+        <!-- 결과 화면 캡처 자리. 이미지를 넣을 때 아래 div를 지우고 figure로 교체:
         <figure class="figure">
-          <img src="../assets/images/project-2-result.png"
-               alt="그래프가 보여주는 내용을 문장으로. 예: 월별 결측치 건수가 1월 412건에서 6월 0건으로 감소"
-               width="1600" height="900" loading="lazy">
-          <figcaption>그림 1. 그래프 설명</figcaption>
+          <img src="../assets/images/project-2-result.png" alt="화면이 보여주는 내용을 문장으로" width="1600" height="900" loading="lazy">
+          <figcaption>그림 1. 화면 설명</figcaption>
         </figure>
         -->
         <div class="img-slot img-slot-wide"><span class="todo">[작성 필요]</span></div>
       </section>
 
-      <!-- ===== 04 잘 안 됐던 부분과 해결 과정: 베이지 블록으로 가장 눈에 띄게 ===== -->
+      <!-- ===== 04 고민한 부분과 해결 과정 ===== -->
       <section class="detail-section detail-highlight" id="trouble" aria-labelledby="trouble-title">
         <h2 class="block-title block-title-lg" id="trouble-title"><span class="num">04</span>막혔던 부분과 해결 과정</h2>
-        <!-- 문제가 여러 개면 dl.rows 블록을 복사해서 추가 -->
         <dl class="rows">
           <div>
-            <dt>막힌 상황</dt>
-            <!-- 무엇이 기대와 달랐는지 사실 그대로 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>문제 상황</dt>
+            <dd>가격이나 고객 정보가 바뀌면 지난 매출까지 새 값으로 다시 계산되어, 분석 결과를 믿을 수 없게 될 수 있었습니다.</dd>
           </div>
           <div>
-            <dt>원인</dt>
-            <!-- 원인을 어떻게 찾았는지도 함께 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>해결 방법</dt>
+            <dd>주문 시점의 단가를 별도 칼럼에 저장하고, 조회 기능에서는 주문일을 고객 이력의 유효 기간과 맞춰 당시 상태로 집계했습니다.</dd>
           </div>
           <div>
-            <dt>시도한 방법</dt>
-            <!-- 실패한 시도도 적으면 좋음 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>데이터 보호</dt>
+            <dd>입력값은 PreparedStatement로 바인딩해 SQL 인젝션을 막고, 필수값 누락과 없는 고객·상품, 중복 상품은 저장 전에 걸러냈습니다. 저장 중 오류가 나면 트랜잭션을 롤백했습니다.</dd>
           </div>
           <div>
-            <dt>결과와 남은 한계</dt>
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>결과</dt>
+            <dd>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계되는 것을 확인했습니다.</dd>
           </div>
         </dl>
       </section>
@@ -268,12 +243,12 @@
           </div>
           <div>
             <dt>맡긴 작업</dt>
-            <!-- 예: pandas 전처리 코드 초안, 정규식 작성 -->
+            <!-- 예: 코드 초안, 오류 메시지 해석 -->
             <dd><span class="todo">[작성 필요]</span></dd>
           </div>
           <div>
             <dt>검증 방법</dt>
-            <!-- 예: 생성 코드 실행 전후 행 수 비교, 샘플 20건 수작업 대조, 테스트 케이스 작성 -->
+            <!-- 예: 생성 코드를 직접 실행해 결과 대조, 테스트 케이스 작성 -->
             <dd><span class="todo">[작성 필요]</span></dd>
           </div>
           <div>
@@ -290,7 +265,7 @@
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>은행에서 거래가 끝난 뒤에도 그 시점의 금리와 금액이 그대로 남아야 하듯, 데이터 이력을 정확하게 보존하는 것이 신뢰의 기반이라는 점을 깨달았습니다.</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>
@@ -298,19 +273,19 @@
           </div>
           <div>
             <dt>GitHub 저장소</dt>
-            <!-- 예: <a href="https://github.com/아이디/저장소">github.com/아이디/저장소</a> -->
+            <!-- 예: <a href="https://github.com/seryung0114/저장소이름">github.com/seryung0114/저장소이름</a> -->
             <dd><span class="todo">[작성 필요]</span></dd>
           </div>
         </dl>
       </section>
     </div>
 
-    <!-- 다른 프로젝트로 이동 (흰 박스 템플릿) -->
+    <!-- 다른 프로젝트로 이동 -->
     <nav class="pager-wrap" aria-label="프로젝트 이동">
       <div class="container pager">
         <a class="pager-link" href="project-1.html">
           <span class="pager-label">PREV.</span>
-          <span class="pager-title">← 프로젝트 1</span>
+          <span class="pager-title">← 교내 중고 거래 웹사이트</span>
         </a>
         <a class="pager-link" href="../index.html#projects">
           <span class="pager-label">LIST.</span>

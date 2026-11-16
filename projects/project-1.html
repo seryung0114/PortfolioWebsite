@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 프로젝트 제목을 채운 뒤 예: "주문 데이터 정제 자동화 | 천세령 포트폴리오" -->
-  <title>프로젝트 1 | 천세령 포트폴리오</title>
+  <title>교내 중고 거래 웹사이트 | 천세령 포트폴리오</title>
   <meta name="description" content="프로젝트 1 상세: 문제 정의, 데이터와 방법, 결과, 해결 과정">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -49,35 +48,31 @@
   </nav>
 
   <main id="main">
-    <!-- ===== 머리 영역: 프로젝트 이름 (INTRODUCTION 템플릿과 같은 모양) ===== -->
+    <!-- ===== 머리 영역: 프로젝트 이름 ===== -->
     <section class="section" id="overview" aria-labelledby="detail-title">
       <header class="section-head section-head-lg">
         <div class="container">
           <p class="back"><a href="../index.html#projects">← 프로젝트 목록</a></p>
           <p class="label">PROJECT 01.</p>
-          <!-- 프로젝트 제목 -->
-          <h1 class="intro-title" id="detail-title"><span class="todo">[작성 필요]</span></h1>
+          <h1 class="intro-title" id="detail-title">교내 중고 거래 웹사이트</h1>
         </div>
       </header>
 
       <div class="container section-body">
-        <!-- 한 줄 요약: 무엇을, 어떤 데이터로, 어떤 결과를 냈는지 -->
-        <p class="intro-text"><span class="todo">[작성 필요]</span></p>
+        <p class="intro-text">5인 팀으로 Flask와 Firebase 기반 교내 중고 거래 웹사이트를 만들며 로그인과 찜하기 기능을 맡았습니다. 병합할 때 드러난 충돌과 데이터 연결 오류를 팀의 작업 기준을 통일해 해결했습니다.</p>
 
         <div class="overview-grid">
           <h2 class="visually-hidden">결과 숫자</h2>
           <ul class="kpi-grid kpi-grid-2">
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">01</span>
-              <!-- 예: 1,240 → 0 -->
-              <p class="kpi-value"><span class="todo">[작성 필요]</span></p>
-              <!-- 예: 결측치 건수 (정제 전 → 후) -->
-              <p class="kpi-label"><span class="todo">[작성 필요]</span></p>
+              <p class="kpi-value">2건</p>
+              <p class="kpi-label">가입~리뷰 흐름 점검으로 찾아 전달한 오류</p>
             </li>
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">02</span>
-              <p class="kpi-value"><span class="todo">[작성 필요]</span></p>
-              <p class="kpi-label"><span class="todo">[작성 필요]</span></p>
+              <p class="kpi-value">0건</p>
+              <p class="kpi-label">최종 시연 오류</p>
             </li>
           </ul>
 
@@ -85,23 +80,16 @@
             <h2 class="block-title">개요</h2>
             <dl class="kv">
               <div>
-                <dt>사용 데이터</dt>
-                <dd><span class="todo">[작성 필요]</span></dd>
-              </div>
-              <div>
                 <dt>기간</dt>
-                <!-- 예: 2026.03 – 2026.06 (4개월) -->
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>약 2개월</dd>
               </div>
               <div>
                 <dt>인원·역할</dt>
-                <!-- 예: 3인 팀 / 데이터 정제·검증 담당 -->
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>5인 팀 / 로그인·찜하기 기능, 작업 규칙 제안, 사용자 흐름 점검</dd>
               </div>
               <div>
                 <dt>도구</dt>
-                <!-- 예: Python(pandas), MySQL, Excel -->
-                <dd><span class="todo">[작성 필요]</span></dd>
+                <dd>Flask, Firebase, Git</dd>
               </div>
             </dl>
           </div>
@@ -110,24 +98,21 @@
     </section>
 
     <div class="container detail-body">
-      <!-- ===== 01 문제 정의: 왜 이걸 했는지 ===== -->
+      <!-- ===== 01 문제 정의 ===== -->
       <section class="detail-section" id="problem" aria-labelledby="problem-title">
         <h2 class="block-title block-title-lg" id="problem-title"><span class="num">01</span>문제 정의</h2>
         <dl class="rows">
           <div>
             <dt>배경</dt>
-            <!-- 어떤 상황에서 이 문제를 발견했는지 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>각자 기능을 만들 때는 보이지 않던 문제가 코드를 병합하는 순간 한꺼번에 드러났습니다.</dd>
           </div>
           <div>
             <dt>해결하려던 문제</dt>
-            <!-- 문제를 한 문장으로. 예: 주문 데이터에 결측·중복이 섞여 월별 매출 집계가 맞지 않았다 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>① 모두가 같은 파일을 동시에 고쳐 병합할 때마다 충돌이 반복됐습니다.<br>② 팀원마다 상품을 다른 값으로 가리켜, 찜과 리뷰가 엉뚱한 상품에 연결됐습니다.</dd>
           </div>
           <div>
             <dt>목표</dt>
-            <!-- 숫자로 적기. 예: 결측치 0건, 집계 오차 1% 이내 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>병합 충돌 없이 기능을 합치고, 찜과 리뷰가 올바른 상품에 연결되도록 하기</dd>
           </div>
         </dl>
       </section>
@@ -137,49 +122,45 @@
         <h2 class="block-title block-title-lg" id="method-title"><span class="num">02</span>데이터와 방법</h2>
         <dl class="rows">
           <div>
-            <dt>데이터 출처</dt>
-            <!-- 예: 공공데이터포털 ○○ 데이터셋, 링크 포함 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>다룬 데이터</dt>
+            <dd>회원·상품·찜·리뷰 데이터 (Firebase)</dd>
           </div>
           <div>
-            <dt>규모</dt>
-            <!-- 예: 52,310행 × 18열, 2023–2025년 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>담당 기능</dt>
+            <dd>로그인, 찜하기</dd>
           </div>
           <div>
             <dt>사용 도구</dt>
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>Flask, Firebase, Git (테스트 브랜치 → main 브랜치)</dd>
           </div>
         </dl>
 
-        <h3 class="sub-title">처리 흐름</h3>
-        <!-- 단계 수는 li를 지우거나 복사해서 조절. 예: 수집 → 정제 → 분석 → 검증 -->
+        <h3 class="sub-title">해결 흐름</h3>
         <ol class="flow">
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">1</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <!-- 예: Python으로 CSV 3개 병합 -->
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">원인 판단</strong>
+            <span class="flow-desc">충돌과 잘못된 연결의 원인을 팀의 작업 기준 불일치로 판단</span>
           </li>
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">2</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">작업 규칙 제안</strong>
+            <span class="flow-desc">공용 파일은 정해진 순서로 수정, 테스트 브랜치를 거쳐 main에 병합</span>
           </li>
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">3</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">식별자 통일</strong>
+            <span class="flow-desc">상품을 고유 ID로 가리키도록 통일하고 규칙 공지</span>
           </li>
           <li class="flow-step">
             <span class="kpi-num" aria-hidden="true">4</span>
-            <strong class="flow-name"><span class="todo">[작성 필요]</span></strong>
-            <span class="flow-desc"><span class="todo">[작성 필요]</span></span>
+            <strong class="flow-name">사용자 흐름 점검</strong>
+            <span class="flow-desc">가입부터 구매·리뷰까지 따라가며 오류 2건을 재현 순서와 함께 전달</span>
           </li>
         </ol>
       </section>
 
-      <!-- ===== 03 결과: 지표로 "됐다"고 판단한 기준 ===== -->
+      <!-- ===== 03 결과 ===== -->
       <section class="detail-section" id="result" aria-labelledby="result-title">
         <h2 class="block-title block-title-lg" id="result-title"><span class="num">03</span>결과</h2>
 
@@ -195,18 +176,23 @@
               </tr>
             </thead>
             <tbody>
-              <!-- 예: 결측치 | 0건 | 1,240건 | 0건 -->
               <tr>
-                <th scope="row"><span class="todo">[작성 필요]</span></th>
-                <td><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
+                <th scope="row">병합 충돌</th>
+                <td>병합 시 충돌 없음</td>
+                <td>반복 발생</td>
+                <td class="result-after">사라짐</td>
               </tr>
               <tr>
-                <th scope="row"><span class="todo">[작성 필요]</span></th>
-                <td><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
-                <td class="num-cell"><span class="todo">[작성 필요]</span></td>
+                <th scope="row">찜·리뷰 연결</th>
+                <td>올바른 상품에 연결</td>
+                <td>엉뚱한 상품에 연결</td>
+                <td class="result-after">올바르게 연결</td>
+              </tr>
+              <tr>
+                <th scope="row">최종 시연</th>
+                <td>오류 없이 시연</td>
+                <td>점검에서 오류 2건 발견</td>
+                <td class="result-after">오류 없이 완료</td>
               </tr>
             </tbody>
           </table>
@@ -214,46 +200,39 @@
 
         <dl class="rows">
           <div>
-            <dt>측정 방법</dt>
-            <!-- 예: 정제 전후 행 수를 SQL COUNT로 비교, 무작위 50건 원본 대조 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>확인 방법</dt>
+            <dd>가입부터 구매와 리뷰까지 실제 사용자 흐름을 직접 따라가며 확인했습니다.</dd>
           </div>
         </dl>
 
-        <!-- 결과 그래프 자리. 이미지를 넣을 때 아래 div를 지우고 figure로 교체:
+        <!-- 사이트 화면 캡처 자리. 이미지를 넣을 때 아래 div를 지우고 figure로 교체:
         <figure class="figure">
-          <img src="../assets/images/project-1-result.png"
-               alt="그래프가 보여주는 내용을 문장으로. 예: 월별 결측치 건수가 1월 412건에서 6월 0건으로 감소"
-               width="1600" height="900" loading="lazy">
-          <figcaption>그림 1. 그래프 설명</figcaption>
+          <img src="../assets/images/project-1-result.png" alt="화면이 보여주는 내용을 문장으로" width="1600" height="900" loading="lazy">
+          <figcaption>그림 1. 화면 설명</figcaption>
         </figure>
         -->
         <div class="img-slot img-slot-wide"><span class="todo">[작성 필요]</span></div>
       </section>
 
-      <!-- ===== 04 잘 안 됐던 부분과 해결 과정: 베이지 블록으로 가장 눈에 띄게 ===== -->
+      <!-- ===== 04 막혔던 부분과 해결 과정 ===== -->
       <section class="detail-section detail-highlight" id="trouble" aria-labelledby="trouble-title">
         <h2 class="block-title block-title-lg" id="trouble-title"><span class="num">04</span>막혔던 부분과 해결 과정</h2>
-        <!-- 문제가 여러 개면 dl.rows 블록을 복사해서 추가 -->
         <dl class="rows">
           <div>
             <dt>막힌 상황</dt>
-            <!-- 무엇이 기대와 달랐는지 사실 그대로 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>각자 만든 기능을 합치자 같은 파일을 동시에 고친 탓에 병합 충돌이 반복됐고, 제가 맡은 찜은 물론 리뷰까지 엉뚱한 상품에 연결됐습니다.</dd>
           </div>
           <div>
             <dt>원인</dt>
-            <!-- 원인을 어떻게 찾았는지도 함께 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>팀의 작업 기준이 통일되지 않았습니다. 공용 파일을 고치는 순서가 없었고, 팀원마다 상품을 다른 값으로 가리켰습니다.</dd>
           </div>
           <div>
-            <dt>시도한 방법</dt>
-            <!-- 실패한 시도도 적으면 좋음 -->
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>해결 방법</dt>
+            <dd>팀원들의 의견을 모아 각자 작업은 그대로 하되 공용 파일은 정해진 순서대로 고치고, 테스트 브랜치를 거친 뒤 main 브랜치에 병합하도록 제안했습니다. 상품 식별자도 고유 ID로 통일해 규칙을 공지했습니다.</dd>
           </div>
           <div>
-            <dt>결과와 남은 한계</dt>
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dt>결과</dt>
+            <dd>이후 병합 충돌이 사라졌고 찜과 리뷰도 올바른 상품에 연결됐습니다.</dd>
           </div>
         </dl>
       </section>
@@ -268,12 +247,12 @@
           </div>
           <div>
             <dt>맡긴 작업</dt>
-            <!-- 예: pandas 전처리 코드 초안, 정규식 작성 -->
+            <!-- 예: 코드 초안, 오류 메시지 해석 -->
             <dd><span class="todo">[작성 필요]</span></dd>
           </div>
           <div>
             <dt>검증 방법</dt>
-            <!-- 예: 생성 코드 실행 전후 행 수 비교, 샘플 20건 수작업 대조, 테스트 케이스 작성 -->
+            <!-- 예: 생성 코드를 직접 실행해 결과 대조, 테스트 케이스 작성 -->
             <dd><span class="todo">[작성 필요]</span></dd>
           </div>
           <div>
@@ -290,7 +269,7 @@
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd><span class="todo">[작성 필요]</span></dd>
+            <dd>시스템의 안정성은 개별 기능뿐 아니라 구성 요소 간 일관성에서 비롯된다는 점을 배웠습니다.</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>
@@ -298,14 +277,14 @@
           </div>
           <div>
             <dt>GitHub 저장소</dt>
-            <!-- 예: <a href="https://github.com/아이디/저장소">github.com/아이디/저장소</a> -->
+            <!-- 예: <a href="https://github.com/seryung0114/저장소이름">github.com/seryung0114/저장소이름</a> -->
             <dd><span class="todo">[작성 필요]</span></dd>
           </div>
         </dl>
       </section>
     </div>
 
-    <!-- 다른 프로젝트로 이동 (흰 박스 템플릿) -->
+    <!-- 다른 프로젝트로 이동 -->
     <nav class="pager-wrap" aria-label="프로젝트 이동">
       <div class="container pager">
         <a class="pager-link" href="../index.html#projects">
@@ -314,7 +293,7 @@
         </a>
         <a class="pager-link" href="project-2.html">
           <span class="pager-label">NEXT.</span>
-          <span class="pager-title">프로젝트 2 →</span>
+          <span class="pager-title">화장품 매장 판매 분석 시스템 →</span>
         </a>
       </div>
     </nav>
