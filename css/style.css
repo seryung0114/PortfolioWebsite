@@ -586,6 +586,36 @@ a {
   overflow-wrap: anywhere; /* 긴 이메일 주소도 칸 안에서 줄바꿈 */
 }
 
+/* 경력 블록: 두 칸을 가로로 모두 차지 */
+.info-block-wide {
+  grid-column: 1 / -1;
+}
+
+/* 경력 행: 왼쪽 기간 + 오른쪽 "곳 · 역할"과 하는 일 (왼쪽 정렬) */
+.kv-career {
+  gap: 14px;
+}
+
+.kv-career > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.kv-career dd {
+  text-align: left;
+}
+
+.kv-career strong {
+  font-weight: 600;
+}
+
+.career-desc {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+}
+
 /* 프로필 사진 틀: 왼쪽 글 높이만큼 늘어남 */
 .intro-photo-wrap {
   position: relative;
@@ -1112,6 +1142,12 @@ a {
   .kpi-grid-2,
   .info-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* 경력 행: 기간 아래에 내용 */
+  .kv-career > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 
   .skill-table > div {
