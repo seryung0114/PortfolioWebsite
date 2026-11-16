@@ -304,12 +304,6 @@ a {
   letter-spacing: -0.03em;
 }
 
-.cover-intro {
-  max-width: 36em;
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 17px;
-}
 
 .cta-row {
   display: flex;
