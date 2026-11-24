@@ -72,7 +72,7 @@
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">02</span>
               <p class="kpi-value">0건</p>
-              <p class="kpi-label">병합 절차·상품 ID 규칙 통일 후<br>최종 시연 오류</p>
+              <p class="kpi-label">발견 오류 2건 수정, 병합 절차·상품 ID 규칙 통일 후<br>가입 - 구매 - 리뷰 최종 시연에서 발생한 오류</p>
             </li>
           </ul>
 
@@ -156,15 +156,30 @@
         </div>
         <div class="keep-together">
         <h3 class="sub-title">실행 화면</h3>
-        <!-- 화면 캡처: 가로 1600 x 세로 800 (2:1)로 맞춰 assets/images 에 저장 -->
+        <!-- 화면 캡처: 가로 1600 x 세로 800 (2:1)로 맞춰 assets/images 에 저장
+             span.shot-mark = 직접 구현한 영역 표시 (위치는 이미지 크기 대비 %, 번호는 data-n) -->
         <div class="shots">
           <figure class="shot">
-            <img src="../assets/images/project-1-main.webp" alt="로그인 후 메인 화면. 상단에 'seryung0114님 반갑습니다!' 문구가 보이고, 상품 카드마다 가격과 찜 수가 표시됨" width="1600" height="800" loading="lazy">
-            <figcaption>로그인 후 메인 화면: 상단 사용자 이름 표시, 상품별 찜 수 표시</figcaption>
+            <div class="shot-frame">
+              <img src="../assets/images/project-1-main.webp" alt="로그인 후 메인 화면. 상단에 'seryung0114님 반갑습니다!' 문구가 보이고, 상품 카드마다 가격과 찜 수가 표시됨" width="1600" height="800" loading="lazy">
+              <span class="shot-mark" data-n="1" style="left:56.5%; top:2%; width:15.1%; height:4.8%" aria-hidden="true"></span>
+              <span class="shot-mark" data-n="2" style="left:23.5%; top:76.2%; width:2.7%; height:4.3%" aria-hidden="true"></span>
+              <span class="shot-mark" style="left:45.6%; top:76.2%; width:2.7%; height:4.3%" aria-hidden="true"></span>
+              <span class="shot-mark" style="left:67.75%; top:76.2%; width:2.7%; height:4.3%" aria-hidden="true"></span>
+              <span class="shot-mark" style="left:89.9%; top:76.2%; width:2.7%; height:4.3%" aria-hidden="true"></span>
+            </div>
+            <figcaption>로그인 후 메인 화면 <span class="shot-legend">① 로그인 상태(사용자 이름) 표시 ② 상품별 찜 수</span></figcaption>
           </figure>
           <figure class="shot">
-            <img src="../assets/images/project-1-wishlist.webp" alt="내가 찜한 상품 화면. 찜한 상품 4개가 카테고리, 이름, 가격, 찜 버튼과 함께 표시됨" width="1600" height="800" loading="lazy">
-            <figcaption>내가 찜한 상품 화면: 사용자가 찜한 상품만 모아 표시</figcaption>
+            <div class="shot-frame">
+              <img src="../assets/images/project-1-wishlist.webp" alt="내가 찜한 상품 화면. 찜한 상품 4개가 카테고리, 이름, 가격, 찜 버튼과 함께 표시됨" width="1600" height="800" loading="lazy">
+              <span class="shot-mark" data-n="3" style="left:8.9%; top:17.5%; width:16%; height:9.3%" aria-hidden="true"></span>
+              <span class="shot-mark" data-n="4" style="left:25.1%; top:62.8%; width:2.8%; height:5.4%" aria-hidden="true"></span>
+              <span class="shot-mark" style="left:45.6%; top:62.8%; width:2.8%; height:5.4%" aria-hidden="true"></span>
+              <span class="shot-mark" style="left:66.1%; top:62.8%; width:2.8%; height:5.4%" aria-hidden="true"></span>
+              <span class="shot-mark" style="left:86.6%; top:62.8%; width:2.8%; height:5.4%" aria-hidden="true"></span>
+            </div>
+            <figcaption>내가 찜한 상품 화면 <span class="shot-legend">③ 사용자가 찜한 상품만 모아 표시 ④ 찜 등록·해제 버튼</span></figcaption>
           </figure>
         </div>
         </div>
@@ -194,6 +209,7 @@
               <p>이후 병합 시 충돌 미발생</p>
             </li>
           </ol>
+          <p class="case-role"><strong>내 역할</strong>원인을 팀 작업 기준 불일치로 판단, 팀원 의견을 모아 각자 작업 방식은 유지하고 공용 파일 수정 순서와 테스트 브랜치 병합 절차만 정하는 방안 제안·적용</p>
         </div>
         </div>
         <div class="case">
@@ -216,6 +232,7 @@
               <p>찜·리뷰 데이터의 대상 상품 정상 매핑</p>
             </li>
           </ol>
+          <p class="case-role"><strong>내 역할</strong>담당한 찜 기능과 리뷰의 오연결 원인 분석, 상품 식별자를 고유 ID로 통일하는 규칙 제안 및 팀 공지</p>
         </div>
       </section>
 

@@ -52,6 +52,8 @@
         <div class="cover-text">
           <p class="eyebrow">컴퓨터공학과 · 데이터 운영·분석 직무 지원</p>
           <h1 class="cover-title" id="hero-title">안녕하세요. 기술과 비즈니스를 연결하는 천세령입니다.</h1>
+          <!-- 한 줄로 기억되는 포지셔닝: 정합성 · 이력 · 검증 -->
+          <p class="cover-lead"><strong>믿고 쓸 수 있는 데이터</strong>를 만듭니다. 정합성을 맞추고, 이력을 남기고, 결과를 검증합니다.</p>
           <!-- 지원 직무에서 강조할 역량 5가지 -->
           <ul class="focus-tags" aria-label="핵심 역량">
             <li>데이터 정합성·무결성</li>
@@ -109,6 +111,7 @@
             <p class="label">KEY RESULTS.</p>
             <h2 class="section-title" id="results-title">한눈에 보는 핵심 성과</h2>
           </div>
+          <p class="section-note">검증 · 정합성 · 이력 관리</p>
         </div>
       </header>
 
@@ -117,18 +120,21 @@
         <ul class="kpi-grid">
           <li class="kpi">
             <span class="kpi-num" aria-hidden="true">01</span>
+            <p class="kpi-tag">검증</p>
             <p class="kpi-value">2건</p>
             <p class="kpi-label">가입 - 구매 - 리뷰 사용자 시나리오 테스트로<br>발견해 재현 절차와 함께 공유한 오류</p>
             <p class="kpi-source">관련 프로젝트 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
           </li>
           <li class="kpi">
             <span class="kpi-num" aria-hidden="true">02</span>
+            <p class="kpi-tag">정합성</p>
             <p class="kpi-value">0건</p>
-            <p class="kpi-label">병합 절차·상품 ID 규칙 통일 후<br>최종 시연 오류</p>
+            <p class="kpi-label">발견 오류 2건 수정, 병합 절차·상품 ID 규칙 통일 후<br>가입 - 구매 - 리뷰 최종 시연에서 발생한 오류</p>
             <p class="kpi-source">관련 프로젝트 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
           </li>
           <li class="kpi">
             <span class="kpi-num" aria-hidden="true">03</span>
+            <p class="kpi-tag">이력 관리</p>
             <!-- 숫자가 아닌 결과라 글자 크기를 조금 작게 (kpi-value-text) -->
             <p class="kpi-value kpi-value-text">주문 당시 기준 집계</p>
             <p class="kpi-label">가격·고객 정보 변경 후에도<br>과거 매출을 당시 단가·고객 상태로 집계</p>
@@ -206,15 +212,23 @@
                 <div>
                   <dt>2025.04 – 2026.07</dt>
                   <dd>
-                    <strong>미래탐구 학원 · 강사 개인 조교</strong> <span class="muted-sm">1년 4개월</span>
-                    <span class="career-desc">중·고등학생 학습 관리 · 시험 감독 및 채점 · 학습 자료 제작·관리 · 학생 질의응답</span>
+                    <strong>미래탐구 학원 · 강사 개인 조교</strong> <span class="career-dur">1년 4개월</span>
+                    <ul class="career-points">
+                      <li>중·고등학생 학습 관리</li>
+                      <li>시험 감독 및 채점</li>
+                      <li>학습 자료 제작·관리</li>
+                      <li>학생 질의응답</li>
+                    </ul>
                   </dd>
                 </div>
                 <div>
                   <dt>2024.06 – 2025.03</dt>
                   <dd>
-                    <strong>블루메쯔 레스토랑 · 홀 서빙</strong> <span class="muted-sm">10개월</span>
-                    <span class="career-desc">홀서빙 · 고객 응대</span>
+                    <strong>블루메쯔 레스토랑 · 홀 서빙</strong> <span class="career-dur">10개월</span>
+                    <ul class="career-points">
+                      <li>홀 서빙</li>
+                      <li>고객 응대</li>
+                    </ul>
                   </dd>
                 </div>
               </dl>
@@ -227,8 +241,12 @@
                 <div>
                   <dt>2026.08 – 2026.12</dt>
                   <dd>
-                    <strong>ILSC Toronto English Language School · 캐나다 토론토</strong> <span class="muted-sm">5개월</span>
-                    <span class="career-desc">최상위 반(Advanced 2) 도달 · AI 기반 영어 학습 앱 기획 및 영어 발표 · 다국적 학생들과 역할을 나눠 비즈니스 상황 영어 토론</span>
+                    <strong>ILSC Toronto English Language School · 캐나다 토론토</strong> <span class="career-dur">5개월</span>
+                    <ul class="career-points career-points-1">
+                      <li>최상위 반(Advanced 2) 도달</li>
+                      <li>AI 기반 영어 학습 앱 기획 및 영어 발표</li>
+                      <li>다국적 학생들과 역할을 나눠 비즈니스 상황 영어 토론</li>
+                    </ul>
                   </dd>
                 </div>
                 <div>
@@ -266,35 +284,48 @@
           <div>
             <dt>SQL</dt>
             <dd>
-              <p>MySQL 테이블 8개 팀 공동 설계(고객 이력·주문 당시 단가 구조 포함), 주문일과 이력 유효 기간을 맞춘 당시 기준 매출 집계 조회문 작성</p>
+              <ul class="skill-points">
+                <li>MySQL 테이블 8개 팀 공동 설계 (고객 이력·주문 당시 단가 구조 포함)</li>
+                <li>주문일과 이력 유효 기간을 맞춘 주문 당시 기준 매출 집계 조회문 작성</li>
+              </ul>
               <p class="muted-sm">사용한 곳 <a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></p>
             </dd>
           </div>
           <div>
             <dt>Python</dt>
             <dd>
-              <p>Flask로 사용자 인증·로그인 상태 처리와 찜 등록·해제 기능 구현, Firebase로 사용자·상품 데이터 저장·조회</p>
+              <ul class="skill-points">
+                <li>Flask: 사용자 인증·로그인 상태 처리, 찜 등록·해제 기능 구현</li>
+                <li>Firebase: 사용자·상품 데이터 저장·조회</li>
+              </ul>
               <p class="muted-sm">사용한 곳 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
             </dd>
           </div>
           <div>
             <dt>Java</dt>
             <dd>
-              <p>MySQL 연동 입력·조회 기능 개발, PreparedStatement 바인딩, 저장 전 누락·중복 검증, 오류 시 트랜잭션 롤백</p>
+              <ul class="skill-points">
+                <li>MySQL 연동 입력·조회 기능 개발</li>
+                <li>PreparedStatement 바인딩, 저장 전 누락·중복 검증, 오류 시 트랜잭션 롤백</li>
+              </ul>
               <p class="muted-sm">사용한 곳 <a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></p>
             </dd>
           </div>
           <div>
             <dt>Git</dt>
             <dd>
-              <p>브랜치 관리, 병합, 충돌 해결</p>
+              <ul class="skill-points">
+                <li>브랜치 관리, 병합, 충돌 해결</li>
+              </ul>
               <p class="muted-sm">사용한 곳 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
             </dd>
           </div>
           <div>
             <dt>C</dt>
             <dd>
-              <p>포인터·메모리 구조 등 프로그래밍 기초 학습, 수업 과제로 구현 연습</p>
+              <ul class="skill-points">
+                <li>포인터·메모리 구조 등 프로그래밍 기초 학습, 수업 과제로 구현 연습</li>
+              </ul>
               <p class="muted-sm">사용한 곳 컴퓨터공학 전공 수업</p>
             </dd>
           </div>

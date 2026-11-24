@@ -101,7 +101,7 @@
               </div>
               <div>
               <dt>GitHub</dt>
-              <dd>비공개 저장소 (팀원 계정)</dd>
+              <dd>비공개 저장소 (팀원 계정) · <a href="#build">테이블 구조·SQL 발췌 보기</a></dd>
               </div>
             </dl>
           </div>
@@ -274,13 +274,27 @@ SELECT
     oi.quantity, oi.ordered_price,
     pr.product_name, cat.category_name
 FROM Customer ci
-JOIN Customer_History ch  ON ci.customer_id = ch.customer_id
-LEFT JOIN Orders o        ON ci.customer_id = o.customer_id
-<span class="code-hl">    AND o.order_date BETWEEN ch.start_date AND IFNULL(ch.end_date, NOW())</span>
-LEFT JOIN Order_Items oi        ON o.order_id     = oi.order_id
-LEFT JOIN Product pr            ON oi.product_id  = pr.product_id
-LEFT JOIN Cosmetic_Category cat ON pr.category_id = cat.category_id;</code></pre>
-          <figcaption>주문일이 고객 프로필 적용 기간(start_date ~ end_date) 안에 있는 이력만 연결해 주문 당시 피부 타입·연령대·등급 조회. 피부 타입·연령대별 분석 메뉴에서 사용 (createSchema.sql 발췌, 일부 칼럼 생략)</figcaption>
+<b class="code-kw">JOIN</b> Customer_History ch
+    ON ci.customer_id = ch.customer_id
+<b class="code-kw">LEFT JOIN</b> Orders o
+    ON ci.customer_id = o.customer_id
+<span class="code-hl">   AND o.order_date BETWEEN ch.start_date</span>
+<span class="code-hl">                        AND IFNULL(ch.end_date, NOW())</span>
+<b class="code-kw">LEFT JOIN</b> Order_Items oi
+    ON o.order_id = oi.order_id
+<b class="code-kw">LEFT JOIN</b> Product pr
+    ON oi.product_id = pr.product_id
+<b class="code-kw">LEFT JOIN</b> Cosmetic_Category cat
+    ON pr.category_id = cat.category_id;</code></pre>
+          <figcaption>
+            <p>createSchema.sql 발췌 (일부 칼럼 생략, 줄바꿈만 정리)</p>
+            <ul class="code-notes">
+              <li><strong>핵심 조건</strong>주문일이 프로필 적용 기간(start_date ~ end_date) 안에 있는 이력만 연결 → 주문 당시 피부 타입·연령대·등급 조회 (피부 타입·연령대별 분석 메뉴에서 사용)</li>
+              <li><strong>end_date NULL</strong>현재 적용 중인 이력. IFNULL로 현재 시점(NOW())까지를 적용 기간으로 처리. DATE인 order_date는 DATETIME인 NOW()와 비교할 때 그날 0시로 맞춰 비교되므로 오늘 주문도 포함</li>
+              <li><strong>LEFT JOIN</strong>주문이 없는 프로필 이력도 결과에 유지</li>
+              <li><strong>작성 범위</strong>테이블·뷰 구조는 팀 공동 설계, 이 구조를 활용한 입력·조회 기능(Java)은 직접 구현</li>
+            </ul>
+          </figcaption>
         </figure>
         </div>
       </section>
@@ -309,6 +323,7 @@ LEFT JOIN Cosmetic_Category cat ON pr.category_id = cat.category_id;</code></pre
               <p>가격 변경 후에도 과거 매출의 주문 당시 기준 집계 확인</p>
             </li>
           </ol>
+          <p class="case-role"><strong>내 역할</strong>이력·주문 단가 구조 팀 공동 설계, 주문일 기준 당시 상태 조회 기능 구현</p>
         </div>
         </div>
         <div class="case">
@@ -331,6 +346,7 @@ LEFT JOIN Cosmetic_Category cat ON pr.category_id = cat.category_id;</code></pre
               <p>잘못된 데이터와 일부만 저장된 데이터 차단</p>
             </li>
           </ol>
+          <p class="case-role"><strong>내 역할</strong>저장 전 입력값 검증 로직 작성, 저장 로직 트랜잭션 처리(오류 시 롤백) 구현</p>
         </div>
       </section>
 
