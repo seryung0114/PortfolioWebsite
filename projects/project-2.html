@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>화장품 매장 판매 분석 시스템 | 천세령 포트폴리오</title>
-  <meta name="description" content="프로젝트 2 상세: 문제 정의, 데이터와 방법, 결과, 해결 과정">
+  <meta name="description" content="화장품 매장 판매 분석 시스템: 문제 정의, 구현 내용, 핵심 문제 해결, 결과·검증">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,9 +38,9 @@
       <a class="toc-title" href="#overview">PROJECT 02.</a>
       <ul class="toc-links">
         <li><a href="#problem"><span class="num">01</span>문제 정의</a></li>
-        <li><a href="#method"><span class="num">02</span>데이터와 방법</a></li>
-        <li><a href="#result"><span class="num">03</span>결과</a></li>
-        <li><a href="#trouble"><span class="num">04</span>막혔던 부분</a></li>
+        <li><a href="#build"><span class="num">02</span>구현 내용</a></li>
+        <li><a href="#solve"><span class="num">03</span>문제 해결</a></li>
+        <li><a href="#result"><span class="num">04</span>결과·검증</a></li>
         <li><a href="#ai"><span class="num">05</span>AI 활용</a></li>
         <li><a href="#lesson"><span class="num">06</span>배운 점</a></li>
       </ul>
@@ -48,7 +48,7 @@
   </nav>
 
   <main id="main">
-    <!-- ===== 머리 영역: 프로젝트 이름 ===== -->
+    <!-- ===== 개요: 한 줄 요약, 결과 숫자, 기술 스택·담당 역할 ===== -->
     <section class="section" id="overview" aria-labelledby="detail-title">
       <header class="section-head section-head-lg">
         <div class="container">
@@ -59,20 +59,20 @@
       </header>
 
       <div class="container section-body">
-        <p class="intro-text">6인 팀 · Java·MySQL 기반 화장품 매장 판매 분석 시스템 개발, 고객 이력 테이블 설계와 입력·조회 기능 담당. 가격·고객 정보가 바뀌어도 과거 매출이 주문 당시 기준으로 집계되도록 설계.</p>
+        <p class="intro-text">6인 팀으로 Java·MySQL 기반 화장품 매장 판매 분석 시스템을 개발함(약 3주). 제품별 매출, 고객층(연령대·피부 타입)별 구매 패턴, 가격 변동이 판매량과 매출에 미치는 영향을 추적하는 것이 목표였음. 고객 이력 테이블 설계와 입력·조회 기능을 맡음.</p>
 
         <div class="overview-grid">
-          <h2 class="visually-hidden">핵심 결과</h2>
+          <h2 class="visually-hidden">결과 숫자</h2>
           <ul class="kpi-grid kpi-grid-2">
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">01</span>
-              <p class="kpi-value kpi-value-text">주문 당시 기준</p>
-              <p class="kpi-label">가격이 바뀐 뒤에도 과거 매출 집계</p>
+              <p class="kpi-value kpi-value-text">당시 기준 집계</p>
+              <p class="kpi-label">가격·고객 정보가 바뀐 뒤에도<br>과거 매출을 주문 당시 기준으로 집계</p>
             </li>
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">02</span>
               <p class="kpi-value kpi-value-text">검증 + 롤백</p>
-              <p class="kpi-label">누락·중복 데이터와 일부만 저장되는 일 방지</p>
+              <p class="kpi-label">잘못된 데이터와<br>일부만 저장되는 데이터 차단</p>
             </li>
           </ul>
 
@@ -80,16 +80,28 @@
             <h2 class="block-title">개요</h2>
             <dl class="kv">
               <div>
-                <dt>기간</dt>
-                <dd>약 3주</dd>
+              <dt>기간</dt>
+              <dd>약 3주</dd>
               </div>
               <div>
-                <dt>인원·역할</dt>
-                <dd>6인 팀 / 고객 이력 테이블 설계, 입력·조회 기능</dd>
+              <dt>인원</dt>
+              <dd>6인 팀</dd>
               </div>
               <div>
-                <dt>도구</dt>
-                <dd>Java, MySQL</dd>
+              <dt>담당 역할</dt>
+              <dd>고객 이력 테이블 설계, 입력·조회 기능 구현</dd>
+              </div>
+              <div>
+              <dt>기술 스택</dt>
+              <dd>Java · MySQL · SQL</dd>
+              </div>
+              <div>
+              <dt>핵심 역량</dt>
+              <dd><strong>Java, MySQL, SQL 데이터 모델링 및 데이터 정합성</strong></dd>
+              </div>
+              <div>
+              <dt>GitHub</dt>
+              <dd>비공개 저장소 (팀원 계정)</dd>
               </div>
             </dl>
           </div>
@@ -100,175 +112,170 @@
     <div class="container detail-body">
       <!-- ===== 01 문제 정의 ===== -->
       <section class="detail-section" id="problem" aria-labelledby="problem-title">
-        <h2 class="block-title block-title-lg" id="problem-title"><span class="num">01</span>문제 정의</h2>
+        <div class="keep-together">
+          <h2 class="block-title block-title-lg" id="problem-title"><span class="num">01</span>문제 정의</h2>
         <dl class="rows">
           <div>
-            <dt>배경</dt>
-            <dd>매장의 가격과 고객 정보는 시간에 따라 변경</dd>
+            <dt>분석 목표</dt>
+            <dd>제품별 매출, 고객층(연령대·피부 타입)별 구매 패턴, 가격 변동이 판매량과 매출에 미치는 영향 추적</dd>
           </div>
           <div>
             <dt>해결하려던 문제</dt>
-            <dd>정보 변경 시 지난 매출까지 새 값으로 재계산되면 분석 결과 신뢰 불가</dd>
+            <dd>가격이나 고객 연령대·피부 타입이 바뀌면 지난 주문까지 새 값으로 집계되어 변화 전후를 비교할 수 없음</dd>
           </div>
           <div>
-            <dt>목표</dt>
-            <dd>과거 매출의 주문 당시 기준 집계, 잘못되거나 일부만 저장된 데이터 방지</dd>
+            <dt>설계 목표</dt>
+            <dd>주문 당시의 가격과 고객 상태를 보존하고, 잘못되거나 일부만 저장된 데이터가 남지 않게 함</dd>
           </div>
         </dl>
+        </div>
       </section>
 
-      <!-- ===== 02 데이터와 방법 ===== -->
-      <section class="detail-section" id="method" aria-labelledby="method-title">
-        <h2 class="block-title block-title-lg" id="method-title"><span class="num">02</span>데이터와 방법</h2>
+      <!-- ===== 02 구현 내용: 실제로 작성한 기능과 사용한 기술 ===== -->
+      <section class="detail-section" id="build" aria-labelledby="build-title">
+        <div class="keep-together">
+          <h2 class="block-title block-title-lg" id="build-title"><span class="num">02</span>구현 내용</h2>
         <dl class="rows">
           <div>
-            <dt>다룬 데이터</dt>
-            <dd>고객 이력·상품·주문 데이터 (MySQL)</dd>
+            <dt>고객 이력 테이블</dt>
+            <dd>고객 정보(연령대·피부 타입 등)가 바뀔 때마다 유효 기간과 함께 이력으로 저장 (MySQL)</dd>
           </div>
           <div>
-            <dt>담당 기능</dt>
-            <dd>고객 이력 테이블 설계, 입력·조회 기능</dd>
+            <dt>주문 단가</dt>
+            <dd>주문 시점의 단가를 주문 데이터의 별도 칼럼에 저장</dd>
           </div>
           <div>
-            <dt>사용 도구</dt>
-            <dd>Java, MySQL</dd>
+            <dt>당시 기준 집계</dt>
+            <dd>주문일과 고객 이력의 유효 기간을 맞춰 당시 상태 기준으로 매출 집계 (SQL)</dd>
+          </div>
+          <div>
+            <dt>입력·저장</dt>
+            <dd>PreparedStatement 바인딩, 저장 전 필수값·고객/상품 존재·중복 검증, 오류 시 트랜잭션 롤백 (Java)</dd>
           </div>
         </dl>
-
-        <h3 class="sub-title">핵심 행동과 결과</h3>
-        <!-- 카드 하나 = 행동 하나. 위에서부터 순서대로 읽히도록 번호를 붙임 -->
-        <ul class="tcard-grid">
-          <li class="tcard">
-            <span class="tcard-circle" aria-hidden="true">01</span>
-            <h4 class="tcard-title">문제해결</h4>
-            <p>가격 변경 시 지난 매출까지 새 가격으로 재계산될 위험</p>
-            <p class="tcard-point"><b>How + Result</b>주문 시점의 단가를 별도 칼럼에 저장 → 과거 매출을 주문 당시 기준으로 집계</p>
-          </li>
-          <li class="tcard">
-            <span class="tcard-circle" aria-hidden="true">02</span>
-            <h4 class="tcard-title">데이터 정합성</h4>
-            <p>고객 정보가 바뀌어도 주문 당시 고객 상태 기준 분석 필요</p>
-            <p class="tcard-point"><b>How + Result</b>주문일을 고객 이력의 유효 기간과 맞춰 조회 → 당시 상태로 집계</p>
-          </li>
-          <li class="tcard">
-            <span class="tcard-circle" aria-hidden="true">03</span>
-            <h4 class="tcard-title">안정성</h4>
-            <p>잘못되거나 일부만 저장된 데이터 방지 필요</p>
-            <p class="tcard-point"><b>How + Result</b>PreparedStatement 바인딩, 저장 전 검증(필수값 누락·없는 고객/상품·중복 상품), 트랜잭션 롤백 → 누락·중복·일부 저장 차단</p>
-          </li>
-        </ul>
-      </section>
-
-      <!-- ===== 03 결과 ===== -->
-      <section class="detail-section" id="result" aria-labelledby="result-title">
-        <h2 class="block-title block-title-lg" id="result-title"><span class="num">03</span>결과</h2>
-
-        <div class="table-wrap">
-          <table class="result-table">
-            <caption class="visually-hidden">항목별 판단 기준과 결과</caption>
-            <thead>
-              <tr>
-                <th scope="col">항목</th>
-                <th scope="col">판단 기준</th>
-                <th scope="col">결과</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">과거 매출 집계</th>
-                <td>가격이 바뀐 뒤에도 주문 당시 단가로 집계</td>
-                <td class="result-after">주문 당시 기준으로 집계되는 것 확인</td>
-              </tr>
-              <tr>
-                <th scope="row">잘못된 입력</th>
-                <td>필수값 누락·없는 고객/상품·중복 상품은 저장하지 않음</td>
-                <td class="result-after">저장 전에 걸러냄</td>
-              </tr>
-              <tr>
-                <th scope="row">저장 중 오류</th>
-                <td>일부 데이터만 저장되지 않음</td>
-                <td class="result-after">트랜잭션 롤백</td>
-              </tr>
-            </tbody>
-          </table>
+        </div>
+        <div class="keep-together">
+        <h3 class="sub-title">데이터베이스 구조</h3>
+        <!-- 테이블 구조 캡처를 받으면 div.shot-slot 을 아래처럼 img 로 교체:
+             <img src="../assets/images/project-2-db.png" alt="테이블과 관계를 문장으로. 예: 고객, 고객 이력, 제품, 주문 테이블과 연결 관계" width="1600" height="900" loading="lazy"> -->
+        <figure class="shot shot-wide">
+          <div class="shot-slot"><span class="todo">[작성 필요: 테이블 구조 캡처]</span></div>
+          <figcaption><span class="todo">[작성 필요: 테이블 구조 설명]</span></figcaption>
+        </figure>
         </div>
 
-        <dl class="rows">
-          <div>
-            <dt>확인 방법</dt>
-            <dd>가격 변경 후 과거 매출을 다시 조회해 주문 당시 기준 집계 여부 확인</dd>
-          </div>
-        </dl>
-
+        <div class="keep-together">
+        <h3 class="sub-title">SQL 쿼리 예시</h3>
+        <!-- 쿼리를 받으면 code 안에 그대로 붙여 넣기 (부등호는 &lt; &gt; 로 바꿔 쓰기) -->
+        <figure class="code-figure">
+          <pre class="code-block"><code><span class="todo">[작성 필요: SQL 쿼리]</span></code></pre>
+          <figcaption><span class="todo">[작성 필요: 쿼리가 하는 일 한 줄 설명]</span></figcaption>
+        </figure>
+        </div>
       </section>
 
-      <!-- ===== 04 고민한 부분과 해결 과정 ===== -->
-      <section class="detail-section detail-highlight" id="trouble" aria-labelledby="trouble-title">
-        <h2 class="block-title block-title-lg" id="trouble-title"><span class="num">04</span>막혔던 부분과 해결 과정</h2>
-        <!-- 카드 하나 = 단계 하나 -->
-        <ul class="tcard-grid">
-          <li class="tcard">
-            <h3 class="tcard-title">문제 상황</h3>
-            <p>가격·고객 정보 변경 시 지난 매출까지 새 값으로 재계산 → 분석 결과를 믿을 수 없게 될 위험</p>
-            <p class="tcard-point"><b>Point</b>과거 매출은 나중에 바뀌면 안 되는 기록</p>
-          </li>
-          <li class="tcard">
-            <h3 class="tcard-title">해결책</h3>
-            <p>주문 시점 단가 별도 칼럼 저장, 조회 시 주문일과 고객 이력 유효 기간을 맞춰 당시 상태로 집계</p>
-            <p class="tcard-point"><b>Point</b>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계됨을 확인</p>
-          </li>
-          <li class="tcard">
-            <h3 class="tcard-title">비교 대상</h3>
-            <p>은행 거래: 거래가 끝난 뒤에도 그 시점의 금리·금액이 그대로 남아야 하는 것과 같은 원리</p>
-            <p class="tcard-point"><b>Point</b>데이터 이력을 정확하게 보존하는 것이 신뢰의 기반</p>
-          </li>
-        </ul>
+      <!-- ===== 03 핵심 문제 해결: 사례 2개 (문제 → 원인·해결 → 결과) ===== -->
+      <section class="detail-section detail-highlight" id="solve" aria-labelledby="solve-title">
+        <div class="keep-together">
+          <h2 class="block-title block-title-lg" id="solve-title"><span class="num">03</span>핵심 문제 해결</h2>
+        <div class="case">
+          <h3 class="case-title"><span class="num">사례 1</span>가격·고객 정보 변경 시 과거 매출 왜곡<span class="case-tag">거래 데이터 이력 관리</span></h3>
+          <ol class="case-grid">
+            <li class="case-step">
+              <h4>문제</h4>
+              <p>가격이나 고객 연령대·피부 타입이 바뀌면 지난 매출까지 새 값으로 다시 계산되어, 가격 변동·고객층별 분석 결과가 왜곡될 수 있었음</p>
+            </li>
+            <li class="case-step">
+              <h4>해결</h4>
+              <p>주문 시점 단가를 별도 칼럼에 저장하고, 고객 이력에 유효 기간을 두어 주문일 기준으로 당시 상태를 조회함</p>
+            </li>
+            <li class="case-step case-step-result">
+              <h4>결과</h4>
+              <p>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계되는 것을 확인함</p>
+            </li>
+          </ol>
+        </div>
+        </div>
+        <div class="case">
+          <h3 class="case-title"><span class="num">사례 2</span>잘못된 데이터와 일부만 저장된 데이터<span class="case-tag">데이터 무결성</span></h3>
+          <ol class="case-grid">
+            <li class="case-step">
+              <h4>문제</h4>
+              <p>필수값 누락, 없는 고객·상품, 중복 상품이 저장되거나 저장 중 오류로 일부 데이터만 남을 수 있었음</p>
+            </li>
+            <li class="case-step">
+              <h4>해결</h4>
+              <p>저장 전에 입력값을 검증하고 PreparedStatement로 값을 바인딩함. 저장 중 오류가 나면 트랜잭션을 롤백함</p>
+            </li>
+            <li class="case-step case-step-result">
+              <h4>결과</h4>
+              <p>잘못된 데이터와 일부만 저장된 데이터가 남지 않도록 막음</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== 04 결과·검증 ===== -->
+      <section class="detail-section" id="result" aria-labelledby="result-title">
+        <div class="keep-together">
+          <h2 class="block-title block-title-lg" id="result-title"><span class="num">04</span>결과·검증</h2>
+        <dl class="rows">
+          <div>
+            <dt>이력 보존 확인</dt>
+            <dd>가격을 바꾼 뒤 과거 매출을 다시 조회해 주문 당시 기준으로 집계되는지 확인함</dd>
+          </div>
+          <div>
+            <dt>입력 검증 확인</dt>
+            <dd>누락·중복 값을 넣어 저장이 차단되는지 확인함</dd>
+          </div>
+        </dl>
+        </div>
       </section>
 
       <!-- ===== 05 AI 도구 활용 ===== -->
       <section class="detail-section" id="ai" aria-labelledby="ai-title">
-        <h2 class="block-title block-title-lg" id="ai-title"><span class="num">05</span>AI 도구 활용</h2>
+        <div class="keep-together">
+          <h2 class="block-title block-title-lg" id="ai-title"><span class="num">05</span>AI 도구 활용</h2>
         <dl class="rows">
           <div>
-            <dt>사용한 도구</dt>
+            <dt>활용 도구</dt>
             <dd>ChatGPT</dd>
           </div>
           <div>
-            <dt>맡긴 작업</dt>
-            <dd>고객 이력 테이블(유효 기간) 설계 방식 조사, PreparedStatement·트랜잭션 예시 코드</dd>
+            <dt>활용 목적</dt>
+            <dd>고객 이력 테이블(유효 기간) 설계 방식 조사, PreparedStatement·트랜잭션 예시 코드 참고</dd>
           </div>
           <div>
-            <dt>검증 방법</dt>
-            <dd>가격 변경 후 과거 매출을 다시 조회해 당시 기준 집계 확인, 누락·중복 값을 넣어 저장 차단 확인</dd>
+            <dt>검증 과정</dt>
+            <dd>가격 변경 후 과거 매출을 다시 조회해 당시 기준 집계를 확인하고, 누락·중복 값을 넣어 저장 차단 여부를 확인</dd>
           </div>
           <div>
-            <dt>직접 고친 부분</dt>
-            <dd>저장 로직을 트랜잭션으로 묶어 오류 시 롤백되도록 수정</dd>
+            <dt>직접 수행</dt>
+            <dd>고객 이력 테이블 설계, 입력값 검증 로직 작성, 저장 로직을 트랜잭션으로 묶어 오류 시 롤백되도록 수정</dd>
           </div>
         </dl>
+        </div>
       </section>
 
-      <!-- ===== 06 배운 점 + 저장소 ===== -->
+      <!-- ===== 06 배운 점 ===== -->
       <section class="detail-section" id="lesson" aria-labelledby="lesson-title">
-        <h2 class="block-title block-title-lg" id="lesson-title"><span class="num">06</span>배운 점</h2>
+        <div class="keep-together">
+          <h2 class="block-title block-title-lg" id="lesson-title"><span class="num">06</span>배운 점</h2>
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd>거래·이력 데이터를 다루는 시스템에서는 당시 데이터의 정확한 보존이 신뢰의 기반</dd>
+            <dd>은행 거래 기록처럼 거래 당시의 가격과 고객 상태가 그대로 남아야 분석 결과를 믿을 수 있다는 점을 배움</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>
-            <dd>가격·고객 정보 변경 상황을 테스트 케이스로 정리해 반복 검증, 이력 유효 기간 규칙을 팀 공통 문서로 먼저 정리</dd>
-          </div>
-          <div>
-            <dt>GitHub 저장소</dt>
-            <dd>비공개 저장소 (팀원 계정)</dd>
+            <dd>가격·고객 정보 변경 상황을 테스트 케이스로 정리해 반복 검증하고, 이력 유효 기간 규칙을 팀 공통 문서로 먼저 정리하겠음</dd>
           </div>
         </dl>
+        </div>
       </section>
     </div>
 
-    <!-- 다른 프로젝트로 이동 -->
+    <!-- 다른 프로젝트로 이동 (흰 박스 템플릿) -->
     <nav class="pager-wrap" aria-label="프로젝트 이동">
       <div class="container pager">
         <a class="pager-link" href="project-1.html">

@@ -52,6 +52,14 @@
         <div class="cover-text">
           <p class="eyebrow">컴퓨터공학과 · 데이터 운영·분석 직무 지원</p>
           <h1 class="cover-title" id="hero-title">안녕하세요. 기술과 비즈니스를 연결하는 천세령입니다.</h1>
+          <!-- 지원 직무에서 강조할 역량 5가지 -->
+          <ul class="focus-tags" aria-label="핵심 역량">
+            <li>데이터 정합성·무결성</li>
+            <li>거래 데이터 이력 관리</li>
+            <li>SQL 데이터 조회·검증</li>
+            <li>오류 원인 분석·대응</li>
+            <li>시스템 안정성·협업</li>
+          </ul>
           <div class="cta-row">
             <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
             <!-- PDF는 tools/make-pdf.js 로 사이트 내용을 그대로 만들어 둔 파일 -->
@@ -110,20 +118,20 @@
           <li class="kpi">
             <span class="kpi-num" aria-hidden="true">01</span>
             <p class="kpi-value">2건</p>
-            <p class="kpi-label">사용자 흐름을 직접 따라가며 찾아<br>재현 순서와 함께 전달한 오류</p>
+            <p class="kpi-label">가입~구매~리뷰 사용자 흐름 테스트로<br>발견해 재현 순서와 함께 전달한 오류</p>
             <p class="kpi-source">근거 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
           </li>
           <li class="kpi">
             <span class="kpi-num" aria-hidden="true">02</span>
             <p class="kpi-value">0건</p>
-            <p class="kpi-label">작업 규칙과 상품 ID 통일 후<br>최종 시연 오류</p>
+            <p class="kpi-label">병합 절차·상품 ID 규칙 통일 후<br>최종 시연 오류</p>
             <p class="kpi-source">근거 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
           </li>
           <li class="kpi">
             <span class="kpi-num" aria-hidden="true">03</span>
             <!-- 숫자가 아닌 결과라 글자 크기를 조금 작게 (kpi-value-text) -->
-            <p class="kpi-value kpi-value-text">주문 당시 기준 유지</p>
-            <p class="kpi-label">가격이 바뀐 뒤에도<br>과거 매출을 당시 단가로 집계</p>
+            <p class="kpi-value kpi-value-text">주문 당시 기준 집계</p>
+            <p class="kpi-label">가격·고객 정보가 바뀐 뒤에도<br>과거 매출을 당시 단가·고객 상태로 집계</p>
             <p class="kpi-source">근거 <a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></p>
           </li>
         </ul>
@@ -135,7 +143,7 @@
       <header class="section-head section-head-lg">
         <div class="container">
           <p class="label">INTRODUCTION.</p>
-          <h2 class="intro-title" id="intro-title">기술과 비즈니스를 연결하는 천세령입니다.</h2>
+          <h2 class="intro-title" id="intro-title">기술을 활용해 데이터 문제를 직접 발견하고 해결합니다.</h2>
         </div>
       </header>
 
@@ -146,6 +154,17 @@
             코드가 잘 돌아가는 것만큼 그 결과를 사람이 믿고 쓸 수 있는지가 중요하다고 생각합니다.
             컴퓨터공학을 바탕으로 데이터를 정확하게 다루고 그 결과가 실제 업무 판단으로 이어지도록 연결하겠습니다.
           </p>
+
+          <!-- 할 수 있는 것: 항목마다 근거 프로젝트를 함께 표시 -->
+          <div class="info-block can-block">
+            <h3 class="block-title">할 수 있는 것</h3>
+            <ul class="can-list">
+              <li><span>SQL과 Java를 활용해 데이터 구조를 설계하고 조회할 수 있음</span><a href="projects/project-2.html">화장품 매장 판매 분석</a></li>
+              <li><span>Python과 Firebase를 활용해 웹 기능을 구현할 수 있음</span><a href="projects/project-1.html">교내 중고 거래 웹사이트</a></li>
+              <li><span>Git 협업 과정에서 발생한 문제를 분석하고 해결할 수 있음</span><a href="projects/project-1.html">교내 중고 거래 웹사이트</a></li>
+              <li><span>데이터 검증과 테스트를 통해 결과의 신뢰성을 확보할 수 있음</span><span class="can-proof">두 프로젝트</span></li>
+            </ul>
+          </div>
 
           <div class="info-grid">
             <div class="info-block">
@@ -174,34 +193,8 @@
                   <dd>창덕여자고등학교 졸업</dd>
                 </div>
                 <div>
-                  <dt>2024 ~ 재학</dt>
+                  <dt>2024.03 ~ 재학 중</dt>
                   <dd>이화여자대학교 컴퓨터공학과</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="info-block">
-              <h3 class="block-title">자격증</h3>
-              <dl class="kv">
-                <!-- 아직 없음. 취득하면 아래처럼 추가:
-                <div>
-                  <dt>2026.06</dt>
-                  <dd>SQLD (SQL 개발자)</dd>
-                </div>
-                -->
-                <div>
-                  <dt><span class="todo">[작성 필요: 취득일 · 자격증 이름]</span></dt>
-                  <dd></dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="info-block">
-              <h3 class="block-title">어학</h3>
-              <dl class="kv">
-                <div>
-                  <dt>2025.09.28</dt>
-                  <dd>TOEFL 80점</dd>
                 </div>
               </dl>
             </div>
@@ -214,7 +207,7 @@
                   <dt>2025.04 – 2026.07</dt>
                   <dd>
                     <strong>미래탐구 학원 · 강사 개인 조교</strong> <span class="muted-sm">1년 4개월</span>
-                    <span class="career-desc">학습 관리 · 학습 자료 관리 · 질의응답 · 시험지 제작 · 정리 · 배부</span>
+                    <span class="career-desc">중·고등학생 학습 관리 · 시험 감독 및 채점 · 학습 자료 제작·관리 · 학생 질의응답</span>
                   </dd>
                 </div>
                 <div>
@@ -227,9 +220,9 @@
               </dl>
             </div>
 
-            <!-- 어학연수: 경력과 같은 모양의 넓은 블록 -->
+            <!-- 어학: 어학연수와 공인 성적 -->
             <div class="info-block info-block-wide">
-              <h3 class="block-title">어학연수</h3>
+              <h3 class="block-title">어학</h3>
               <dl class="kv kv-career">
                 <div>
                   <dt>2026.08 – 2026.12</dt>
@@ -237,6 +230,10 @@
                     <strong>ILSC Toronto English Language School · 캐나다 토론토</strong> <span class="muted-sm">5개월</span>
                     <span class="career-desc">최상위 반(Advanced 2) 도달 · AI 기반 영어 학습 앱 기획 및 영어 발표 · 다국적 학생들과 역할을 나눠 비즈니스 상황 영어 토론</span>
                   </dd>
+                </div>
+                <div>
+                  <dt>2025.09.28</dt>
+                  <dd><strong>TOEFL 80점</strong></dd>
                 </div>
               </dl>
             </div>
@@ -250,7 +247,7 @@
       </div>
     </section>
 
-    <!-- ===== 4. 스킬 (표 + 카드 템플릿) ===== -->
+    <!-- ===== 4. 기술 및 역량 (표 + 카드 템플릿) ===== -->
     <section class="section" id="skills" aria-labelledby="skills-title">
       <header class="section-head">
         <div class="container section-head-inner">
@@ -263,20 +260,20 @@
       </header>
 
       <div class="container section-body">
-        <h3 class="sub-title sub-title-first">언어</h3>
-        <!-- 행 하나 = 언어 하나. 별점·막대 대신 실제로 해 본 것 -->
+        <h3 class="sub-title sub-title-first">언어·도구</h3>
+        <!-- 행 하나 = 기술 하나. 별점·막대 대신 실제로 해 본 것 -->
         <dl class="skill-table">
           <div>
             <dt>SQL</dt>
             <dd>
-              <p>MySQL에서 고객 이력 테이블 설계, 주문일과 이력 유효 기간을 맞춘 당시 기준 매출 집계 조회</p>
+              <p>MySQL을 활용한 고객 이력 테이블 설계 및 SQL 조회문 작성, 주문일과 이력 유효 기간을 맞춘 당시 기준 매출 집계 조회</p>
               <p class="muted-sm">사용한 곳 <a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></p>
             </dd>
           </div>
           <div>
             <dt>Python</dt>
             <dd>
-              <p>Flask·Firebase로 로그인·찜하기 기능 구현</p>
+              <p>Flask로 사용자 인증·로그인 상태 처리와 찜 등록·해제 기능 구현, Firebase로 사용자·상품 데이터 저장·조회</p>
               <p class="muted-sm">사용한 곳 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
             </dd>
           </div>
@@ -285,6 +282,13 @@
             <dd>
               <p>MySQL 연동 입력·조회 기능 개발, PreparedStatement 바인딩, 저장 전 누락·중복 검증, 오류 시 트랜잭션 롤백</p>
               <p class="muted-sm">사용한 곳 <a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></p>
+            </dd>
+          </div>
+          <div>
+            <dt>Git</dt>
+            <dd>
+              <p>브랜치 관리, 병합, 충돌 해결</p>
+              <p class="muted-sm">사용한 곳 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
             </dd>
           </div>
           <div>
@@ -302,26 +306,26 @@
           <li class="card">
             <p class="card-label">STRENGTH 01</p>
             <h4 class="card-title">불일치의 원인을 찾아 기준 세우기</h4>
-            <p>병합 충돌·찜/리뷰 오연결의 원인을 작업 기준 불일치로 판단 → 공용 파일 수정 순서, 테스트 브랜치 병합, 상품 고유 ID 규칙 제안 → 두 문제 모두 해소</p>
-            <p class="muted-sm">근거 <a href="projects/project-1.html">프로젝트 1</a></p>
+            <p>병합 충돌과 찜·리뷰 오연결의 원인을 팀 작업 기준 불일치로 판단함. 공용 파일 수정 순서, 테스트 브랜치 병합, 상품 고유 ID 규칙을 제안해 두 문제를 해결함.</p>
+            <p class="muted-sm">근거 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a></p>
           </li>
           <li class="card">
             <p class="card-label">STRENGTH 02</p>
             <h4 class="card-title">거래 당시 데이터 보존</h4>
-            <p>주문 시점 단가 별도 칼럼 저장, 고객 이력 유효 기간으로 조회 → 가격 변경 후에도 과거 매출을 주문 당시 기준으로 집계</p>
-            <p class="muted-sm">근거 <a href="projects/project-2.html">프로젝트 2</a></p>
+            <p>주문 시점 단가를 별도 칼럼에 저장하고, 주문일과 고객 이력 유효 기간을 맞춰 조회함. 가격이 바뀐 뒤에도 과거 매출을 주문 당시 기준으로 집계함.</p>
+            <p class="muted-sm">근거 <a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></p>
           </li>
           <li class="card">
             <p class="card-label">STRENGTH 03</p>
-            <h4 class="card-title">꼼꼼한 점검과 정확한 전달</h4>
-            <p>가입~구매·리뷰 흐름 점검으로 오류 2건 발견, 재현 순서와 함께 전달 → 최종 시연 오류 0건 · 입력값 검증과 트랜잭션 롤백으로 잘못된 데이터 저장 차단</p>
-            <p class="muted-sm">근거 <a href="projects/project-1.html">프로젝트 1</a> · <a href="projects/project-2.html">프로젝트 2</a></p>
+            <h4 class="card-title">테스트를 통한 오류 발견 및 검증</h4>
+            <p>가입부터 구매·리뷰까지 사용자 흐름을 테스트해 오류 2건을 찾고 재현 순서와 함께 전달함. 저장 전 입력값 검증과 트랜잭션 롤백으로 잘못된 데이터가 남지 않게 함.</p>
+            <p class="muted-sm">근거 <a href="projects/project-1.html">교내 중고 거래 웹사이트</a> · <a href="projects/project-2.html">화장품 매장 판매 분석 시스템</a></p>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== 5. 프로젝트 (이미지 카드 템플릿) ===== -->
+    <!-- ===== 5. 프로젝트: 두 프로젝트의 성격(웹 기능·협업 vs 데이터 모델링·정합성)이 구분되게 ===== -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <header class="section-head">
         <div class="container section-head-inner">
@@ -343,15 +347,19 @@
                 <dd>약 2개월 · 5인 팀</dd>
               </div>
               <div>
-                <dt>사용 기술</dt>
-                <dd>Flask, Firebase, Git</dd>
+                <dt>담당 역할</dt>
+                <dd>로그인·찜하기 구현, 병합 절차 제안, 사용자 흐름 테스트</dd>
+              </div>
+              <div>
+                <dt>핵심 역량</dt>
+                <dd class="row-strong">Python, Flask, Firebase, Git 협업 및 오류 해결</dd>
               </div>
               <div>
                 <dt>핵심 성과</dt>
                 <dd class="row-stat">최종 시연 오류 0건</dd>
               </div>
             </dl>
-            <p>로그인·찜하기 담당. 병합 충돌과 찜·리뷰 오연결을 작업 규칙·상품 고유 ID 통일로 해결, 사용자 흐름 점검으로 오류 2건 발견·전달</p>
+            <p>병합 충돌과 찜·리뷰 오연결을 병합 절차와 상품 고유 ID 규칙으로 해결함.</p>
             <p class="project-more" aria-hidden="true">상세 보기 →</p>
           </li>
 
@@ -364,15 +372,19 @@
                 <dd>약 3주 · 6인 팀</dd>
               </div>
               <div>
-                <dt>사용 기술</dt>
-                <dd>Java, MySQL</dd>
+                <dt>담당 역할</dt>
+                <dd>고객 이력 테이블 설계, 입력·조회 기능 구현</dd>
+              </div>
+              <div>
+                <dt>핵심 역량</dt>
+                <dd class="row-strong">Java, MySQL, SQL 데이터 모델링 및 데이터 정합성</dd>
               </div>
               <div>
                 <dt>핵심 성과</dt>
                 <dd class="row-stat">가격 변경 후에도 과거 매출을 주문 당시 기준으로 집계</dd>
               </div>
             </dl>
-            <p>고객 이력 테이블 설계, 입력·조회 기능 담당. 주문 시점 단가 별도 저장, 입력값 검증과 트랜잭션 롤백으로 잘못된 데이터·일부 저장 차단</p>
+            <p>제품별 매출, 고객층별 구매 패턴, 가격 변동의 영향을 추적하기 위해 주문 당시 가격·고객 상태를 보존하는 구조를 설계함.</p>
             <p class="project-more" aria-hidden="true">상세 보기 →</p>
           </li>
         </ul>

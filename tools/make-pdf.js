@@ -1,6 +1,7 @@
 // =========================================================
 // 포트폴리오 전체를 PDF 한 개로 만드는 스크립트
-// 순서: 메인 페이지 → 프로젝트 1 상세 → 프로젝트 2 상세 → 마지막 연락처
+// 순서: 메인 페이지 → 프로젝트 1 상세 → 프로젝트 2 상세
+// (마지막 연락처 페이지는 PDF에서 뺌: 연락처는 표지와 자기소개에 있음)
 // 결과: assets/resume.pdf  (메인 페이지의 [이력서 PDF 다운로드] 버튼이 이 파일을 내려받음)
 //
 // 실행 방법 (사이트 내용을 고친 뒤 다시 실행하면 PDF도 최신으로 바뀜)
@@ -46,10 +47,9 @@ const server = http.createServer((req, res) => {
   const page = await browser.newPage();
   await page.goto(base + 'index.html', { waitUntil: 'networkidle' });
 
-  // 2) 메인 페이지 뒤에 프로젝트 상세 본문을 차례로 붙이고, 연락처 섹션은 맨 끝으로 옮김
+  // 2) 메인 페이지 뒤에 프로젝트 상세 본문을 차례로 붙이고, 연락처 섹션은 뺌
   await page.evaluate(async ({ base, site, details }) => {
     const main = document.querySelector('main');
-    const contact = document.getElementById('contact');
 
     // 메인 페이지의 상대 링크(projects/... 등)를 실제 사이트 주소로
     document.querySelectorAll('a[href]').forEach((a) => {
@@ -71,8 +71,7 @@ const server = http.createServer((req, res) => {
       main.append(wrap);
     }
 
-    contact.classList.add('pdf-page');
-    main.append(contact);
+    document.getElementById('contact').remove();
     document.title = '천세령 포트폴리오';
   }, { base, site: SITE, details: DETAIL_PAGES });
 
