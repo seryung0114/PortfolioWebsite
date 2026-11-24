@@ -156,20 +156,131 @@
         </div>
         <div class="keep-together">
         <h3 class="sub-title">데이터베이스 구조</h3>
-        <!-- 테이블 구조 캡처를 받으면 div.shot-slot 을 아래처럼 img 로 교체:
-             <img src="../assets/images/project-2-db.png" alt="테이블과 관계를 문장으로. 예: 고객, 고객 이력, 제품, 주문 테이블과 연결 관계" width="1600" height="900" loading="lazy"> -->
-        <figure class="shot shot-wide">
-          <div class="shot-slot"><span class="todo">[작성 필요: 테이블 구조 캡처]</span></div>
-          <figcaption><span class="todo">[작성 필요: 테이블 구조 설명]</span></figcaption>
+        <!-- createSchema.sql 기준 (테이블 8개 · 뷰 2개 · 인덱스 1개). 칼럼을 바꾸려면 build 스크립트의 SCHEMA 수정 -->
+        <figure class="schema" aria-label="데이터베이스 테이블 구조">
+        <div class="schema-grid">
+          <div class="schema-col">
+            <table class="schema-table">
+              <caption><span class="schema-name">Customer</span><span class="schema-label">고객</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">customer_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">first_name</td><td class="schema-type">VARCHAR(50)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">last_name</td><td class="schema-type">VARCHAR(50)</td></tr>
+                <tr><td class="schema-key">UQ</td><td class="schema-cname">phone</td><td class="schema-type">VARCHAR(20)</td></tr>
+                <tr><td class="schema-key">UQ</td><td class="schema-cname">email</td><td class="schema-type">VARCHAR(100)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">birth_date</td><td class="schema-type">DATE</td></tr>
+              </tbody>
+            </table>
+            <table class="schema-table">
+              <caption><span class="schema-name">Customer_History</span><span class="schema-label">고객 프로필 이력</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">history_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">FK</td><td class="schema-cname">customer_id<span class="schema-ref">→ Customer</span></td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">skin_type</td><td class="schema-type">VARCHAR(30)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">age_group</td><td class="schema-type">VARCHAR(20)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">grade</td><td class="schema-type">VARCHAR(30)</td></tr>
+                <tr class="schema-hl"><td class="schema-key"></td><td class="schema-cname">start_date</td><td class="schema-type">DATE</td></tr>
+                <tr class="schema-hl"><td class="schema-key"></td><td class="schema-cname">end_date</td><td class="schema-type">DATE</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="schema-col">
+            <table class="schema-table">
+              <caption><span class="schema-name">Orders</span><span class="schema-label">주문</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">order_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">FK</td><td class="schema-cname">customer_id<span class="schema-ref">→ Customer</span></td><td class="schema-type">INT</td></tr>
+                <tr class="schema-hl"><td class="schema-key"></td><td class="schema-cname">order_date</td><td class="schema-type">DATE</td></tr>
+              </tbody>
+            </table>
+            <table class="schema-table">
+              <caption><span class="schema-name">Order_Items</span><span class="schema-label">주문 상세</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">order_items_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">FK</td><td class="schema-cname">order_id<span class="schema-ref">→ Orders</span></td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">FK</td><td class="schema-cname">product_id<span class="schema-ref">→ Product</span></td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">quantity</td><td class="schema-type">INT</td></tr>
+                <tr class="schema-hl"><td class="schema-key"></td><td class="schema-cname">ordered_price</td><td class="schema-type">INT</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="schema-col">
+            <table class="schema-table">
+              <caption><span class="schema-name">Product</span><span class="schema-label">상품</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">product_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">FK</td><td class="schema-cname">brand_id<span class="schema-ref">→ Brand</span></td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">FK</td><td class="schema-cname">category_id<span class="schema-ref">→ Cosmetic_Category</span></td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">IDX</td><td class="schema-cname">product_name</td><td class="schema-type">VARCHAR(100)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">current_price</td><td class="schema-type">INT</td></tr>
+              </tbody>
+            </table>
+            <table class="schema-table">
+              <caption><span class="schema-name">Price_History</span><span class="schema-label">가격 변동 이력</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">price_history_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key">FK</td><td class="schema-cname">product_id<span class="schema-ref">→ Product</span></td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">old_price</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">new_price</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">start_date</td><td class="schema-type">DATE</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">end_date</td><td class="schema-type">DATE</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="schema-col">
+            <table class="schema-table">
+              <caption><span class="schema-name">Brand</span><span class="schema-label">브랜드</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">brand_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">brand_name</td><td class="schema-type">VARCHAR(50)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">company_name</td><td class="schema-type">VARCHAR(50)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">brand_tier</td><td class="schema-type">VARCHAR(20)</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">contact_number</td><td class="schema-type">VARCHAR(20)</td></tr>
+              </tbody>
+            </table>
+            <table class="schema-table">
+              <caption><span class="schema-name">Cosmetic_Category</span><span class="schema-label">카테고리</span></caption>
+              <thead class="visually-hidden"><tr><th scope="col">키</th><th scope="col">칼럼</th><th scope="col">타입</th></tr></thead>
+              <tbody>
+                <tr><td class="schema-key">PK</td><td class="schema-cname">category_id</td><td class="schema-type">INT</td></tr>
+                <tr><td class="schema-key"></td><td class="schema-cname">category_name</td><td class="schema-type">VARCHAR(50)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          <figcaption>
+            <p>MySQL · 테이블 8개 · 뷰 2개 · 인덱스 1개 (PK 기본키, FK 외래키, UQ 중복 불가, IDX 조회용 인덱스)</p>
+            <p><span class="schema-legend" aria-hidden="true"></span>강조한 칼럼: 주문 당시 단가·고객 프로필을 찾는 데 쓰는 칼럼</p>
+          </figcaption>
         </figure>
         </div>
 
         <div class="keep-together">
         <h3 class="sub-title">SQL 쿼리 예시</h3>
-        <!-- 쿼리를 받으면 code 안에 그대로 붙여 넣기 (부등호는 &lt; &gt; 로 바꿔 쓰기) -->
+        <!-- createSchema.sql 의 Customer_Profile_Order_View 발췌 (고객 이름·연락처 등 일부 칼럼 생략). 부등호는 &lt; &gt; 로 -->
         <figure class="code-figure">
-          <pre class="code-block"><code><span class="todo">[작성 필요: SQL 쿼리]</span></code></pre>
-          <figcaption><span class="todo">[작성 필요: 쿼리가 하는 일 한 줄 설명]</span></figcaption>
+          <pre class="code-block"><code>CREATE VIEW Customer_Profile_Order_View AS
+SELECT
+    ci.customer_id,
+    ch.skin_type, ch.age_group, ch.grade,
+    o.order_date,
+    oi.quantity, oi.ordered_price,
+    pr.product_name, cat.category_name
+FROM Customer ci
+JOIN Customer_History ch  ON ci.customer_id = ch.customer_id
+LEFT JOIN Orders o        ON ci.customer_id = o.customer_id
+<span class="code-hl">    AND o.order_date BETWEEN ch.start_date AND IFNULL(ch.end_date, NOW())</span>
+LEFT JOIN Order_Items oi        ON o.order_id     = oi.order_id
+LEFT JOIN Product pr            ON oi.product_id  = pr.product_id
+LEFT JOIN Cosmetic_Category cat ON pr.category_id = cat.category_id;</code></pre>
+          <figcaption>주문일이 고객 프로필 적용 기간(start_date ~ end_date) 안에 있는 이력만 연결해 주문 당시 피부 타입·연령대·등급 조회. 피부 타입·연령대별 분석 메뉴에서 사용 (createSchema.sql 발췌, 일부 칼럼 생략)</figcaption>
         </figure>
         </div>
       </section>

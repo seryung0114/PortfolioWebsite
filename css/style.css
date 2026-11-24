@@ -949,6 +949,7 @@ a {
 /* 제목과 첫 내용 묶음 (PDF에서 제목만 페이지 끝에 남지 않게) */
 .keep-together {
   display: grid;
+  grid-template-columns: minmax(0, 1fr); /* 긴 SQL 줄이 화면을 넓히지 않게 (코드 칸 안에서만 가로 스크롤) */
   gap: 20px;
 }
 
@@ -1094,6 +1095,123 @@ a {
   white-space: pre;
 }
 
+/* SQL 예시에서 핵심 줄 강조 */
+.code-hl {
+  background: #e9e1d8;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* 데이터베이스 구조도: 고객 / 주문 / 상품 / 기준 정보 4열 */
+.schema-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.schema-col {
+  display: grid;
+  gap: 14px;
+}
+
+.schema-table {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* 표 이름 (영문 테이블명 + 한글 설명) */
+.schema-table caption {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  background: var(--card);
+  text-align: left;
+}
+
+.schema-name {
+  font-family: ui-monospace, "D2Coding", Consolas, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.schema-label {
+  float: right;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.schema-table td {
+  padding: 5px 8px;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.schema-key {
+  width: 30px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.schema-cname {
+  font-family: ui-monospace, "D2Coding", Consolas, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+/* 외래키가 가리키는 테이블 */
+.schema-ref {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 11px;
+}
+
+.schema-type {
+  color: var(--muted);
+  font-family: ui-monospace, "D2Coding", Consolas, Menlo, monospace;
+  font-size: 11px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* 주문 당시 기준 조회에 쓰는 칼럼: 강조색 */
+.schema-hl td {
+  background: #f4efe9;
+}
+
+.schema-hl td:first-child {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.schema-hl .schema-cname {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.schema figcaption {
+  display: grid;
+  gap: 2px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.schema-legend {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  border-left: 3px solid var(--accent);
+  background: #f4efe9;
+  vertical-align: -1px;
+}
+
 /* 결과 표 */
 .table-wrap {
   overflow-x: auto; /* 좁은 화면에서는 표만 가로 스크롤 */
@@ -1237,6 +1355,10 @@ a {
     gap: 4px;
   }
 
+  .schema-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   /* 좁은 화면에서는 사진을 소개글 위로, 4:5 비율 */
   .intro-photo-wrap {
     order: -1;
@@ -1249,6 +1371,11 @@ a {
 
 /* 스마트폰 (734px 이하) */
 @media (max-width: 734px) {
+  /* 데이터베이스 구조도: 휴대폰에서는 1열 */
+  .schema-grid {
+    grid-template-columns: 1fr;
+  }
+
   /* 메뉴 5개가 한 줄에 보이도록 PORTFOLIO 글자는 숨김 (표지에 크게 있음) */
   .brand {
     display: none;
@@ -1366,6 +1493,7 @@ a {
   .rows > div,
   .result-table tr,
   .result-note,
+  .schema-table,
   .keep-together {
     break-inside: avoid;
   }
