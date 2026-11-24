@@ -1058,9 +1058,10 @@ a {
   background: var(--card);
 }
 
+/* 실제 캡처는 잘리지 않게 원래 비율 그대로 (img 의 width·height 속성 기준) */
 .shot img {
   height: auto;
-  object-fit: cover;
+  aspect-ratio: auto;
 }
 
 .shot-slot {
@@ -1068,8 +1069,7 @@ a {
   place-items: center;
 }
 
-.shot-wide .shot-slot,
-.shot-wide img {
+.shot-wide .shot-slot {
   aspect-ratio: 16 / 7;
 }
 
