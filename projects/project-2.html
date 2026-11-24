@@ -59,7 +59,7 @@
       </header>
 
       <div class="container section-body">
-        <p class="intro-text">6인 팀으로 Java·MySQL 기반 화장품 매장 판매 분석 시스템을 개발함(약 3주). 제품별 매출, 고객층(연령대·피부 타입)별 구매 패턴, 가격 변동이 판매량과 매출에 미치는 영향 추적을 목표로 함. 고객 이력 테이블 설계와 입력·조회 기능을 담당함.</p>
+        <p class="intro-text">6인 팀으로 Java·MySQL 기반 화장품 매장 판매 분석 시스템을 개발함(약 3주). 제품별 매출, 고객층(연령대·피부 타입)별 구매 패턴, 가격 변동이 판매량과 매출에 미치는 영향 추적을 목표로 함. 팀 공동 DB 설계(테이블 8개)에 참여하고, 입력·조회 기능 구현을 담당함.</p>
 
         <div class="overview-grid">
           <h2 class="visually-hidden">결과 숫자</h2>
@@ -89,7 +89,7 @@
               </div>
               <div>
               <dt>담당 역할</dt>
-              <dd>고객 이력 테이블 설계, 입력·조회 기능 구현</dd>
+              <dd>DB 공동 설계(테이블 8개), 입력·조회 기능 구현</dd>
               </div>
               <div>
               <dt>기술 스택</dt>
@@ -388,7 +388,7 @@ LEFT JOIN Cosmetic_Category cat ON pr.category_id = cat.category_id;</code></pre
           </div>
           <div>
             <dt>직접 수행</dt>
-            <dd>고객 이력 테이블 설계, 입력값 검증 로직 작성, 저장 로직 트랜잭션 처리(오류 시 롤백)</dd>
+            <dd>고객 이력·주문 단가 구조 공동 설계, 입력값 검증 로직 작성, 저장 로직 트랜잭션 처리(오류 시 롤백)</dd>
           </div>
         </dl>
         </div>
