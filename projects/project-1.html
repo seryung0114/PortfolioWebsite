@@ -59,7 +59,7 @@
       </header>
 
       <div class="container section-body">
-        <p class="intro-text">5인 팀으로 Flask·Firebase 기반 교내 중고 거래 웹사이트를 개발함(약 2개월). 로그인과 찜하기 기능을 구현했고, 병합 과정에서 드러난 충돌과 데이터 연결 오류를 팀 작업 기준을 통일해 해결함.</p>
+        <p class="intro-text">5인 팀으로 Flask·Firebase 기반 교내 중고 거래 웹사이트를 개발함(약 2개월). 로그인·찜하기 기능을 구현하고, 병합 과정에서 발생한 충돌과 찜·리뷰 데이터 오매핑을 팀 작업 기준 통일로 해소함.</p>
 
         <div class="overview-grid">
           <h2 class="visually-hidden">결과 숫자</h2>
@@ -67,7 +67,7 @@
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">01</span>
               <p class="kpi-value">2건</p>
-              <p class="kpi-label">사용자 흐름 테스트로 발견해<br>재현 순서와 함께 전달한 오류</p>
+              <p class="kpi-label">가입 - 구매 - 리뷰 시나리오 테스트로<br>발견해 재현 절차와 함께 공유한 오류</p>
             </li>
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">02</span>
@@ -89,7 +89,7 @@
               </div>
               <div>
               <dt>담당 역할</dt>
-              <dd>로그인·찜하기 구현, 병합 절차 제안, 사용자 흐름 테스트</dd>
+              <dd>로그인·찜하기 구현, 병합 절차 제안, 사용자 시나리오 테스트</dd>
               </div>
               <div>
               <dt>기술 스택</dt>
@@ -117,15 +117,15 @@
         <dl class="rows">
           <div>
             <dt>배경</dt>
-            <dd>기능별로는 정상 동작했지만, 코드를 병합하는 순간 문제가 한꺼번에 드러남</dd>
+            <dd>기능별로는 정상 작동했으나 코드 병합 순간 문제 발생</dd>
           </div>
           <div>
             <dt>해결하려던 문제</dt>
-            <dd>① 같은 파일을 동시에 수정해 병합 충돌이 반복됨<br>② 팀원마다 다른 값으로 상품을 가리켜 찜·리뷰가 엉뚱한 상품에 연결됨</dd>
+            <dd>① 같은 파일을 동시에 수정해 병합 충돌 반복<br>② 팀원마다 다른 값으로 상품을 가리켜 상품 연결 불일치</dd>
           </div>
           <div>
             <dt>목표</dt>
-            <dd>병합 충돌 없이 기능을 통합하고, 찜·리뷰를 올바른 상품에 연결</dd>
+            <dd>병합 충돌 없는 기능 통합, 찜·리뷰 데이터의 정확한 상품 매핑</dd>
           </div>
         </dl>
         </div>
@@ -171,8 +171,8 @@
         </div>
       </section>
 
-      <!-- ===== 03 핵심 문제 해결: 사례 2개 (문제 → 원인·해결 → 결과) ===== -->
-      <section class="detail-section detail-highlight" id="solve" aria-labelledby="solve-title">
+      <!-- ===== 03 핵심 문제 해결: 사례 2개 (문제 → 원인 → 해결 → 결과) ===== -->
+      <section class="detail-section" id="solve" aria-labelledby="solve-title">
         <div class="keep-together">
           <h2 class="block-title block-title-lg" id="solve-title"><span class="num">03</span>핵심 문제 해결</h2>
         <div class="case">
@@ -180,33 +180,41 @@
           <ol class="case-grid">
             <li class="case-step">
               <h4>문제</h4>
-              <p>같은 파일을 동시에 수정해 병합할 때마다 충돌이 반복됨</p>
+              <p>동일 파일 동시 수정으로 병합 시 충돌 반복 발생</p>
             </li>
             <li class="case-step">
               <h4>원인</h4>
-              <p>공용 파일 수정 순서와 병합 절차가 정해져 있지 않았음</p>
+              <p>공용 파일 수정 순서 및 브랜치 병합 규칙 부재</p>
+            </li>
+            <li class="case-step">
+              <h4>해결</h4>
+              <p>공용 파일 수정 순서 지정, main 반영 전 테스트 브랜치에서 통합 결과를 먼저 확인하는 병합 절차 도입</p>
             </li>
             <li class="case-step case-step-result">
-              <h4>해결 → 결과</h4>
-              <p>공용 파일 수정 순서를 정하고 테스트 브랜치를 거쳐 main에 병합하도록 제안함 → 이후 병합 충돌이 사라짐</p>
+              <h4>결과</h4>
+              <p>이후 병합 시 충돌 미발생</p>
             </li>
           </ol>
         </div>
         </div>
         <div class="case">
-          <h3 class="case-title"><span class="num">사례 2</span>찜·리뷰가 엉뚱한 상품에 연결<span class="case-tag">데이터 정합성</span></h3>
+          <h3 class="case-title"><span class="num">사례 2</span>찜·리뷰 데이터 오매핑<span class="case-tag">데이터 정합성</span></h3>
           <ol class="case-grid">
             <li class="case-step">
               <h4>문제</h4>
-              <p>담당한 찜은 물론 리뷰까지 다른 상품에 연결됨</p>
+              <p>찜·리뷰 데이터가 대상이 아닌 다른 상품에 연결</p>
             </li>
             <li class="case-step">
               <h4>원인</h4>
-              <p>팀원마다 상품을 서로 다른 값으로 가리켰음</p>
+              <p>팀원별 상품 참조 기준(식별값) 불일치로 데이터 매핑 혼선 발생</p>
+            </li>
+            <li class="case-step">
+              <h4>해결</h4>
+              <p>상품 고유 ID로 식별 기준 통일 및 팀 내 규칙 공유</p>
             </li>
             <li class="case-step case-step-result">
-              <h4>해결 → 결과</h4>
-              <p>상품 식별자를 고유 ID로 통일하고 규칙을 공지함 → 찜·리뷰가 올바른 상품에 연결됨</p>
+              <h4>결과</h4>
+              <p>찜·리뷰 데이터의 대상 상품 정상 매핑</p>
             </li>
           </ol>
         </div>
@@ -224,37 +232,35 @@
                 <th scope="col">지표</th>
                 <th scope="col">판단 기준</th>
                 <th scope="col">전</th>
-                <th scope="col">후</th>
+                <th scope="col" class="result-after">후</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">병합 충돌</th>
-                <td>병합 시 충돌 없음</td>
-                <td>반복 발생</td>
-                <td class="result-after">사라짐</td>
+                <td>병합 시 충돌 미발생</td>
+                <td>충돌 반복 발생</td>
+                <td class="result-after">충돌 미발생</td>
               </tr>
               <tr>
-                <th scope="row">찜·리뷰 연결</th>
-                <td>올바른 상품에 연결</td>
-                <td>엉뚱한 상품에 연결</td>
-                <td class="result-after">올바르게 연결</td>
+                <th scope="row">찜·리뷰 매핑</th>
+                <td>대상 상품과 1:1 일치</td>
+                <td>타 상품으로 오연결</td>
+                <td class="result-after">대상 상품 정상 연결</td>
               </tr>
               <tr>
                 <th scope="row">최종 시연</th>
-                <td>오류 없이 시연</td>
-                <td>테스트에서 오류 2건 발견</td>
-                <td class="result-after">오류 없이 완료</td>
+                <td>주요 시나리오 오류 없이 통과</td>
+                <td>테스트 중 오류 2건 확인</td>
+                <td class="result-after">오류 0건으로 시연 통과</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <dl class="rows">
-          <div>
-            <dt>확인 방법</dt>
-            <dd>가입부터 구매·리뷰까지 사용자 흐름을 직접 따라가며 테스트함. 발견한 오류 2건은 재현 순서와 함께 전달하고 수정함</dd>
-          </div>
-        </dl>
+        <div class="result-note">
+          <p class="result-note-title">검증 방법</p>
+          <p>회원가입부터 구매·리뷰 작성까지 핵심 사용자 시나리오(E2E)를 직접 수행하며 검증함. 발견한 오류 2건은 재현 절차와 함께 공유 후 수정 완료함.</p>
+        </div>
         </div>
       </section>
 
@@ -290,11 +296,11 @@
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd>시스템 안정성은 개별 기능뿐 아니라 구성 요소 간 일관성에서 비롯된다는 점을 배움</dd>
+            <dd>시스템 안정성은 개별 기능의 완성도뿐 아니라 구성 요소 간 일관성에서 비롯된다는 점</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>
-            <dd>개발 시작 전에 공용 파일 수정 규칙·브랜치 전략·상품 ID 기준부터 합의하고, 병합할 때마다 사용자 흐름 테스트를 반복하겠음</dd>
+            <dd>개발 시작 전 공용 파일 수정 규칙·브랜치 전략·상품 ID 기준 우선 합의, 병합 시마다 사용자 시나리오 테스트 반복</dd>
           </div>
         </dl>
         </div>

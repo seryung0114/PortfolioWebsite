@@ -20,6 +20,7 @@
   --text: #1f1e1c;
   --muted: #57544d;
   --btn: #3b3934;           /* 진한 버튼 */
+  --accent: #5c4a3b;        /* 강조색(다크 브라운): 제목 왼쪽 바, 결과(후) 값 (흰 배경 대비 8.4:1) */
   --todo-border: #8f8b80;   /* [작성 필요] 점선 */
 
   --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
@@ -575,7 +576,7 @@ a {
   align-items: baseline;
   gap: 12px;
   padding: 14px 16px;
-  border-left: 3px solid var(--stone);
+  border-left: 3px solid var(--accent);
   background: var(--card);
   font-size: 17px;
   font-weight: 500;
@@ -945,25 +946,6 @@ a {
   font-weight: 600;
 }
 
-/* 막혔던 부분: 베이지 블록으로 강조 */
-.detail-highlight {
-  padding: clamp(24px, 4vw, 40px);
-  border-radius: 16px;
-  background: var(--sand);
-}
-
-.detail-highlight .block-title {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.detail-highlight .rows > div {
-  border-color: #c4c0b4;
-}
-
-.detail-highlight .todo {
-  background: rgba(255, 255, 255, 0.45);
-}
-
 /* 제목과 첫 내용 묶음 (PDF에서 제목만 페이지 끝에 남지 않게) */
 .keep-together {
   display: grid;
@@ -974,9 +956,15 @@ a {
   margin: 16px 0 0;
 }
 
-/* 핵심 문제 해결 사례: 제목 + 문제 → 원인·해결 → 결과 카드 3칸 */
+/* 핵심 문제 해결 사례: 사례마다 독립된 행, 안에 문제 → 원인 → 해결 → 결과 4칸 */
+.case {
+  padding: 24px 28px 28px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
 .case + .case {
-  margin-top: 28px;
+  margin-top: 20px;
 }
 
 .case-title {
@@ -984,7 +972,7 @@ a {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 6px 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-size: 18px;
   font-weight: 600;
 }
@@ -998,7 +986,8 @@ a {
 /* 이 사례가 보여주는 역량 */
 .case-tag {
   padding: 2px 10px;
-  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--line);
+  background: var(--card);
   color: var(--muted);
   font-size: 13px;
   font-weight: 500;
@@ -1006,14 +995,16 @@ a {
 
 .case-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px; /* 칸 사이에 화살표 자리 */
 }
 
 .case-step {
-  padding: 18px 20px;
-  border-top: 2px solid var(--stone);
-  background: #fff;
+  position: relative;
+  padding: 16px 18px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--card);
   font-size: 15px;
 }
 
@@ -1025,9 +1016,30 @@ a {
   letter-spacing: 0.02em;
 }
 
-/* 마지막 칸(결과)은 진한 선으로 구분 */
+/* 칸 사이 화살표 (장식이라 화면 낭독기는 읽지 않음) */
+.case-step + .case-step::before {
+  content: "→" / "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 28px;
+  transform: translateY(-50%);
+  color: var(--muted);
+  text-align: center;
+}
+
+/* 마지막 칸(결과)만 강조색 테두리 + 굵은 글씨 */
 .case-step-result {
-  border-top-color: var(--btn);
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.case-step-result h4 {
+  color: var(--accent);
+}
+
+.case-step-result p {
+  font-weight: 600;
 }
 
 /* 화면 캡처·DB 구조 자리 */
@@ -1112,8 +1124,24 @@ a {
   font-weight: 600;
 }
 
-.result-after {
+/* 후(결과) 열: 강조색 + 굵게 */
+.result-table .result-after {
+  color: var(--accent);
   font-weight: 700;
+}
+
+/* 표 아래 검증 방법 안내 */
+.result-note {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--card);
+  font-size: 15px;
+}
+
+.result-note-title {
+  font-weight: 600;
 }
 
 .num-cell {
@@ -1182,6 +1210,31 @@ a {
 
   .info-boxes {
     grid-template-columns: 1fr;
+  }
+
+  .case {
+    padding: 20px;
+  }
+
+  .case-grid {
+    gap: 24px;
+  }
+
+  .case-step + .case-step::before {
+    content: "↓" / "";
+    top: auto;
+    right: auto;
+    bottom: 100%;
+    left: 50%;
+    width: auto;
+    height: 24px;
+    line-height: 24px;
+    transform: translateX(-50%);
+  }
+
+  .result-note {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 
   /* 좁은 화면에서는 사진을 소개글 위로, 4:5 비율 */
@@ -1312,6 +1365,7 @@ a {
   .skill-table > div,
   .rows > div,
   .result-table tr,
+  .result-note,
   .keep-together {
     break-inside: avoid;
   }
@@ -1358,10 +1412,6 @@ a {
 
   .pdf-page .overview-grid {
     margin-top: 24px;
-  }
-
-  .detail-highlight {
-    padding: 28px;
   }
 
   /* 상세 페이지 간격을 줄여 PDF 쪽수를 줄임 */

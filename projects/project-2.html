@@ -59,7 +59,7 @@
       </header>
 
       <div class="container section-body">
-        <p class="intro-text">6인 팀으로 Java·MySQL 기반 화장품 매장 판매 분석 시스템을 개발함(약 3주). 제품별 매출, 고객층(연령대·피부 타입)별 구매 패턴, 가격 변동이 판매량과 매출에 미치는 영향을 추적하는 것이 목표였음. 고객 이력 테이블 설계와 입력·조회 기능을 맡음.</p>
+        <p class="intro-text">6인 팀으로 Java·MySQL 기반 화장품 매장 판매 분석 시스템을 개발함(약 3주). 제품별 매출, 고객층(연령대·피부 타입)별 구매 패턴, 가격 변동이 판매량과 매출에 미치는 영향 추적을 목표로 함. 고객 이력 테이블 설계와 입력·조회 기능을 담당함.</p>
 
         <div class="overview-grid">
           <h2 class="visually-hidden">결과 숫자</h2>
@@ -67,7 +67,7 @@
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">01</span>
               <p class="kpi-value kpi-value-text">당시 기준 집계</p>
-              <p class="kpi-label">가격·고객 정보가 바뀐 뒤에도<br>과거 매출을 주문 당시 기준으로 집계</p>
+              <p class="kpi-label">가격·고객 정보 변경 후에도<br>과거 매출을 주문 당시 기준으로 집계</p>
             </li>
             <li class="kpi">
               <span class="kpi-num" aria-hidden="true">02</span>
@@ -121,11 +121,11 @@
           </div>
           <div>
             <dt>해결하려던 문제</dt>
-            <dd>가격이나 고객 연령대·피부 타입이 바뀌면 지난 주문까지 새 값으로 집계되어 변화 전후를 비교할 수 없음</dd>
+            <dd>가격·고객 정보(연령대·피부 타입) 변경 시 지난 주문까지 새 값으로 집계되어 변화 전후 비교 불가</dd>
           </div>
           <div>
             <dt>설계 목표</dt>
-            <dd>주문 당시의 가격과 고객 상태를 보존하고, 잘못되거나 일부만 저장된 데이터가 남지 않게 함</dd>
+            <dd>주문 당시 가격·고객 상태 보존, 잘못되거나 일부만 저장된 데이터 차단</dd>
           </div>
         </dl>
         </div>
@@ -138,7 +138,7 @@
         <dl class="rows">
           <div>
             <dt>고객 이력 테이블</dt>
-            <dd>고객 정보(연령대·피부 타입 등)가 바뀔 때마다 유효 기간과 함께 이력으로 저장 (MySQL)</dd>
+            <dd>고객 정보(연령대·피부 타입 등) 변경 시 유효 기간과 함께 이력으로 저장 (MySQL)</dd>
           </div>
           <div>
             <dt>주문 단가</dt>
@@ -174,8 +174,8 @@
         </div>
       </section>
 
-      <!-- ===== 03 핵심 문제 해결: 사례 2개 (문제 → 원인·해결 → 결과) ===== -->
-      <section class="detail-section detail-highlight" id="solve" aria-labelledby="solve-title">
+      <!-- ===== 03 핵심 문제 해결: 사례 2개 (문제 → 원인 → 해결 → 결과) ===== -->
+      <section class="detail-section" id="solve" aria-labelledby="solve-title">
         <div class="keep-together">
           <h2 class="block-title block-title-lg" id="solve-title"><span class="num">03</span>핵심 문제 해결</h2>
         <div class="case">
@@ -183,15 +183,19 @@
           <ol class="case-grid">
             <li class="case-step">
               <h4>문제</h4>
-              <p>가격이나 고객 연령대·피부 타입이 바뀌면 지난 매출까지 새 값으로 다시 계산되어, 가격 변동·고객층별 분석 결과가 왜곡될 수 있었음</p>
+              <p>가격·고객 정보 변경 시 지난 매출까지 새 값으로 재계산되어 가격 변동·고객층별 분석 왜곡 우려</p>
+            </li>
+            <li class="case-step">
+              <h4>원인</h4>
+              <p>현재 값만 참조하는 구조로 주문 당시 가격·고객 상태 미보존</p>
             </li>
             <li class="case-step">
               <h4>해결</h4>
-              <p>주문 시점 단가를 별도 칼럼에 저장하고, 고객 이력에 유효 기간을 두어 주문일 기준으로 당시 상태를 조회함</p>
+              <p>주문 시점 단가 별도 칼럼 저장, 고객 이력에 유효 기간을 두어 주문일 기준 당시 상태 조회</p>
             </li>
             <li class="case-step case-step-result">
               <h4>결과</h4>
-              <p>가격 변경 후에도 과거 매출이 주문 당시 기준으로 집계되는 것을 확인함</p>
+              <p>가격 변경 후에도 과거 매출의 주문 당시 기준 집계 확인</p>
             </li>
           </ol>
         </div>
@@ -201,15 +205,19 @@
           <ol class="case-grid">
             <li class="case-step">
               <h4>문제</h4>
-              <p>필수값 누락, 없는 고객·상품, 중복 상품이 저장되거나 저장 중 오류로 일부 데이터만 남을 수 있었음</p>
+              <p>필수값 누락·없는 고객/상품·중복 상품 저장, 저장 중 오류 시 일부 데이터만 남을 위험</p>
+            </li>
+            <li class="case-step">
+              <h4>원인</h4>
+              <p>저장 전 검증 부재 시 잘못된 값 유입, 여러 단계로 나뉜 저장 중 오류 시 일부만 반영</p>
             </li>
             <li class="case-step">
               <h4>해결</h4>
-              <p>저장 전에 입력값을 검증하고 PreparedStatement로 값을 바인딩함. 저장 중 오류가 나면 트랜잭션을 롤백함</p>
+              <p>저장 전 입력값 검증, PreparedStatement 값 바인딩, 저장 중 오류 시 트랜잭션 롤백</p>
             </li>
             <li class="case-step case-step-result">
               <h4>결과</h4>
-              <p>잘못된 데이터와 일부만 저장된 데이터가 남지 않도록 막음</p>
+              <p>잘못된 데이터와 일부만 저장된 데이터 차단</p>
             </li>
           </ol>
         </div>
@@ -219,16 +227,34 @@
       <section class="detail-section" id="result" aria-labelledby="result-title">
         <div class="keep-together">
           <h2 class="block-title block-title-lg" id="result-title"><span class="num">04</span>결과·검증</h2>
-        <dl class="rows">
-          <div>
-            <dt>이력 보존 확인</dt>
-            <dd>가격을 바꾼 뒤 과거 매출을 다시 조회해 주문 당시 기준으로 집계되는지 확인함</dd>
-          </div>
-          <div>
-            <dt>입력 검증 확인</dt>
-            <dd>누락·중복 값을 넣어 저장이 차단되는지 확인함</dd>
-          </div>
-        </dl>
+        <div class="table-wrap">
+          <table class="result-table">
+            <caption class="visually-hidden">지표별 판단 기준과 결과</caption>
+            <thead>
+              <tr>
+                <th scope="col">지표</th>
+                <th scope="col">판단 기준</th>
+                <th scope="col" class="result-after">결과</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">과거 매출 집계</th>
+                <td>가격 변경 후에도 주문 당시 단가·고객 상태로 집계</td>
+                <td class="result-after">주문 당시 기준 집계 확인</td>
+              </tr>
+              <tr>
+                <th scope="row">잘못된 입력</th>
+                <td>누락·중복 값 입력 시 저장 차단</td>
+                <td class="result-after">저장 차단 확인</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="result-note">
+          <p class="result-note-title">검증 방법</p>
+          <p>가격 변경 후 과거 매출을 다시 조회해 주문 당시 기준 집계 여부를 확인함. 누락·중복 값을 직접 입력해 저장 차단 여부를 확인함.</p>
+        </div>
         </div>
       </section>
 
@@ -247,11 +273,11 @@
           </div>
           <div>
             <dt>검증 과정</dt>
-            <dd>가격 변경 후 과거 매출을 다시 조회해 당시 기준 집계를 확인하고, 누락·중복 값을 넣어 저장 차단 여부를 확인</dd>
+            <dd>가격 변경 후 과거 매출 재조회로 당시 기준 집계 확인, 누락·중복 값 입력으로 저장 차단 여부 확인</dd>
           </div>
           <div>
             <dt>직접 수행</dt>
-            <dd>고객 이력 테이블 설계, 입력값 검증 로직 작성, 저장 로직을 트랜잭션으로 묶어 오류 시 롤백되도록 수정</dd>
+            <dd>고객 이력 테이블 설계, 입력값 검증 로직 작성, 저장 로직 트랜잭션 처리(오류 시 롤백)</dd>
           </div>
         </dl>
         </div>
@@ -264,11 +290,11 @@
         <dl class="rows">
           <div>
             <dt>배운 점</dt>
-            <dd>은행 거래 기록처럼 거래 당시의 가격과 고객 상태가 그대로 남아야 분석 결과를 믿을 수 있다는 점을 배움</dd>
+            <dd>은행 거래 기록처럼 거래 당시의 가격과 고객 상태가 그대로 남아야 분석 결과를 신뢰할 수 있다는 점</dd>
           </div>
           <div>
             <dt>다시 한다면</dt>
-            <dd>가격·고객 정보 변경 상황을 테스트 케이스로 정리해 반복 검증하고, 이력 유효 기간 규칙을 팀 공통 문서로 먼저 정리하겠음</dd>
+            <dd>가격·고객 정보 변경 상황의 테스트 케이스화 및 반복 검증, 이력 유효 기간 규칙의 팀 공통 문서화 선행</dd>
           </div>
         </dl>
         </div>
